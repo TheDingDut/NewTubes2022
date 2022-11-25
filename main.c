@@ -5,9 +5,11 @@
 
 int main()
 {
-    int menu, pilihDimensi;
+    char pemain1[50], pemain2[50];
+    int menu, dimensi, simbol;
+    bool game = true;
 
-    cover();
+    Cover();
 	system("cls");
 	Menu();
 	printf("Pilih Menu \t: ");
@@ -15,22 +17,48 @@ int main()
     switch (menu)
 	{
 	case 1: 
-            Dimensi();
+            PilihDimensi();
             printf("Pilih Dimensi :");
-            scanf("%d", &pilihDimensi);
-            switch (pilihDimensi)
+            scanf("%d", &dimensi);
+            switch (dimensi)
             {
-
+            case 1 : 
+                    InputNamaPemain(&pemain1, &pemain2);
+                    system("cls");
+                    PilihSimbol();
+                    printf("Pilih Simbol :");
+                    scanf("%d", &simbol);
+                    system("cls");
+                    cetakPapan3();
+                    giliran(pemain1, pemain2);
+            case 2 :
+                    InputNamaPemain(&pemain1, &pemain2);
+                    system("cls");
+                    PilihSimbol();
+                    printf("Pilih Simbol :");
+                    scanf("%d", &simbol);
+                    system("cls");
+            case 3 :
+                    InputNamaPemain(&pemain1, &pemain2);
+                    system("cls");
+                    PilihSimbol();
+                    printf("Pilih Simbol :");
+                    scanf("%d", &simbol);
+                    system("cls");
             }
-
+    case 2 :
+            HowToPlay();
+            system("cls");
+    case 3 :
+            Quit();
+            system("cls");
     }
-    char pemain1[50], pemain2[50];
-    InputNamaPemain(&pemain1, &pemain2);
-    system("cls");
+    Closing();
+    
+    
 
 
-    cetakPapan3();
-    giliran(pemain1, pemain2);
+    
 
 
     return 0;

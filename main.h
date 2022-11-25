@@ -11,18 +11,59 @@ typedef struct
 } Koordinat;
 
 // Modul Prosedur untuk tampilan awal permainan
-    void cover(){
-
+    void Cover(){
+        printf("\t\tTTTTT  H   H  EEEEE     D     I  N    N  GGGG  D     U   U  TTTTT\n");
+	    printf("\t\t  T    H   H  E         D D   I  N N  N  G     D D   U   U    T\n");
+	    printf("\t\t  T    HHHHH  EEE       D  D  I  N  N N  GGGG  D  D  U   U    T\n");
+	    printf("\t\t  T    H   H  E         D D   I  N   NN  G  G  D D   U   U    T\n");
+	    printf("\t\t  T    H   H  EEEEE     D     I  N    N  GGGG  D     UUUUU    T\n\n");
+        printf("\t\t===================================================================\n\n");
+        printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE  \n");
+        printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE   \n ");
+        printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE  \n\n");
+        printf("\t\t\t    Made By :                      \n");
+        printf("\t\t\t    1. Hasna Fitriyani Khairunnisa \n");
+	    printf("\t\t\t    2. Muhammad Fikri Nur Sya'bani \n");
+	    printf("\t\t\t    3. Naffa Lenteranisa           \n");
     }
 
 // Modul Prosedur untuk tampilan menu
     void Menu(){
+        printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
+        printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
+        printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
+        printf("\t\t\t===============================================\n\n");
+        printf("\t\t\t              MAIN MENU      \n\n");
+        printf("\t\t\t          1. Mulai Permainan \n");
+	    printf("\t\t\t          2. Cara Bermain    \n");
+	    printf("\t\t\t          3. Keluar Permainan\n");
+    }
 
+// Modul Prosedur untuk tampilan akhir
+    void Closing(){
+        printf("\t\tTTTTT  H   H  EEEEE     D     I  N    N  GGGG  D     U   U  TTTTT\n");
+	    printf("\t\t  T    H   H  E         D D   I  N N  N  G     D D   U   U    T\n");
+	    printf("\t\t  T    HHHHH  EEE       D  D  I  N  N N  GGGG  D  D  U   U    T\n");
+        printf("\t\t  T    H   H  E         D D   I  N   NN  G  G  D D   U   U    T\n");
+	    printf("\t\t  T    H   H  EEEEE     D     I  N    N  GGGG  D     UUUUU    T\n\n");
+        printf("\t\t===================================================================\n\n");
+        printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
+        printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
+        printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
+        printf("\t\t\t         TERIMA KASIH TELAH BERMAIN      \n\n");
+        printf("\t\t\t               Sampai Jumpa!! \n");
     }
 
 // Modul Prosedur untuk tampilan pemilihan dimensi
-    void Dimensi(){
-
+    void PilihDimensi(){
+        printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
+        printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
+        printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
+        printf("\t\t\t===============================================\n\n");
+        printf("\t\t\t              Dimensi Permainan      \n\n");
+        printf("\t\t\t                  1. 3x3 \n");
+	    printf("\t\t\t                  2. 5x5    \n");
+	    printf("\t\t\t                  3. 7x7\n");
     }
 
 // Modul Prosedur untuk input nama pemain
