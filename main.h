@@ -10,6 +10,21 @@ typedef struct
     int baris, kolom;
 } Koordinat;
 
+// Modul Prosedur untuk tampilan awal permainan
+    void cover(){
+
+    }
+
+// Modul Prosedur untuk tampilan menu
+    void Menu(){
+
+    }
+
+// Modul Prosedur untuk tampilan pemilihan dimensi
+    void Dimensi(){
+
+    }
+
 // Modul Prosedur untuk input nama pemain
 void InputNamaPemain(char *p1, char *p2)
 {
@@ -108,3 +123,4 @@ void giliran(pemain1, pemain2)
 
     cetakPapan3();
 }
+
