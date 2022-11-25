@@ -32,7 +32,6 @@ void cetakPapan3()
         }
     }
     printf("\n");
-    printf("\n");
 }
 
 // modul prosedur untuk menentukan giliran dan mengubah state array pilihan baris dan kolom menjadi X / O
@@ -48,6 +47,7 @@ void giliran(pemain1, pemain2)
         printf("Giliran %s : ", pemain2);
     }
     scanf("%d", &pilihan);
+    printf("\n");
 
     switch (pilihan)
     {
@@ -107,42 +107,41 @@ void giliran(pemain1, pemain2)
         giliran();
     }
 
-    cetakPapan3();
+    // cetakPapan3();
 }
 
-bool AkhirPermainan() {
+bool AkhirPermainan()
+{
 
-    for (int i = 0; i < 3; i++) { /*checking rows and columns*/
+    for (int i = 0; i < 3; i++)
+    { /*checking rows and columns*/
 
         if (papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2] ||
 
             papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i])
 
             return false;
-
     }
 
-    for (int i = 0; i < 3; i++) { /*checking if game is drawn*/
+    for (int i = 0; i < 3; i++)
+    { /*checking if game is drawn*/
 
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 3; j++)
+        {
 
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
 
                 return true;
-
         }
-
     }
-
- 
 
     if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] || /*checking diagonals*/
 
-        papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]){
+        papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0])
+    {
 
         return false;
-
-}
+    }
 
     draw = true;
 

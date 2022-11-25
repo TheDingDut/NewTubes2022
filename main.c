@@ -16,5 +16,18 @@ int main()
         AkhirPermainan();
     }
 
+    if (XO == 'X' && !draw)
+    {
+        printf("\n\n%s memenangkan permainan!", pemain1);
+    }
+    else if (XO == 'O' && !draw)
+    {
+        printf("\n\n%s memenangkan permainan!", pemain2);
+    }
+    else
+    {
+        printf("\n\nPermainan Seri!");
+    }
+
     return 0;
 }
