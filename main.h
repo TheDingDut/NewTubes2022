@@ -39,6 +39,11 @@ typedef struct
 	    printf("\t\t\t          3. Keluar Permainan\n");
     }
 
+// Modul Prosedur untuk menampilkan cara bermain Tic Tac Toe
+    void HowToPlay(){
+
+    }
+
 // Modul Prosedur untuk tampilan akhir
     void Closing(){
         printf("\t\tTTTTT  H   H  EEEEE     D     I  N    N  GGGG  D     U   U  TTTTT\n");
@@ -74,6 +79,11 @@ void InputNamaPemain(char *p1, char *p2)
     printf("Masukkan Nama Pemain 2 : ");
     scanf("%s", &*p2);
 }
+
+// Modul untuk pemilihan simbol
+    PilihSimbol(){
+
+    }
 
 // Modul prosedur untuk cetak papan 3 x 3
 void cetakPapan3()

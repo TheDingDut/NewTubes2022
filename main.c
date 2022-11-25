@@ -7,13 +7,14 @@ int main()
 {
     char pemain1[50], pemain2[50];
     int menu, dimensi, simbol;
-    bool game = true;
+    //bool game = true;
 
     Cover();
 	system("cls");
 	Menu();
 	printf("Pilih Menu \t: ");
 	scanf("%d", &menu);
+    system("cls");
     switch (menu)
 	{
 	case 1: 
@@ -31,6 +32,7 @@ int main()
                     system("cls");
                     cetakPapan3();
                     giliran(pemain1, pemain2);
+                    break;
             case 2 :
                     InputNamaPemain(&pemain1, &pemain2);
                     system("cls");
@@ -38,6 +40,7 @@ int main()
                     printf("Pilih Simbol :");
                     scanf("%d", &simbol);
                     system("cls");
+                    break;
             case 3 :
                     InputNamaPemain(&pemain1, &pemain2);
                     system("cls");
@@ -45,13 +48,16 @@ int main()
                     printf("Pilih Simbol :");
                     scanf("%d", &simbol);
                     system("cls");
+                    break;
+            default :
+                    break;
             }
     case 2 :
             HowToPlay();
             system("cls");
-    case 3 :
-            Quit();
-            system("cls");
+            break;
+    default :
+            break;
     }
     Closing();
     
