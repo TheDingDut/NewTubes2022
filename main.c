@@ -9,8 +9,12 @@ int main()
     InputNamaPemain(&pemain1, &pemain2);
     system("cls");
 
-    cetakPapan3();
-    giliran(pemain1, pemain2);
+    while (AkhirPermainan())
+    {
+        cetakPapan3();
+        giliran(pemain1, pemain2);
+        AkhirPermainan();
+    }
 
     return 0;
 }
