@@ -26,7 +26,7 @@ int main()
     }
     else
     {
-        printf("\n\nPermainan Seri!");
+        printf("\nPermainan Seri!");
     }
 
     return 0;
