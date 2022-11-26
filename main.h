@@ -92,22 +92,30 @@ void giliran(pemain1, pemain2)
         break;
     }
 
-    if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+    if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
     {
-        papan[lokasi.baris][lokasi.kolom] = 'X';
-        XO = 'O';
-    }
-    else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
-    {
-        papan[lokasi.baris][lokasi.kolom] = 'O';
-        XO = 'X';
+        printf("Kolom sudah terisi!\n");
     }
     else
     {
-        giliran();
-    }
 
-    // cetakPapan3();
+        if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+        {
+            papan[lokasi.baris][lokasi.kolom] = 'X';
+            XO = 'O';
+        }
+        else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+        {
+            papan[lokasi.baris][lokasi.kolom] = 'O';
+            XO = 'X';
+        }
+        else
+        {
+            giliran();
+        }
+
+        // cetakPapan3();
+    }
 }
 
 bool AkhirPermainan()
@@ -123,6 +131,14 @@ bool AkhirPermainan()
             return false;
     }
 
+    if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] || /*checking diagonals*/
+
+        papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0])
+    {
+
+        return false;
+    }
+
     for (int i = 0; i < 3; i++)
     { /*checking if game is drawn*/
 
@@ -130,17 +146,8 @@ bool AkhirPermainan()
         {
 
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
-
                 return true;
         }
-    }
-
-    if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] || /*checking diagonals*/
-
-        papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0])
-    {
-
-        return false;
     }
 
     draw = true;
