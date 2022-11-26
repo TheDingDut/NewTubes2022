@@ -11,6 +11,25 @@ typedef struct
     int baris, kolom;
 } Koordinat;
 
+// Cetak Cover
+void cover()
+{
+    printf("\t\t\t\t##### #  # ####  ##  # #   # #### ##  #  # #####\n");
+    printf("\t\t\t\t  #   #  # #     # # # ##  # #    # # #  #   #\n");
+    printf("\t\t\t\t  #   #### ####  # # # # # # #### # # #  #   #\n");
+    printf("\t\t\t\t  #   #  # #     # # # #  ## #  # # # #  #   #\n");
+    printf("\t\t\t\t  #   #  # ####  ##  # #   # #### ##  ####   #\n\n");
+    printf("\t\t\t\t                 TIC TAC TOE                  \n\n");
+}
+
+// Cetak Menu Utama
+void menuUtama()
+{
+    printf("\t\t\t\t                 1. Mulai Main                \n");
+    printf("\t\t\t\t                 2. Cara Bermain              \n");
+    printf("\t\t\t\t                 3. Quit Game                 \n");
+}
+
 // Modul Prosedur untuk input nama pemain
 void InputNamaPemain(char *p1, char *p2)
 {

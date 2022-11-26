@@ -6,9 +6,13 @@
 int main()
 {
     char pemain1[50], pemain2[50];
+    cover();
+    menuUtama();
+    printf("\nPilih Menu : ");
+    getchar();
+    system("cls");
     InputNamaPemain(&pemain1, &pemain2);
     system("cls");
-
     while (AkhirPermainan())
     {
         cetakPapan3();
