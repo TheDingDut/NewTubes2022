@@ -22,15 +22,24 @@ int main()
 
     if (XO == 'X' && !draw)
     {
-        printf("\n%s memenangkan permainan!", pemain1);
+        system("cls");
+        printf("%s memenangkan permainan!", pemain1);
+        printf("\nHasil Akhir :\n");
+        cetakPapan3();
     }
     else if (XO == 'O' && !draw)
     {
-        printf("\n%s memenangkan permainan!", pemain2);
+        system("cls");
+        printf("%s memenangkan permainan!", pemain2);
+        printf("\nHasil Akhir :\n");
+        cetakPapan3();
     }
     else
     {
-        printf("\nPermainan Seri!");
+        system("cls");
+        printf("Permainan Seri!");
+        printf("\nHasil Akhir :\n");
+        cetakPapan3();
     }
 
     return 0;
