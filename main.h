@@ -141,7 +141,7 @@ bool AkhirPermainan()
 {
 
     for (int i = 0; i < 3; i++)
-    { /*checking rows and columns*/
+    { /*cek vertikal horizontal*/
 
         if (papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2] ||
 
@@ -159,7 +159,7 @@ bool AkhirPermainan()
     }
 
     for (int i = 0; i < 3; i++)
-    { /*checking if game is drawn*/
+    { /*cek draw*/
 
         for (int j = 0; j < 3; j++)
         {
