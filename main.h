@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #include <time.h>
 
 char papan[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
@@ -99,7 +100,13 @@ void giliran(pemain1, pemain2)
     {
         printf("Giliran %s : ", pemain2);
     }
-    scanf("%d", &pilihan);
+    if (!EstimasiWaktu())
+    {
+        scanf("%d", &pilihan);
+    }else{
+        printf("\nWAKTU HABIS\n");
+    }
+    
     printf("\n");
 
     switch (pilihan)
