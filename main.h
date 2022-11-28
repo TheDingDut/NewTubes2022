@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 char papan[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 char XO = 'O';
@@ -51,6 +52,39 @@ void cetakPapan3()
         }
     }
     printf("\n");
+}
+
+// modul function bertipe boolean berfungsi sebagai countdown timer
+bool EstimasiWaktu(){
+    unsigned int x_hours=0;
+	unsigned int x_minutes=0;
+	unsigned int x_seconds=0;
+	unsigned int x_milliseconds=0;
+	unsigned int totaltime=0,count_down_time_in_secs=0,time_left=0;
+
+	clock_t x_startTime,x_countTime;
+	count_down_time_in_secs=10;  // input detik
+
+ 
+    x_startTime=clock();  // menjalankan timer
+    time_left=count_down_time_in_secs-x_seconds;   // update timer
+
+	while (time_left>0) 
+	{
+		x_countTime=clock(); // update perbedaan timer
+		x_milliseconds=x_countTime-x_startTime;
+		x_seconds=(x_milliseconds/(CLOCKS_PER_SEC))-(x_minutes*60);
+		x_minutes=(x_milliseconds/(CLOCKS_PER_SEC))/60;
+		x_hours=x_minutes/60;
+
+		time_left=count_down_time_in_secs-x_seconds; // mendapatkan waktu tersisa
+	}
+
+    if (time_left == 0)
+    {
+        return true;
+    }
+    
 }
 
 // modul prosedur untuk menentukan giliran dan mengubah state array pilihan baris dan kolom menjadi X / O
@@ -136,6 +170,8 @@ void giliran(pemain1, pemain2)
         // cetakPapan3();
     }
 }
+
+
 
 bool AkhirPermainan()
 {
