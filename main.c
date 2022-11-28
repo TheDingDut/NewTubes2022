@@ -8,8 +8,8 @@ int main()
     char pemain1[50], pemain2[50];
     int opsi;
     cover();
+    system("cls");
     menuUtama();
-    printf("\nPilih Menu : ");
     scanf("%d", &opsi);
 
     switch (opsi)

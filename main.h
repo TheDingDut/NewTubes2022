@@ -101,7 +101,7 @@ void cetakPapan3()
 }
 
 // modul function bertipe boolean berfungsi sebagai countdown timer
-bool EstimasiWaktu()
+int EstimasiWaktu()
 {
     unsigned int x_hours = 0;
     unsigned int x_minutes = 0;
@@ -126,16 +126,16 @@ bool EstimasiWaktu()
         time_left = count_down_time_in_secs - x_seconds; // mendapatkan waktu tersisa
     }
 
-    if (time_left == 0)
-    {
-        return true;
-    }
+    return time_left;
 }
 
 // modul prosedur untuk menentukan giliran dan mengubah state array pilihan baris dan kolom menjadi X / O
 void giliran(pemain1, pemain2)
 {
     Koordinat lokasi;
+
+    int sisaWaktu = EstimasiWaktu();
+
     if (XO == 'O')
     {
         printf("Giliran %s : ", pemain1);
@@ -143,14 +143,6 @@ void giliran(pemain1, pemain2)
     else if (XO == 'X')
     {
         printf("Giliran %s : ", pemain2);
-    }
-    if (!EstimasiWaktu())
-    {
-        scanf("%d", &pilihan);
-    }
-    else
-    {
-        printf("\nWAKTU HABIS\n");
     }
 
     printf("\n");
