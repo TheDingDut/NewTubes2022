@@ -5,6 +5,8 @@
 char papan[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 char XO = 'O';
 int pilihan;
+// pemenang
+int p1menang = 0, p2menang = 0;
 bool draw = false;
 
 // Deklarasi Variabel Koordinat

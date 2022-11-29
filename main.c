@@ -20,6 +20,7 @@ int main()
         system("cls");
         while (AkhirPermainan())
         {
+            printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
             cetakPapan3();
             giliran(pemain1, pemain2);
             AkhirPermainan();
@@ -28,6 +29,7 @@ int main()
         if (XO == 'X' && !draw)
         {
             system("cls");
+            p1menang++;
             printf("%s memenangkan permainan!", pemain1);
             printf("\nHasil Akhir :\n");
             cetakPapan3();
@@ -35,6 +37,7 @@ int main()
         else if (XO == 'O' && !draw)
         {
             system("cls");
+            p2menang++;
             printf("%s memenangkan permainan!", pemain2);
             printf("\nHasil Akhir :\n");
             cetakPapan3();
