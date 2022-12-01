@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
 #include "main.h"
 
 int main()
@@ -22,15 +24,16 @@ int main()
         system("cls");
         InputNamaPemain(&pemain1, &pemain2);
         system("cls");
-        PilihDimensi();
-        scanf("%d", &opsiDimensi);
-        system("cls");
-        switch (opsiDimensi)
+        do
         {
-        case 1:
-            // TIC TAC TOE 3 X 3
-            do
+            system("cls");
+            PilihDimensi();
+            scanf("%d", &opsiDimensi);
+            system("cls");
+            switch (opsiDimensi)
             {
+            case 1:
+                // TIC TAC TOE 3 X 3
                 while (AkhirPermainan())
                 {
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
@@ -62,23 +65,35 @@ int main()
                     printf("\nHasil Akhir :\n");
                     cetakPapan3();
                 }
-                printf("\nUlangi permainan? ");
-                scanf("%s", &loopGame);
-            } while (loopGame == 'Y');
-            system("cls");
-            printf("%s berhasil memenangkan %d permainan!\n", pemain1, p1menang);
-            printf("%s berhasil memenangkan %d permainan!\n", pemain2, p2menang);
-            break;
-        case 2:
-            // TIC TAC TOE 5 X 5
-            break;
-        case 3:
-            // TIC TAC TOE 7 X 7
-            break;
-        default:
-            printf("\nTidak ada pilihan dimensi!");
-            break;
-        }
+                break;
+            case 2:
+                // TIC TAC TOE 5 X 5
+                break;
+            case 3:
+                // TIC TAC TOE 7 X 7
+                break;
+            default:
+                printf("\nTidak ada pilihan dimensi!");
+                break;
+            }
+            printf("\nUlangi Permainan? (Y/N) : ");
+            scanf("%s", &loopGame);
+            int x = 1;
+            char c;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    c = x + '0';
+                    papan[i][j] = c;
+                    x++;
+                }
+            }
+            
+        } while (loopGame == 'Y');
+        
+        system("cls");
+        printf("%s %d vs %d %s\n", pemain1, p1menang, p2menang, pemain2);
         break;
     case 2:
         /*HOW TO PLAY*/
