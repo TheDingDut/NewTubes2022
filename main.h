@@ -18,30 +18,30 @@ typedef struct
 // Cetak Cover
 void cover()
 {
-    printf("\t\tTTTTT  H   H  EEEEE     D     I  N    N  GGGG  D     U   U  TTTTT\n");
-    printf("\t\t  T    H   H  E         D D   I  N N  N  G     D D   U   U    T\n");
-    printf("\t\t  T    HHHHH  EEE       D  D  I  N  N N  GGGG  D  D  U   U    T\n");
-    printf("\t\t  T    H   H  E         D D   I  N   NN  G  G  D D   U   U    T\n");
-    printf("\t\t  T    H   H  EEEEE     D     I  N    N  GGGG  D     UUUUU    T\n\n");
-    printf("\t\t===================================================================\n\n");
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE  \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE   \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE  \n\n");
-    printf("\t\t\t    Made By :                      \n");
-    printf("\t\t\t    1. Hasna Fitriyani Khairunnisa \n");
-    printf("\t\t\t    2. Muhammad Fikri Nur Sya'bani \n");
-    printf("\t\t\t    3. Naffa Lenteranisa           \n\n");
-    printf("Tekan Enter Untuk Lanjut . . .");
+    printf("\n\t    TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
+    printf("\t       TT      HH   HH  EE           DD     DD   II  NN NN   NN  GG        DD     DD   UU    UU     TT\n");
+    printf("\t       TT      HHHHHHH  EEEEEE       DD      DD  II  NN  NN  NN  GG  GGGG  DD      DD  UU    UU     TT\n");
+    printf("\t       TT      HH   HH  EE           DD     DD   II  NN   NN NN  GG    GG  DD     DD   UU    UU     TT\n");
+    printf("\t       TT      HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UUUUUUUU     TT\n\n");
+    printf("\t  =====================================================================================================\n\n\n\n");
+    printf("\t\t\t   TTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE  \n");
+    printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
+    printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
+    printf("\t\t\t\t                         Made By :                      \n");
+    printf("\t\t\t\t               Hasna Fitriyani Khairunnisa \n");
+    printf("\t\t\t\t               Muhammad Fikri Nur Sya'bani \n");
+    printf("\t\t\t\t                     Naffa Lenteranisa           \n\n");
+    printf("\t\t\t\t              Tekan Enter Untuk Lanjut . . .");
     getchar();
 }
 
 // Cetak Menu Utama
 void menuUtama()
 {
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
+    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
+    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
+    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
+    printf("\t\t\t===================================================================\n\n");
     printf("\t\t\t              MAIN MENU      \n\n");
     printf("\t\t\t          1. Mulai Permainan \n");
     printf("\t\t\t          2. Cara Bermain    \n");
@@ -63,16 +63,16 @@ void InputNamaPemain(char *p1, char *p2)
 }
 
 // Modul prosedur untuk tampilan memilih simbol
-void PilihSimbol()
-{
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t              Pilih Simbol\n");
-    printf("\t\t\t              1. X\n");
-    printf("\t\t\t              2. O\n");
-}
+// void PilihSimbol()
+// {
+//     printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
+//     printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
+//     printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
+//     printf("\t\t\t===============================================\n\n");
+//     printf("\t\t\t              Pilih Simbol\n");
+//     printf("\t\t\t              1. X\n");
+//     printf("\t\t\t              2. O\n");
+// }
 
 // Modul Prosedur untuk tampilan pemilihan dimensi
 void PilihDimensi()
