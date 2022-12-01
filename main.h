@@ -42,23 +42,23 @@ void menuUtama()
     printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
     printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
     printf("\t\t\t===================================================================\n\n");
-    printf("\t\t\t              MAIN MENU      \n\n");
-    printf("\t\t\t          1. Mulai Permainan \n");
-    printf("\t\t\t          2. Cara Bermain    \n");
-    printf("\t\t\t          3. Keluar Permainan\n");
-    printf("Pilih Menu : ");
+    printf("\t\t\t                            MAIN MENU      \n\n");
+    printf("\t\t\t                      1. Mulai Permainan \n");
+    printf("\t\t\t                      2. Cara Bermain    \n");
+    printf("\t\t\t                      3. Keluar Permainan\n\n\n");
+    printf("\t\t                        Pilih Menu : ");
 }
 
 // Modul Prosedur untuk input nama pemain
 void InputNamaPemain(char *p1, char *p2)
 {
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t  Masukkan Nama Pemain 1 (X): ");
+    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
+    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
+    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
+    printf("\t\t\t=================================================================\n\n");
+    printf("\t\t\t                 Masukkan Nama Pemain 1 (X): ");
     scanf("%s", &*p1);
-    printf("\t\t\t  Masukkan Nama Pemain 2 (O): ");
+    printf("\t\t\t                 Masukkan Nama Pemain 2 (O): ");
     scanf("%s", &*p2);
 }
 
