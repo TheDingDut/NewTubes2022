@@ -1,15 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
 #include "main.h"
 
 int main()
 {
+    /*DEKLARASI VARIABEL*/
     char pemain1[50], pemain2[50];
-    int opsi;
+    int opsi, opsiDimensi;
+    char loopGame = 'N';
+
+    /*MULAI GAME*/
     cover();
+    system("cls");
     menuUtama();
-    printf("\nPilih Menu : ");
     scanf("%d", &opsi);
 
     switch (opsi)
@@ -18,39 +24,82 @@ int main()
         system("cls");
         InputNamaPemain(&pemain1, &pemain2);
         system("cls");
-        while (AkhirPermainan())
+        do
         {
-            cetakPapan3();
-            giliran(pemain1, pemain2);
-            AkhirPermainan();
-        }
+            system("cls");
+            PilihDimensi();
+            scanf("%d", &opsiDimensi);
+            system("cls");
+            switch (opsiDimensi)
+            {
+            case 1:
+                // TIC TAC TOE 3 X 3
+                while (AkhirPermainan())
+                {
+                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    cetakPapan3();
+                    giliran(pemain1, pemain2);
+                    AkhirPermainan();
+                }
 
-        if (XO == 'X' && !draw)
-        {
-            system("cls");
-            printf("%s memenangkan permainan!", pemain1);
-            printf("\nHasil Akhir :\n");
-            cetakPapan3();
-        }
-        else if (XO == 'O' && !draw)
-        {
-            system("cls");
-            printf("%s memenangkan permainan!", pemain2);
-            printf("\nHasil Akhir :\n");
-            cetakPapan3();
-        }
-        else
-        {
-            system("cls");
-            printf("Permainan Seri!");
-            printf("\nHasil Akhir :\n");
-            cetakPapan3();
-        }
+                if (XO == 'X' && !draw)
+                {
+                    system("cls");
+                    p1menang++;
+                    printf("%s memenangkan permainan!", pemain1);
+                    printf("\nHasil Akhir :\n");
+                    cetakPapan3();
+                }
+                else if (XO == 'O' && !draw)
+                {
+                    system("cls");
+                    p2menang++;
+                    printf("%s memenangkan permainan!", pemain2);
+                    printf("\nHasil Akhir :\n");
+                    cetakPapan3();
+                }
+                else
+                {
+                    system("cls");
+                    printf("Permainan Seri!");
+                    printf("\nHasil Akhir :\n");
+                    cetakPapan3();
+                }
+                break;
+            case 2:
+                // TIC TAC TOE 5 X 5
+                break;
+            case 3:
+                // TIC TAC TOE 7 X 7
+                break;
+            default:
+                printf("\nTidak ada pilihan dimensi!");
+                break;
+            }
+            printf("\nUlangi Permainan? (Y/N) : ");
+            scanf("%s", &loopGame);
+            int x = 1;
+            char c;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    c = x + '0';
+                    papan[i][j] = c;
+                    x++;
+                }
+            }
+            
+        } while (loopGame == 'Y');
+        
+        system("cls");
+        printf("%s %d vs %d %s\n", pemain1, p1menang, p2menang, pemain2);
         break;
     case 2:
-        /*code*/
+        /*HOW TO PLAY*/
         break;
     case 3:
+        /*QUIT GAME*/
         printf("Terimakasih :)");
         getchar();
         break;
