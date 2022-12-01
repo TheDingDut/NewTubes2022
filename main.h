@@ -3,7 +3,7 @@
 #include <time.h>
 
 char papan[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-char XO = 'O';
+char XO = 'X';
 int pilihan;
 // pemenang
 int p1menang = 0, p2menang = 0;
@@ -56,9 +56,9 @@ void InputNamaPemain(char *p1, char *p2)
     printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
     printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
     printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t  Masukkan Nama Pemain 1 : ");
+    printf("\t\t\t  Masukkan Nama Pemain 1 (X): ");
     scanf("%s", &*p1);
-    printf("\t\t\t  Masukkan Nama Pemain 2 : ");
+    printf("\t\t\t  Masukkan Nama Pemain 2 (O): ");
     scanf("%s", &*p2);
 }
 
