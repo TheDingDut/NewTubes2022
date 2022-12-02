@@ -8,6 +8,7 @@ char XO = 'O';
 int pilihan, flagBoardDinamis;
 // pemenang
 int p1menang = 0, p2menang = 0;
+int count3 = 9;
 bool draw = false;
 
 // Deklarasi Variabel Koordinat
@@ -218,11 +219,19 @@ void giliran()
             {
                 papan[lokasi.baris][lokasi.kolom] = 'X';
                 XO = 'O';
+                if (flagBoardDinamis == 3)
+                {
+                    count3--;
+                }
             }
             else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
             {
                 papan[lokasi.baris][lokasi.kolom] = 'O';
                 XO = 'X';
+                if (flagBoardDinamis == 3)
+                {
+                    count3--;
+                }
             }
             else
             {
@@ -236,19 +245,24 @@ void giliran()
 
 bool CekWin3()
 {
-
+    /*cek vertikal horizontal*/
     for (int i = 0; i < 3; i++)
-    { /*cek vertikal horizontal*/
-
-        if ((papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2]) || (papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i]))
-            return false;
+    {
+        if (count3 <= 4)
+        {
+            if ((papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2]) || (papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i]))
+                return false;
+        }
     }
 
     /*checking diagonals*/
-    if ((papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) || (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]))
+    if (count3 <= 4)
     {
+        if ((papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) || (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]))
+        {
 
-        return false;
+            return false;
+        }
     }
 
     for (int i = 0; i < 3; i++)
@@ -317,310 +331,310 @@ void Closing()
 }
 
 // switch (pilihan)
-        // {
-        // case 1:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 2:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 3:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 4:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 5:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 6:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 7:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 8:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 9:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 10:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 11:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 12:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 13:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 14:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 15:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 16:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 17:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 18:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 19:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 20:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 21:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 22:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 23:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 24:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 25:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // default:
-        //     printf("Input salah!");
-        //     break;
-        // }
-        // switch (pilihan)
-        // {
-        // case 1:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 2:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 3:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 4:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 5:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 6:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 7:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 8:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 9:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 10:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 11:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 12:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 13:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 14:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 15:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 16:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 17:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 18:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 19:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 20:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 21:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 22:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 23:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 24:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 25:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 26:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 27:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 28:
-        //     lokasi.baris = 0;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 29:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 30:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 31:
-        //     lokasi.baris = 1;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 32:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 0;
-        //     break;
-        // case 33:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 1;
-        //     break;
-        // case 34:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 35:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 36:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 37:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 38:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 39:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 40:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 41:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 42:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 43:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 44:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 45:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 46:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 47:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 48:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // case 49:
-        //     lokasi.baris = 2;
-        //     lokasi.kolom = 2;
-        //     break;
-        // default:
-        //     printf("Input salah!");
-        //     break;
-        // }
+// {
+// case 1:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 0;
+//     break;
+// case 2:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 1;
+//     break;
+// case 3:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 2;
+//     break;
+// case 4:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 0;
+//     break;
+// case 5:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 1;
+//     break;
+// case 6:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 2;
+//     break;
+// case 7:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 0;
+//     break;
+// case 8:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 1;
+//     break;
+// case 9:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 10:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 11:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 12:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 13:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 14:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 15:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 16:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 17:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 18:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 19:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 20:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 21:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 22:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 23:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 24:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 25:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// default:
+//     printf("Input salah!");
+//     break;
+// }
+// switch (pilihan)
+// {
+// case 1:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 0;
+//     break;
+// case 2:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 1;
+//     break;
+// case 3:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 2;
+//     break;
+// case 4:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 0;
+//     break;
+// case 5:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 1;
+//     break;
+// case 6:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 2;
+//     break;
+// case 7:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 0;
+//     break;
+// case 8:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 1;
+//     break;
+// case 9:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 10:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 11:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 12:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 13:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 14:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 15:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 16:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 17:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 18:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 19:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 20:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 21:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 22:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 23:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 24:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 25:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 26:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 0;
+//     break;
+// case 27:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 1;
+//     break;
+// case 28:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 2;
+//     break;
+// case 29:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 0;
+//     break;
+// case 30:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 1;
+//     break;
+// case 31:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 2;
+//     break;
+// case 32:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 0;
+//     break;
+// case 33:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 1;
+//     break;
+// case 34:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 35:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 36:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 37:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 38:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 39:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 40:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 41:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 42:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 43:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 44:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 45:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 46:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 47:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 48:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 49:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// default:
+//     printf("Input salah!");
+//     break;
+// }

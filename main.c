@@ -33,6 +33,7 @@ int main()
             {
             case 1:
                 // TIC TAC TOE 3 X 3
+                count3 = 9;
                 flagBoardDinamis = 3;
                 int x = 1;
                 for (int i = 0; i < flagBoardDinamis; i++)
@@ -40,7 +41,7 @@ int main()
                     for (int j = 0; j < flagBoardDinamis; j++)
                     {
                         char c = x + '0';
-                        papan[i][j] = c;
+                        papan[i][j] = '-';
                         x++;
                     }
                 }
@@ -49,6 +50,7 @@ int main()
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
+                    printf("\n%d\n", count3);
                     CekWin3();
                 }
 
@@ -153,7 +155,7 @@ int main()
         break;
     case 3:
         /*QUIT GAME*/
-        printf("Terimakasih :)");
+        Closing();
         getchar();
         break;
     default:
