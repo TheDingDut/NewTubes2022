@@ -50,7 +50,6 @@ int main()
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
-                    printf("\n%d\n", count3);
                     CekWin3();
                 }
 
@@ -135,16 +134,15 @@ int main()
             scanf("%s", &loopGame);
             int x = 1;
             char c;
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < flagBoardDinamis; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < flagBoardDinamis; j++)
                 {
                     c = x + '0';
                     papan[i][j] = '-';
                     x++;
                 }
             }
-
         } while (loopGame == 'Y');
 
         system("cls");
