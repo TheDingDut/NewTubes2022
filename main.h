@@ -2,11 +2,14 @@
 #include <stdbool.h>
 #include <time.h>
 
-char papan[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+char pemain1[50], pemain2[50];
+char papan[7][7];
 char XO = 'O';
-int pilihan;
+int pilihan, flagBoardDinamis;
 // pemenang
 int p1menang = 0, p2menang = 0;
+int count3 = 9;
+int count5 = 25;
 bool draw = false;
 
 // Deklarasi Variabel Koordinat
@@ -50,16 +53,16 @@ void menuUtama()
 }
 
 // Modul Prosedur untuk input nama pemain
-void InputNamaPemain(char *p1, char *p2)
+void InputNamaPemain()
 {
     printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
     printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
     printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
     printf("\t\t\t===============================================\n\n");
     printf("\t\t\t  Masukkan Nama Pemain 1 : ");
-    scanf("%s", &*p1);
+    scanf("%s", &pemain1);
     printf("\t\t\t  Masukkan Nama Pemain 2 : ");
-    scanf("%s", &*p2);
+    scanf("%s", &pemain2);
 }
 
 // Modul prosedur untuk tampilan memilih simbol
@@ -102,159 +105,582 @@ void cetakPapan3()
     printf("\n");
 }
 
-// modul function bertipe boolean berfungsi sebagai countdown timer
-// bool EstimasiWaktu()
-// {
-//     unsigned int x_hours = 0;
-//     unsigned int x_minutes = 0;
-//     unsigned int x_seconds = 0;
-//     unsigned int x_milliseconds = 0;
-//     unsigned int totaltime = 0, count_down_time_in_secs = 0, time_left = 0;
-
-//     clock_t x_startTime, x_countTime;
-//     count_down_time_in_secs = 10; // input detik
-
-//     x_startTime = clock();                           // menjalankan timer
-//     time_left = count_down_time_in_secs - x_seconds; // update timer
-
-//     while (time_left > 0)
-//     {
-//         x_countTime = clock(); // update perbedaan timer
-//         x_milliseconds = x_countTime - x_startTime;
-//         x_seconds = (x_milliseconds / (CLOCKS_PER_SEC)) - (x_minutes * 60);
-//         x_minutes = (x_milliseconds / (CLOCKS_PER_SEC)) / 60;
-//         x_hours = x_minutes / 60;
-
-//         time_left = count_down_time_in_secs - x_seconds; // mendapatkan waktu tersisa
-//     }
-
-//     if (time_left == 0)
-//     {
-//         return true;
-//     }
-// }
+void BoardDinamis()
+{
+    for (int i = 0; i < flagBoardDinamis; i++)
+    {
+        for (int j = 0; j < flagBoardDinamis; j++)
+        {
+            printf(" %c ", papan[i][j]);
+            if (j != flagBoardDinamis - 1)
+            {
+                printf("|");
+            }
+        }
+        printf("\n");
+        for (int j = 0; j < flagBoardDinamis; j++)
+        {
+            /* code */
+            if (i < flagBoardDinamis - 1)
+            {
+                /* code */
+                printf("---");
+                if (j != flagBoardDinamis - 1)
+                {
+                    printf("|");
+                }
+            }
+        }
+        printf("\n");
+    }
+}
 
 // modul prosedur untuk menentukan giliran dan mengubah state array pilihan baris dan kolom menjadi X / O
-void giliran(pemain1, pemain2)
+void giliran()
 {
     Koordinat lokasi;
     time_t waktu = time(NULL); // variabel yang berisi waktu saat modul dijalankan
 
-    if (XO == 'O')
+    if (flagBoardDinamis == 3)
     {
-        printf("Giliran %s : ", pemain1);
-    }
-    else if (XO == 'X')
-    {
-        printf("Giliran %s : ", pemain2);
-    }
-    scanf("%d", &pilihan);
-    time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
-    if (waktuSetelahInput - waktu >= 10)
-    {
-        printf("\nWaktuHabis!\n\n");
         if (XO == 'O')
         {
-            XO = 'X';
+            printf("Giliran %s : ", pemain1);
         }
-        else
+        else if (XO == 'X')
         {
-            XO = 'O';
+            printf("Giliran %s : ", pemain2);
         }
-    }
-    else
-    {
-        printf("\n");
-
-        switch (pilihan)
+        scanf("%d", &pilihan);
+        time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
+        if (waktuSetelahInput - waktu >= 10)
         {
-        case 1:
-            lokasi.baris = 0;
-            lokasi.kolom = 0;
-            break;
-        case 2:
-            lokasi.baris = 0;
-            lokasi.kolom = 1;
-            break;
-        case 3:
-            lokasi.baris = 0;
-            lokasi.kolom = 2;
-            break;
-        case 4:
-            lokasi.baris = 1;
-            lokasi.kolom = 0;
-            break;
-        case 5:
-            lokasi.baris = 1;
-            lokasi.kolom = 1;
-            break;
-        case 6:
-            lokasi.baris = 1;
-            lokasi.kolom = 2;
-            break;
-        case 7:
-            lokasi.baris = 2;
-            lokasi.kolom = 0;
-            break;
-        case 8:
-            lokasi.baris = 2;
-            lokasi.kolom = 1;
-            break;
-        case 9:
-            lokasi.baris = 2;
-            lokasi.kolom = 2;
-            break;
-        default:
-            printf("Input salah!");
-            break;
-        }
-
-        if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
-        {
-            printf("Kolom sudah terisi!\n");
-        }
-        else
-        {
-
-            if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+            printf("\nWaktuHabis!\n\n");
+            if (XO == 'O')
             {
-                papan[lokasi.baris][lokasi.kolom] = 'X';
-                XO = 'O';
-            }
-            else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
-            {
-                papan[lokasi.baris][lokasi.kolom] = 'O';
                 XO = 'X';
             }
             else
             {
-                giliran();
+                XO = 'O';
+            }
+        }
+        else
+        {
+            printf("\n");
+            switch (pilihan)
+            {
+            case 1:
+                lokasi.baris = 0;
+                lokasi.kolom = 0;
+                break;
+            case 2:
+                lokasi.baris = 0;
+                lokasi.kolom = 1;
+                break;
+            case 3:
+                lokasi.baris = 0;
+                lokasi.kolom = 2;
+                break;
+            case 4:
+                lokasi.baris = 1;
+                lokasi.kolom = 0;
+                break;
+            case 5:
+                lokasi.baris = 1;
+                lokasi.kolom = 1;
+                break;
+            case 6:
+                lokasi.baris = 1;
+                lokasi.kolom = 2;
+                break;
+            case 7:
+                lokasi.baris = 2;
+                lokasi.kolom = 0;
+                break;
+            case 8:
+                lokasi.baris = 2;
+                lokasi.kolom = 1;
+                break;
+            case 9:
+                lokasi.baris = 2;
+                lokasi.kolom = 2;
+                break;
+            default:
+                printf("Input salah!");
+                break;
             }
 
-            // cetakPapan3();
+            if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
+            {
+                printf("Kolom sudah terisi!\n");
+            }
+            else
+            {
+
+                if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'X';
+                    XO = 'O';
+                    count3--;
+                }
+                else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'O';
+                    XO = 'X';
+                    count3--;
+                }
+                else
+                {
+                    giliran();
+                }
+
+                // cetakPapan3();
+            }
         }
+    }
+    else if (flagBoardDinamis == 5)
+    {
+        if (XO == 'O')
+        {
+            printf("Giliran %s : ", pemain1);
+        }
+        else if (XO == 'X')
+        {
+            printf("Giliran %s : ", pemain2);
+        }
+        scanf("%d", &pilihan);
+        time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
+        if (waktuSetelahInput - waktu >= 10)
+        {
+            printf("\nWaktuHabis!\n\n");
+            if (XO == 'O')
+            {
+                XO = 'X';
+            }
+            else
+            {
+                XO = 'O';
+            }
+        }
+        else
+        {
+            printf("\n");
+            switch (pilihan)
+            {
+            case 1:
+                lokasi.baris = 0;
+                lokasi.kolom = 0;
+                break;
+            case 2:
+                lokasi.baris = 0;
+                lokasi.kolom = 1;
+                break;
+            case 3:
+                lokasi.baris = 0;
+                lokasi.kolom = 2;
+                break;
+            case 4:
+                lokasi.baris = 0;
+                lokasi.kolom = 3;
+                break;
+            case 5:
+                lokasi.baris = 0;
+                lokasi.kolom = 4;
+                break;
+            case 6:
+                lokasi.baris = 1;
+                lokasi.kolom = 0;
+                break;
+            case 7:
+                lokasi.baris = 1;
+                lokasi.kolom = 1;
+                break;
+            case 8:
+                lokasi.baris = 1;
+                lokasi.kolom = 2;
+                break;
+            case 9:
+                lokasi.baris = 1;
+                lokasi.kolom = 3;
+                break;
+            case 10:
+                lokasi.baris = 1;
+                lokasi.kolom = 4;
+                break;
+            case 11:
+                lokasi.baris = 2;
+                lokasi.kolom = 0;
+                break;
+            case 12:
+                lokasi.baris = 2;
+                lokasi.kolom = 1;
+                break;
+            case 13:
+                lokasi.baris = 2;
+                lokasi.kolom = 2;
+                break;
+            case 14:
+                lokasi.baris = 2;
+                lokasi.kolom = 3;
+                break;
+            case 15:
+                lokasi.baris = 2;
+                lokasi.kolom = 4;
+                break;
+            case 16:
+                lokasi.baris = 3;
+                lokasi.kolom = 0;
+                break;
+            case 17:
+                lokasi.baris = 3;
+                lokasi.kolom = 1;
+                break;
+            case 18:
+                lokasi.baris = 3;
+                lokasi.kolom = 2;
+                break;
+            case 19:
+                lokasi.baris = 3;
+                lokasi.kolom = 3;
+                break;
+            case 20:
+                lokasi.baris = 3;
+                lokasi.kolom = 4;
+                break;
+            case 21:
+                lokasi.baris = 4;
+                lokasi.kolom = 0;
+                break;
+            case 22:
+                lokasi.baris = 4;
+                lokasi.kolom = 1;
+                break;
+            case 23:
+                lokasi.baris = 4;
+                lokasi.kolom = 2;
+                break;
+            case 24:
+                lokasi.baris = 4;
+                lokasi.kolom = 3;
+                break;
+            case 25:
+                lokasi.baris = 4;
+                lokasi.kolom = 4;
+                break;
+            default:
+                printf("Input salah!");
+                break;
+            }
+
+            if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
+            {
+                printf("Kolom sudah terisi!\n");
+            }
+            else
+            {
+
+                if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'X';
+                    XO = 'O';
+                    count5--;
+                }
+                else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'O';
+                    XO = 'X';
+                    count5--;
+                }
+                else
+                {
+                    giliran();
+                }
+
+                // cetakPapan3();
+            }
+        }
+    }
+    else if (flagBoardDinamis == 7)
+    {
+        if (XO == 'O')
+        {
+            printf("Giliran %s : ", pemain1);
+        }
+        else if (XO == 'X')
+        {
+            printf("Giliran %s : ", pemain2);
+        }
+        scanf("%d", &pilihan);
+        time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
+        if (waktuSetelahInput - waktu >= 10)
+        {
+            printf("\nWaktuHabis!\n\n");
+            if (XO == 'O')
+            {
+                XO = 'X';
+            }
+            else
+            {
+                XO = 'O';
+            }
+        }
+        else
+        {
+            printf("\n");
+            switch (pilihan)
+            {
+            case 1:
+                lokasi.baris = 0;
+                lokasi.kolom = 0;
+                break;
+            case 2:
+                lokasi.baris = 0;
+                lokasi.kolom = 1;
+                break;
+            case 3:
+                lokasi.baris = 0;
+                lokasi.kolom = 2;
+                break;
+            case 4:
+                lokasi.baris = 0;
+                lokasi.kolom = 3;
+                break;
+            case 5:
+                lokasi.baris = 0;
+                lokasi.kolom = 4;
+                break;
+            case 6:
+                lokasi.baris = 0;
+                lokasi.kolom = 5;
+                break;
+            case 7:
+                lokasi.baris = 0;
+                lokasi.kolom = 6;
+                break;
+            case 8:
+                lokasi.baris = 1;
+                lokasi.kolom = 0;
+                break;
+            case 9:
+                lokasi.baris = 1;
+                lokasi.kolom = 1;
+                break;
+            case 10:
+                lokasi.baris = 1;
+                lokasi.kolom = 2;
+                break;
+            case 11:
+                lokasi.baris = 1;
+                lokasi.kolom = 3;
+                break;
+            case 12:
+                lokasi.baris = 1;
+                lokasi.kolom = 4;
+                break;
+            case 13:
+                lokasi.baris = 1;
+                lokasi.kolom = 5;
+                break;
+            case 14:
+                lokasi.baris = 1;
+                lokasi.kolom = 6;
+                break;
+            case 15:
+                lokasi.baris = 2;
+                lokasi.kolom = 0;
+                break;
+            case 16:
+                lokasi.baris = 2;
+                lokasi.kolom = 1;
+                break;
+            case 17:
+                lokasi.baris = 2;
+                lokasi.kolom = 2;
+                break;
+            case 18:
+                lokasi.baris = 2;
+                lokasi.kolom = 3;
+                break;
+            case 19:
+                lokasi.baris = 2;
+                lokasi.kolom = 4;
+                break;
+            case 20:
+                lokasi.baris = 2;
+                lokasi.kolom = 5;
+                break;
+            case 21:
+                lokasi.baris = 2;
+                lokasi.kolom = 6;
+                break;
+            case 22:
+                lokasi.baris = 3;
+                lokasi.kolom = 0;
+                break;
+            case 23:
+                lokasi.baris = 3;
+                lokasi.kolom = 1;
+                break;
+            case 24:
+                lokasi.baris = 3;
+                lokasi.kolom = 2;
+                break;
+            case 25:
+                lokasi.baris = 3;
+                lokasi.kolom = 3;
+                break;
+            case 26:
+                lokasi.baris = 3;
+                lokasi.kolom = 4;
+                break;
+            case 27:
+                lokasi.baris = 3;
+                lokasi.kolom = 5;
+                break;
+            case 28:
+                lokasi.baris = 3;
+                lokasi.kolom = 6;
+                break;
+            case 29:
+                lokasi.baris = 4;
+                lokasi.kolom = 0;
+                break;
+            case 30:
+                lokasi.baris = 4;
+                lokasi.kolom = 1;
+                break;
+            case 31:
+                lokasi.baris = 4;
+                lokasi.kolom = 2;
+                break;
+            case 32:
+                lokasi.baris = 4;
+                lokasi.kolom = 3;
+                break;
+            case 33:
+                lokasi.baris = 4;
+                lokasi.kolom = 4;
+                break;
+            case 34:
+                lokasi.baris = 4;
+                lokasi.kolom = 5;
+                break;
+            case 35:
+                lokasi.baris = 4;
+                lokasi.kolom = 6;
+                break;
+            case 36:
+                lokasi.baris = 5;
+                lokasi.kolom = 0;
+                break;
+            case 37:
+                lokasi.baris = 5;
+                lokasi.kolom = 1;
+                break;
+            case 38:
+                lokasi.baris = 5;
+                lokasi.kolom = 2;
+                break;
+            case 39:
+                lokasi.baris = 5;
+                lokasi.kolom = 3;
+                break;
+            case 40:
+                lokasi.baris = 5;
+                lokasi.kolom = 4;
+                break;
+            case 41:
+                lokasi.baris = 5;
+                lokasi.kolom = 5;
+                break;
+            case 42:
+                lokasi.baris = 5;
+                lokasi.kolom = 6;
+                break;
+            case 43:
+                lokasi.baris = 6;
+                lokasi.kolom = 0;
+                break;
+            case 44:
+                lokasi.baris = 6;
+                lokasi.kolom = 1;
+                break;
+            case 45:
+                lokasi.baris = 6;
+                lokasi.kolom = 2;
+                break;
+            case 46:
+                lokasi.baris = 6;
+                lokasi.kolom = 3;
+                break;
+            case 47:
+                lokasi.baris = 6;
+                lokasi.kolom = 4;
+                break;
+            case 48:
+                lokasi.baris = 6;
+                lokasi.kolom = 5;
+                break;
+            case 49:
+                lokasi.baris = 6;
+                lokasi.kolom = 6;
+                break;
+            default:
+                printf("Input salah!");
+                break;
+            }
+        }
+
+            if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
+            {
+                printf("Kolom sudah terisi!\n");
+            }
+            else
+            {
+
+                if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'X';
+                    XO = 'O';
+                    count5--;
+                }
+                else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'O';
+                    XO = 'X';
+                    count5--;
+                }
+                else
+                {
+                    giliran();
+                }
+
+                
+            }
     }
 }
 
-bool AkhirPermainan()
+bool CekWin3()
 {
-
+    /*cek vertikal horizontal*/
     for (int i = 0; i < 3; i++)
-    { /*cek vertikal horizontal*/
-
-        if (papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2] ||
-
-            papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i])
-
-            return false;
+    {
+        if (count3 <= 4)
+        {
+            if ((papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2]) || (papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i]))
+                return false;
+        }
     }
 
-    if (papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] || /*checking diagonals*/
-
-        papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0])
+    /*checking diagonals*/
+    if (count3 <= 4)
     {
+        if ((papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) || (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]))
+        {
 
-        return false;
+            return false;
+        }
     }
 
     for (int i = 0; i < 3; i++)
@@ -263,6 +689,43 @@ bool AkhirPermainan()
         for (int j = 0; j < 3; j++)
         {
 
+            if (papan[i][j] != 'X' && papan[i][j] != 'O')
+                return true;
+        }
+    }
+
+    draw = true;
+
+    return false;
+}
+
+bool CekWin5()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O') ||
+            (papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X') || (papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O') ||
+            (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O') ||
+            (papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X') || (papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O'))
+        {
+            return false;
+        }
+    }
+
+    /*checking diagonals*/
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
+        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
+        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O'))
+    {
+        return false;
+    }
+
+    for (int i = 0; i < 5; i++)
+    { /*cek draw*/
+
+        for (int j = 0; j < 5; j++)
+        {
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
                 return true;
         }
@@ -288,3 +751,206 @@ void Closing()
     printf("\t\t\t         TERIMA KASIH TELAH BERMAIN      \n\n");
     printf("\t\t\t               Sampai Jumpa!! \n");
 }
+
+// switch (pilihan)
+// {
+// case 1:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 0;
+//     break;
+// case 2:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 1;
+//     break;
+// case 3:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 2;
+//     break;
+// case 4:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 0;
+//     break;
+// case 5:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 1;
+//     break;
+// case 6:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 2;
+//     break;
+// case 7:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 0;
+//     break;
+// case 8:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 1;
+//     break;
+// case 9:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 10:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 11:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 12:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 13:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 14:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 15:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 16:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 17:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 18:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 19:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 20:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 21:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 22:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 23:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 24:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 25:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 26:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 0;
+//     break;
+// case 27:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 1;
+//     break;
+// case 28:
+//     lokasi.baris = 0;
+//     lokasi.kolom = 2;
+//     break;
+// case 29:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 0;
+//     break;
+// case 30:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 1;
+//     break;
+// case 31:
+//     lokasi.baris = 1;
+//     lokasi.kolom = 2;
+//     break;
+// case 32:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 0;
+//     break;
+// case 33:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 1;
+//     break;
+// case 34:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 35:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 36:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 37:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 38:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 39:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 40:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 41:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 42:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 43:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 44:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 45:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 46:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 47:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 48:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// case 49:
+//     lokasi.baris = 2;
+//     lokasi.kolom = 2;
+//     break;
+// default:
+//     printf("Input salah!");
+//     break;
+// }
