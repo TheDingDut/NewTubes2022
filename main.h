@@ -401,6 +401,264 @@ void giliran()
             }
         }
     }
+    else if (flagBoardDinamis == 7)
+    {
+        if (XO == 'O')
+        {
+            printf("Giliran %s : ", pemain1);
+        }
+        else if (XO == 'X')
+        {
+            printf("Giliran %s : ", pemain2);
+        }
+        scanf("%d", &pilihan);
+        time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
+        if (waktuSetelahInput - waktu >= 10)
+        {
+            printf("\nWaktuHabis!\n\n");
+            if (XO == 'O')
+            {
+                XO = 'X';
+            }
+            else
+            {
+                XO = 'O';
+            }
+        }
+        else
+        {
+            printf("\n");
+            switch (pilihan)
+            {
+            case 1:
+                lokasi.baris = 0;
+                lokasi.kolom = 0;
+                break;
+            case 2:
+                lokasi.baris = 0;
+                lokasi.kolom = 1;
+                break;
+            case 3:
+                lokasi.baris = 0;
+                lokasi.kolom = 2;
+                break;
+            case 4:
+                lokasi.baris = 0;
+                lokasi.kolom = 3;
+                break;
+            case 5:
+                lokasi.baris = 0;
+                lokasi.kolom = 4;
+                break;
+            case 6:
+                lokasi.baris = 0;
+                lokasi.kolom = 5;
+                break;
+            case 7:
+                lokasi.baris = 0;
+                lokasi.kolom = 6;
+                break;
+            case 8:
+                lokasi.baris = 1;
+                lokasi.kolom = 0;
+                break;
+            case 9:
+                lokasi.baris = 1;
+                lokasi.kolom = 1;
+                break;
+            case 10:
+                lokasi.baris = 1;
+                lokasi.kolom = 2;
+                break;
+            case 11:
+                lokasi.baris = 1;
+                lokasi.kolom = 3;
+                break;
+            case 12:
+                lokasi.baris = 1;
+                lokasi.kolom = 4;
+                break;
+            case 13:
+                lokasi.baris = 1;
+                lokasi.kolom = 5;
+                break;
+            case 14:
+                lokasi.baris = 1;
+                lokasi.kolom = 6;
+                break;
+            case 15:
+                lokasi.baris = 2;
+                lokasi.kolom = 0;
+                break;
+            case 16:
+                lokasi.baris = 2;
+                lokasi.kolom = 1;
+                break;
+            case 17:
+                lokasi.baris = 2;
+                lokasi.kolom = 2;
+                break;
+            case 18:
+                lokasi.baris = 2;
+                lokasi.kolom = 3;
+                break;
+            case 19:
+                lokasi.baris = 2;
+                lokasi.kolom = 4;
+                break;
+            case 20:
+                lokasi.baris = 2;
+                lokasi.kolom = 5;
+                break;
+            case 21:
+                lokasi.baris = 2;
+                lokasi.kolom = 6;
+                break;
+            case 22:
+                lokasi.baris = 3;
+                lokasi.kolom = 0;
+                break;
+            case 23:
+                lokasi.baris = 3;
+                lokasi.kolom = 1;
+                break;
+            case 24:
+                lokasi.baris = 3;
+                lokasi.kolom = 2;
+                break;
+            case 25:
+                lokasi.baris = 3;
+                lokasi.kolom = 3;
+                break;
+            case 26:
+                lokasi.baris = 3;
+                lokasi.kolom = 4;
+                break;
+            case 27:
+                lokasi.baris = 3;
+                lokasi.kolom = 5;
+                break;
+            case 28:
+                lokasi.baris = 3;
+                lokasi.kolom = 6;
+                break;
+            case 29:
+                lokasi.baris = 4;
+                lokasi.kolom = 0;
+                break;
+            case 30:
+                lokasi.baris = 4;
+                lokasi.kolom = 1;
+                break;
+            case 31:
+                lokasi.baris = 4;
+                lokasi.kolom = 2;
+                break;
+            case 32:
+                lokasi.baris = 4;
+                lokasi.kolom = 3;
+                break;
+            case 33:
+                lokasi.baris = 4;
+                lokasi.kolom = 4;
+                break;
+            case 34:
+                lokasi.baris = 4;
+                lokasi.kolom = 5;
+                break;
+            case 35:
+                lokasi.baris = 4;
+                lokasi.kolom = 6;
+                break;
+            case 36:
+                lokasi.baris = 5;
+                lokasi.kolom = 0;
+                break;
+            case 37:
+                lokasi.baris = 5;
+                lokasi.kolom = 1;
+                break;
+            case 38:
+                lokasi.baris = 5;
+                lokasi.kolom = 2;
+                break;
+            case 39:
+                lokasi.baris = 5;
+                lokasi.kolom = 3;
+                break;
+            case 40:
+                lokasi.baris = 5;
+                lokasi.kolom = 4;
+                break;
+            case 41:
+                lokasi.baris = 5;
+                lokasi.kolom = 5;
+                break;
+            case 42:
+                lokasi.baris = 5;
+                lokasi.kolom = 6;
+                break;
+            case 43:
+                lokasi.baris = 6;
+                lokasi.kolom = 0;
+                break;
+            case 44:
+                lokasi.baris = 6;
+                lokasi.kolom = 1;
+                break;
+            case 45:
+                lokasi.baris = 6;
+                lokasi.kolom = 2;
+                break;
+            case 46:
+                lokasi.baris = 6;
+                lokasi.kolom = 3;
+                break;
+            case 47:
+                lokasi.baris = 6;
+                lokasi.kolom = 4;
+                break;
+            case 48:
+                lokasi.baris = 6;
+                lokasi.kolom = 5;
+                break;
+            case 49:
+                lokasi.baris = 6;
+                lokasi.kolom = 6;
+                break;
+            default:
+                printf("Input salah!");
+                break;
+            }
+        }
+
+            if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
+            {
+                printf("Kolom sudah terisi!\n");
+            }
+            else
+            {
+
+                if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'X';
+                    XO = 'O';
+                    count5--;
+                }
+                else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+                {
+                    papan[lokasi.baris][lokasi.kolom] = 'O';
+                    XO = 'X';
+                    count5--;
+                }
+                else
+                {
+                    giliran();
+                }
+
+                // cetakPapan7();
+            }
+    }
 }
 
 bool CekWin3()
