@@ -443,39 +443,31 @@ bool CekWin3()
 
 bool CekWin5()
 {
-
-    for (int i = 0; i < 3; i++)
-    { /*cek vertikal horizontal*/
-        if (count5 <= 18)
-        {
-            if ((papan[i] != '-' && papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2] && papan[i][0] == papan[i][3]) ||
-                (papan[i + 1] != '-' && papan[i + 1][1] == papan[i + 1][2] && papan[i + 1][1] == papan[i + 1][3] && papan[i + 1][1] == papan[i + 1][4]) ||
-                (papan[i] != '-' && papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i] && papan[0][i] == papan[3][i]) ||
-                (papan[i + 1] != '-' && papan[1][i + 1] == papan[2][i + 1] && papan[1][i + 1] == papan[3][i + 1] && papan[1][i + 1] == papan[4][i + 1]))
-                return false;
-        }
-    }
-
-    /*checking diagonals*/
-    if (count5 <= 18)
+    for (int i = 0; i < 5; i++)
     {
-        if ((papan[0] != '-' && papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2] && papan[0][0] == papan[3][3]) ||
-            (papan[1][1] == papan[2][2] && papan[1][1] == papan[3][3] && papan[1][1] == papan[4][4]) ||
-            (papan[0][1] == papan[1][2] && papan[0][1] == papan[2][3] && papan[0][1] == papan[3][4]) ||
-            (papan[1][0] == papan[2][1] && papan[1][0] == papan[3][2] && papan[1][0] == papan[4][3]) ||
-            (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]))
+        if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O') ||
+            (papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X') || (papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O') ||
+            (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O') ||
+            (papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X') || (papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O'))
         {
-
             return false;
         }
     }
 
-    for (int i = 0; i < 3; i++)
+    /*checking diagonals*/
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
+        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
+        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O'))
+    {
+        return false;
+    }
+
+    for (int i = 0; i < 5; i++)
     { /*cek draw*/
 
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < 5; j++)
         {
-
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
                 return true;
         }
