@@ -755,10 +755,34 @@ bool CekWin7()
     }
 
     /*checking diagonals*/
-    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
-        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
-        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
-        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[4][4] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O'))
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O' && papan[5][5] == 'O') ||
+        (papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X' && papan[6][6] == 'X') || (papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O' && papan[5][5] == 'O' && papan[6][6] == 'O') ||
+
+        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][5] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O' && papan[4][5] == 'O') ||
+        (papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][5] == 'X' && papan[5][6] == 'X') || (papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O' && papan[4][5] == 'O' && papan[5][6] == 'O') ||
+
+        (papan[0][2] == 'X' && papan[1][3] == 'X' && papan[2][4] == 'X' && papan[3][5] == 'X' && papan[4][6] == 'X') || (papan[0][2] == 'O' && papan[1][3] == 'O' && papan[2][4] == 'O' && papan[3][5] == 'O' && papan[4][6] == 'O') ||
+
+        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[5][4] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O' && papan[5][4] == 'O') ||
+        (papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[5][4] == 'X' && papan[6][5] == 'X') || (papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O' && papan[5][4] == 'O' && papan[6][5] == 'O') ||
+
+        (papan[2][0] == 'X' && papan[3][1] == 'X' && papan[4][2] == 'X' && papan[5][3] == 'X' && papan[6][4] == 'X') || (papan[2][0] == 'O' && papan[3][1] == 'O' && papan[4][2] == 'O' && papan[5][3] == 'O' && papan[6][4] == 'O') ||
+
+        (papan[0][6] == 'X' && papan[1][5] == 'X' && papan[2][4] == 'X' && papan[3][3] == 'X' && papan[4][2] == 'X') || (papan[0][6] == 'O' && papan[1][5] == 'O' && papan[2][4] == 'O' && papan[3][3] == 'O' && papan[4][2] == 'O') ||
+        (papan[1][5] == 'X' && papan[2][4] == 'X' && papan[3][3] == 'X' && papan[4][2] == 'X' && papan[5][1] == 'X') || (papan[1][5] == 'O' && papan[2][4] == 'O' && papan[3][3] == 'O' && papan[4][2] == 'O' && papan[5][1] == 'O') ||
+        (papan[2][4] == 'X' && papan[3][3] == 'X' && papan[4][2] == 'X' && papan[5][1] == 'X' && papan[6][0] == 'X') || (papan[2][4] == 'O' && papan[3][3] == 'O' && papan[4][2] == 'O' && papan[5][1] == 'O' && papan[6][0] == 'O') ||
+
+        (papan[0][5] == 'X' && papan[1][4] == 'X' && papan[2][3] == 'X' && papan[3][2] == 'X' && papan[4][1] == 'X') || (papan[0][5] == 'O' && papan[1][4] == 'O' && papan[2][3] == 'O' && papan[3][2] == 'O' && papan[4][1] == 'O') ||
+        (papan[1][4] == 'X' && papan[2][3] == 'X' && papan[3][2] == 'X' && papan[4][1] == 'X' && papan[5][0] == 'X') || (papan[1][4] == 'O' && papan[2][3] == 'O' && papan[3][2] == 'O' && papan[4][1] == 'O' && papan[5][0] == 'O') ||
+
+        (papan[0][4] == 'X' && papan[1][3] == 'X' && papan[2][2] == 'X' && papan[3][1] == 'X' && papan[4][0] == 'X') || (papan[0][4] == 'O' && papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O' && papan[4][0] == 'O') ||
+
+        (papan[1][6] == 'X' && papan[2][5] == 'X' && papan[3][4] == 'X' && papan[4][3] == 'X' && papan[5][2] == 'X') || (papan[1][6] == 'O' && papan[2][5] == 'O' && papan[3][4] == 'O' && papan[4][3] == 'O' && papan[5][2] == 'O') ||
+        (papan[2][5] == 'X' && papan[3][4] == 'X' && papan[4][3] == 'X' && papan[5][2] == 'X' && papan[6][1] == 'X') || (papan[2][5] == 'O' && papan[3][4] == 'O' && papan[4][3] == 'O' && papan[5][2] == 'O' && papan[6][1] == 'O') ||
+
+        (papan[2][6] == 'X' && papan[3][5] == 'X' && papan[4][4] == 'X' && papan[5][3] == 'X' && papan[6][2] == 'X') || (papan[2][5] == 'O' && papan[3][4] == 'O' && papan[4][3] == 'O' && papan[5][2] == 'O' && papan[6][1] == 'O')
+        )
     {
         return false;
     }
