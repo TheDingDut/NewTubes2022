@@ -8,8 +8,6 @@ char XO = 'O';
 int pilihan, flagBoardDinamis;
 // pemenang
 int p1menang = 0, p2menang = 0;
-int count3 = 9;
-int count5 = 25;
 bool draw = false;
 
 // Deklarasi Variabel Koordinat
@@ -21,15 +19,15 @@ typedef struct
 // Cetak Cover
 void cover()
 {
-    printf("\t\tTTTTT  H   H  EEEEE     D     I  N    N  GGGG  D     U   U  TTTTT\n");
-    printf("\t\t  T    H   H  E         D D   I  N N  N  G     D D   U   U    T\n");
-    printf("\t\t  T    HHHHH  EEE       D  D  I  N  N N  GGGG  D  D  U   U    T\n");
-    printf("\t\t  T    H   H  E         D D   I  N   NN  G  G  D D   U   U    T\n");
-    printf("\t\t  T    H   H  EEEEE     D     I  N    N  GGGG  D     UUUUU    T\n\n");
-    printf("\t\t===================================================================\n\n");
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE  \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE   \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE  \n\n");
+    printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
+    printf("\t     TT      HH   HH  EE           DD     DD   II  NN NN   NN  GG        DD     DD   UU    UU     TT\n");
+    printf("\t     TT      HHHHHHH  EEEEEE       DD      DD  II  NN  NN  NN  GG  GGGG  DD      DD  UU    UU     TT\n");
+    printf("\t     TT      HH   HH  EE           DD     DD   II  NN   NN NN  GG    GG  DD     DD   UU    UU     TT\n");
+    printf("\t     TT      HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UUUUUUUU     TT\n\n");
+    printf("\t  =====================================================================================================\n\n");
+    printf("\t\t\t   TTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE  \n");
+    printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
+    printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
     printf("\t\t\t    Made By :                      \n");
     printf("\t\t\t    1. Hasna Fitriyani Khairunnisa \n");
     printf("\t\t\t    2. Muhammad Fikri Nur Sya'bani \n");
@@ -41,54 +39,54 @@ void cover()
 // Cetak Menu Utama
 void menuUtama()
 {
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t              MAIN MENU      \n\n");
-    printf("\t\t\t          1. Mulai Permainan \n");
-    printf("\t\t\t          2. Cara Bermain    \n");
-    printf("\t\t\t          3. Keluar Permainan\n");
-    printf("Pilih Menu : ");
+    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
+    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
+    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
+    printf("\t\t\t===================================================================\n\n");
+    printf("\t\t\t                          MAIN MENU      \n\n");
+    printf("\t\t\t                       1. Mulai Permainan \n");
+    printf("\t\t\t                       2. Cara Bermain    \n");
+    printf("\t\t\t                       3. Keluar Permainan\n");
+    printf("\t\t\tPilih Menu : ");
 }
 
 // Modul Prosedur untuk input nama pemain
 void InputNamaPemain()
 {
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t  Masukkan Nama Pemain 1 : ");
+    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
+    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
+    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
+    printf("\t\t\t=================================================================\n\n");
+    printf("\t\t\t  Masukkan Nama Pemain 1 (O) : ");
     scanf("%s", &pemain1);
-    printf("\t\t\t  Masukkan Nama Pemain 2 : ");
+    printf("\t\t\t  Masukkan Nama Pemain 2 (X) : ");
     scanf("%s", &pemain2);
 }
 
 // Modul prosedur untuk tampilan memilih simbol
 void PilihSimbol()
 {
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t              Pilih Simbol\n");
-    printf("\t\t\t              1. X\n");
-    printf("\t\t\t              2. O\n");
+    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
+    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
+    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
+    printf("\t\t\t=================================================================\n\n");
+    printf("\t\t\t                      Pilih Simbol\n");
+    printf("\t\t\t                      1. X\n");
+    printf("\t\t\t                      2. O\n");
 }
 
 // Modul Prosedur untuk tampilan pemilihan dimensi
 void PilihDimensi()
 {
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
-    printf("\t\t\t===============================================\n\n");
-    printf("\t\t\t              Dimensi Permainan      \n\n");
-    printf("\t\t\t                  1. 3x3 \n");
-    printf("\t\t\t                  2. 5x5    \n");
-    printf("\t\t\t                  3. 7x7\n");
-    printf("Pilih Dimensi : ");
+    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
+    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
+    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
+    printf("\t\t\t=================================================================\n\n");
+    printf("\t\t\t                          Dimensi Permainan      \n\n");
+    printf("\t\t\t                       1. 3x3 \n");
+    printf("\t\t\t                       2. 5x5    \n");
+    printf("\t\t\t                       3. 7x7\n");
+    printf("\t\t\tPilih Dimensi : ");
 }
 
 // Modul prosedur untuk cetak papan 3 x 3
@@ -103,6 +101,20 @@ void cetakPapan3()
         }
     }
     printf("\n");
+}
+
+void isiPapan()
+{
+    int x = 1;
+    for (int i = 0; i < flagBoardDinamis; i++)
+    {
+        for (int j = 0; j < flagBoardDinamis; j++)
+        {
+            char c = x + '0';
+            papan[i][j] = '-';
+            x++;
+        }
+    }
 }
 
 void BoardDinamis()
@@ -222,13 +234,11 @@ void giliran()
                 {
                     papan[lokasi.baris][lokasi.kolom] = 'X';
                     XO = 'O';
-                    count3--;
                 }
                 else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
                 {
                     papan[lokasi.baris][lokasi.kolom] = 'O';
                     XO = 'X';
-                    count3--;
                 }
                 else
                 {
@@ -384,13 +394,11 @@ void giliran()
                 {
                     papan[lokasi.baris][lokasi.kolom] = 'X';
                     XO = 'O';
-                    count5--;
                 }
                 else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
                 {
                     papan[lokasi.baris][lokasi.kolom] = 'O';
                     XO = 'X';
-                    count5--;
                 }
                 else
                 {
@@ -643,46 +651,41 @@ void giliran()
                 {
                     papan[lokasi.baris][lokasi.kolom] = 'X';
                     XO = 'O';
-                    count5--;
                 }
                 else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
                 {
                     papan[lokasi.baris][lokasi.kolom] = 'O';
                     XO = 'X';
-                    count5--;
                 }
                 else
                 {
                     giliran();
                 }
 
-                
+                // cetakPapan7();
             }
     }
 }
 
 bool CekWin3()
 {
-    /*cek vertikal horizontal*/
+    /*cek horizontal dan vertikal*/
     for (int i = 0; i < 3; i++)
     {
-        if (count3 <= 4)
+        if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O')||
+            (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O')) 
         {
-            if ((papan[i][0] == papan[i][1] && papan[i][0] == papan[i][2]) || (papan[0][i] == papan[1][i] && papan[0][i] == papan[2][i]))
-                return false;
+            return false;
         }
+        
     }
 
     /*checking diagonals*/
-    if (count3 <= 4)
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X') || (papan[0][2] == 'O' && papan[1][1] == 'O' && papan[2][0] == 'O'))
     {
-        if ((papan[0][0] == papan[1][1] && papan[0][0] == papan[2][2]) || (papan[0][2] == papan[1][1] && papan[0][2] == papan[2][0]))
-        {
-
-            return false;
-        }
+        return false;
     }
-
+    
     for (int i = 0; i < 3; i++)
     { /*cek draw*/
 
@@ -701,6 +704,7 @@ bool CekWin3()
 
 bool CekWin5()
 {
+    /*cek vertikal horizontal dan vertikal*/
     for (int i = 0; i < 5; i++)
     {
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O') ||
@@ -713,10 +717,48 @@ bool CekWin5()
     }
 
     /*checking diagonals*/
-    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
-        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
-        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
-        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O'))
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][4] == 'O' && papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O' && papan[4][0] == 'O'))
+        {
+        return false;
+        }
+
+    for (int i = 0; i < 5; i++)
+    { /*cek draw*/
+
+        for (int j = 0; j < 5; j++)
+        {
+            if (papan[i][j] != 'X' && papan[i][j] != 'O')
+                return true;
+        }
+    }
+
+    draw = true;
+
+    return false;
+}
+
+bool CekWin7()
+{
+    /*cek vertikal horizontal dan vertikal*/
+    for (int i = 0; i < 7; i++)
+    {
+        if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O') ||
+            (papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X' && papan[i][5] == 'X') || (papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O' && papan[i][4] == 'O') ||
+            (papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X' && papan[i][5] == 'X' && papan[i][6] == 'X') || (papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O' && papan[i][5] == 'O' && papan[i][6] == 'O') ||
+            (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O') ||
+            (papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X' && papan[5][i] == 'X') || (papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O' && papan[4][i] == 'O') ||
+            (papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X' && papan[5][i] == 'X' && papan[6][i] == 'X') || (papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O' && papan[5][i] == 'O' && papan[6][i] == 'O') )
+        {
+            return false;
+        }
+    }
+
+    /*checking diagonals*/
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
+        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
+        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[4][4] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O'))
     {
         return false;
     }
@@ -736,221 +778,50 @@ bool CekWin5()
     return false;
 }
 
+void PemainWin()
+{
+    if (XO == 'X' && !draw)
+    {
+        system("cls");
+        p1menang++;
+        printf("%s memenangkan permainan!", pemain1);
+        printf("\nHasil Akhir :\n");
+        BoardDinamis();
+    }
+    else if (XO == 'O' && !draw)
+    {
+        system("cls");
+        p2menang++;
+        printf("%s memenangkan permainan!", pemain2);
+        printf("\nHasil Akhir :\n");
+        BoardDinamis();
+    }
+    else
+    {
+        system("cls");
+        printf("Permainan Seri!");
+        printf("\nHasil Akhir :\n");
+        BoardDinamis();
+    }
+}
+
+void HowToPlay()
+{
+
+}
+
 // Modul Prosedur untuk tampilan akhir
 void Closing()
 {
-    printf("\t\tTTTTT  H   H  EEEEE     D     I  N    N  GGGG  D     U   U  TTTTT\n");
-    printf("\t\t  T    H   H  E         D D   I  N N  N  G     D D   U   U    T\n");
-    printf("\t\t  T    HHHHH  EEE       D  D  I  N  N N  GGGG  D  D  U   U    T\n");
-    printf("\t\t  T    H   H  E         D D   I  N   NN  G  G  D D   U   U    T\n");
-    printf("\t\t  T    H   H  EEEEE     D     I  N    N  GGGG  D     UUUUU    T\n\n");
-    printf("\t\t===================================================================\n\n");
-    printf("\t\t\tTTT  I  CCC   TTT   A    CCC   TTT  O   EEE \n");
-    printf("\t\t\t T   I  C      T   AAA   C      T  O O  EE  \n ");
-    printf("\t\t\t T   I  CCC    T  A   A  CCC    T   O   EEE \n\n");
+    printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
+    printf("\t     TT      HH   HH  EE           DD     DD   II  NN NN   NN  GG        DD     DD   UU    UU     TT\n");
+    printf("\t     TT      HHHHHHH  EEEEEE       DD      DD  II  NN  NN  NN  GG  GGGG  DD      DD  UU    UU     TT\n");
+    printf("\t     TT      HH   HH  EE           DD     DD   II  NN   NN NN  GG    GG  DD     DD   UU    UU     TT\n");
+    printf("\t     TT      HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UUUUUUUU     TT\n\n");
+    printf("\t  =====================================================================================================\n\n");
+    printf("\t\t\t   TTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE  \n");
+    printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
+    printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
     printf("\t\t\t         TERIMA KASIH TELAH BERMAIN      \n\n");
     printf("\t\t\t               Sampai Jumpa!! \n");
 }
-
-// switch (pilihan)
-// {
-// case 1:
-//     lokasi.baris = 0;
-//     lokasi.kolom = 0;
-//     break;
-// case 2:
-//     lokasi.baris = 0;
-//     lokasi.kolom = 1;
-//     break;
-// case 3:
-//     lokasi.baris = 0;
-//     lokasi.kolom = 2;
-//     break;
-// case 4:
-//     lokasi.baris = 1;
-//     lokasi.kolom = 0;
-//     break;
-// case 5:
-//     lokasi.baris = 1;
-//     lokasi.kolom = 1;
-//     break;
-// case 6:
-//     lokasi.baris = 1;
-//     lokasi.kolom = 2;
-//     break;
-// case 7:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 0;
-//     break;
-// case 8:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 1;
-//     break;
-// case 9:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 10:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 11:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 12:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 13:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 14:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 15:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 16:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 17:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 18:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 19:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 20:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 21:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 22:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 23:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 24:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 25:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 26:
-//     lokasi.baris = 0;
-//     lokasi.kolom = 0;
-//     break;
-// case 27:
-//     lokasi.baris = 0;
-//     lokasi.kolom = 1;
-//     break;
-// case 28:
-//     lokasi.baris = 0;
-//     lokasi.kolom = 2;
-//     break;
-// case 29:
-//     lokasi.baris = 1;
-//     lokasi.kolom = 0;
-//     break;
-// case 30:
-//     lokasi.baris = 1;
-//     lokasi.kolom = 1;
-//     break;
-// case 31:
-//     lokasi.baris = 1;
-//     lokasi.kolom = 2;
-//     break;
-// case 32:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 0;
-//     break;
-// case 33:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 1;
-//     break;
-// case 34:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 35:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 36:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 37:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 38:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 39:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 40:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 41:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 42:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 43:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 44:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 45:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 46:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 47:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 48:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// case 49:
-//     lokasi.baris = 2;
-//     lokasi.kolom = 2;
-//     break;
-// default:
-//     printf("Input salah!");
-//     break;
-// }
