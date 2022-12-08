@@ -656,7 +656,7 @@ void giliran()
                     giliran();
                 }
 
-                // cetakPapan7();
+                
             }
     }
 }
