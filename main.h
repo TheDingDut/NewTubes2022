@@ -896,3 +896,7 @@ void Closing()
     printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p1, p1menang);
     printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, p2menang);
 }
+
+void KeluarPermainan(){
+    exit(0);
+}

@@ -109,7 +109,7 @@ int main()
         
     case 3:
         /*QUIT GAME*/
-        Closing();
+        KeluarPermainan();
         getchar();
         
         break;
