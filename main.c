@@ -86,7 +86,6 @@ int main()
         break;
     case 2:
         system("cls");
-        HowToPlay();
 
         FILE *FF; // penunjuk ke file
         char CC;  // var penunjuk karakter yang dibaca
@@ -103,15 +102,15 @@ int main()
         }
 
         fclose(FF);
-	    printf("\nPress any key to main menu... "); 
+        printf("\nPress any key to main menu... ");
         getch();
         main();
-        
+
     case 3:
         /*QUIT GAME*/
         KeluarPermainan();
         getchar();
-        
+
         break;
     default:
         printf("Input Salah!");
