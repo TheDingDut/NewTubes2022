@@ -862,6 +862,19 @@ void HowToPlay()
 // Modul Prosedur untuk tampilan akhir
 void Closing()
 {
+    char p1[50];
+    char p2[50];
+    int p1length = strlen(pemain1);
+    int p2length = strlen(pemain2);
+    for (int i = 0; i < p1length; i++)
+    {
+        p1[i] = toupper(pemain1[i]);
+    }
+    for (int i = 0; i < p2length + 1; i++)
+    {
+        p2[i] = toupper(pemain2[i]);
+    }
+
     printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
     printf("\t     TT      HH   HH  EE           DD     DD   II  NN NN   NN  GG        DD     DD   UU    UU     TT\n");
     printf("\t     TT      HHHHHHH  EEEEEE       DD      DD  II  NN  NN  NN  GG  GGGG  DD      DD  UU    UU     TT\n");
@@ -871,6 +884,7 @@ void Closing()
     printf("\t\t\t   TTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE  \n");
     printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
     printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
-    printf("\t\t\t         TERIMA KASIH TELAH BERMAIN      \n\n");
-    printf("\t\t\t               Sampai Jumpa!! \n");
+    printf("\t\t\t                         HASIL AKHIR      \n\n");
+    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p1, p1menang);
+    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, p2menang);
 }

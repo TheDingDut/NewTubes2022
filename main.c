@@ -82,7 +82,7 @@ int main()
             isiPapan();
         } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));
         system("cls");
-        printf("%s %d vs %d %s\n", pemain1, p1menang, p2menang, pemain2);
+        Closing();
         break;
     case 2:
         HowToPlay();
