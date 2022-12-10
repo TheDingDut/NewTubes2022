@@ -12,6 +12,7 @@ int main()
     char loopGame = 'N';
 
     /*MULAI GAME*/
+    system("COLOR 8B");
     cover();
     system("cls");
     menuUtama();

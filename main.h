@@ -92,8 +92,8 @@ void PilihDimensi()
 void boardRef3()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
-    printf(" 1  | 2  | 3  \t\t\t%s : %d\n", pemain1, p1menang);
-    printf("----|----|----\t\t\t%s : %d\n", pemain2, p2menang);
+    printf(" 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
     printf(" 4  | 5  | 6  \n");
     printf("----|----|----\n");
     printf(" 7  | 8  | 9  \n");
@@ -102,8 +102,8 @@ void boardRef3()
 void boardRef5()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
-    printf(" 1  | 2  | 3  | 4  | 5  \t\t\t%s : %d\n", pemain1, p1menang);
-    printf("----|----|----|----|----\t\t\t%s : %d\n", pemain2, p2menang);
+    printf(" 1  | 2  | 3  | 4  | 5  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
     printf(" 6  | 7  | 8  | 9  | 10 \n");
     printf("----|----|----|----|----\n");
     printf(" 11 | 12 | 13 | 14 | 15 \n");
@@ -116,8 +116,8 @@ void boardRef5()
 void boardRef7()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
-    printf(" 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t%s : %d\n", pemain1, p1menang);
-    printf("----|----|----|----|----|----|----\t\t\t%s : %d\n", pemain2, p2menang);
+    printf(" 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("----|----|----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
     printf(" 8  | 9  | 10 | 11 | 12 | 13 | 14 \n");
     printf("----|----|----|----|----|----|----\n");
     printf(" 15 | 16 | 17 | 18 | 19 | 20 | 21 \n");
