@@ -36,6 +36,7 @@ int main()
                 isiPapan();
                 while (CekWin3())
                 {
+                    boardRef3();
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
@@ -49,6 +50,7 @@ int main()
                 isiPapan();
                 while (CekWin5())
                 {
+                    boardRef5();
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
@@ -62,6 +64,7 @@ int main()
                 isiPapan();
                 while (CekWin7())
                 {
+                    boardRef7();
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
@@ -78,7 +81,7 @@ int main()
             isiPapan();
         } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));
         system("cls");
-            printf("%s %d vs %d %s\n", pemain1, p1menang, p2menang, pemain2);
+        printf("%s %d vs %d %s\n", pemain1, p1menang, p2menang, pemain2);
         break;
     case 2:
         HowToPlay();
