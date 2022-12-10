@@ -1,0 +1,11 @@
+CARA BERMAIN TIC TAC TOE
+
+Jika Anda belum pernah memainkan Tic-Tac-Toe sebelumnya, Anda mungkin ingin mengetahui sedikit gameplay sebelum memulai. Salah satu hal hebat tentang gim ini adalah gim ini mudah dimainkan. Itu dapat dengan mudah diajarkan kepada siapa saja dari segala usia. Berikut cara memainkannya:
+
+- 2 pemain diperlukan untuk permainan.
+- Pertama, Pemain dengan O memulai permainan. 
+- Pemain pertama harus memberi tanda pada salah satu dari 9 kotak di grid. 
+- Kemudian, pemain kedua mendapat giliran untuk menempatkan tandanya di grid. 
+- Setiap pemain harus terus mengambil 1 giliran pada satu waktu untuk menempatkan tanda mereka sampai semua kotak penuh atau sampai salah satu pemain mendapatkan 3 tanda mereka dalam garis lurus vertikal, horizontal, atau diagonal. 
+
+Beberapa pemain lebih berpengalaman dalam bermain Tic-Tac-Toe dan tahu cara memenangkan permainan. Ini membawa kita ke topik strategi Tic-Tac-Toe. Beberapa pemain memiliki beberapa strategi yang dapat meningkatkan peluang mereka untuk menang. Seseorang yang sering memainkan permainan akan tertarik mempelajari beberapa strategi ini.
