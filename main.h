@@ -836,31 +836,6 @@ bool CekWin7()
     return false;
 }
 
-void inputHighScore()
-{
-    FILE *ff;
-
-    ff = fopen("HighScore.txt", "w");
-
-    if (ff == NULL)
-    {
-        printf("Tidak ada file\n");
-    }
-    else
-    {
-        if (strlen(pemain1) > 0 && strlen(pemain2) > 0)
-        {
-            if (XO == 'X')
-            {
-                fputs(pemain1, ff);
-                fputs("\n", ff);
-            }
-        }
-    }
-
-    fclose(ff);
-}
-
 void PemainWin()
 {
     if (XO == 'X' && !draw)
@@ -870,7 +845,6 @@ void PemainWin()
         printf("%s memenangkan permainan!", pemain1);
         printf("\nHasil Akhir :\n");
         BoardDinamis();
-        inputHighScore();
     }
     else if (XO == 'O' && !draw)
     {
