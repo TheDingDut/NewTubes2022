@@ -89,18 +89,46 @@ void PilihDimensi()
     printf("\t\t\tPilih Dimensi : ");
 }
 
-// Modul prosedur untuk cetak papan 3 x 3
-void cetakPapan3()
+void boardRef3()
 {
-    for (int i = 0; i < 3; i++)
-    {
-        printf(" %c | %c | %c ", papan[i][0], papan[i][1], papan[i][2]);
-        if (i != 2)
-        {
-            printf("\n---|---|---\n");
-        }
-    }
-    printf("\n");
+    printf("Pilih salah satu kolom dengan menginputkan nomor\n");
+    printf(" 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf(" 4  | 5  | 6  \n");
+    printf("----|----|----\n");
+    printf(" 7  | 8  | 9  \n");
+}
+
+void boardRef5()
+{
+    printf("Pilih salah satu kolom dengan menginputkan nomor\n");
+    printf(" 1  | 2  | 3  | 4  | 5  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf(" 6  | 7  | 8  | 9  | 10 \n");
+    printf("----|----|----|----|----\n");
+    printf(" 11 | 12 | 13 | 14 | 15 \n");
+    printf("----|----|----|----|----\n");
+    printf(" 16 | 17 | 18 | 19 | 20 \n");
+    printf("----|----|----|----|----\n");
+    printf(" 21 | 22 | 23 | 24 | 25 \n");
+}
+
+void boardRef7()
+{
+    printf("Pilih salah satu kolom dengan menginputkan nomor\n");
+    printf(" 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("----|----|----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf(" 8  | 9  | 10 | 11 | 12 | 13 | 14 \n");
+    printf("----|----|----|----|----|----|----\n");
+    printf(" 15 | 16 | 17 | 18 | 19 | 20 | 21 \n");
+    printf("----|----|----|----|----|----|----\n");
+    printf(" 22 | 23 | 24 | 25 | 26 | 27 | 28 \n");
+    printf("----|----|----|----|----|----|----\n");
+    printf(" 29 | 30 | 31 | 32 | 33 | 34 | 35 \n");
+    printf("----|----|----|----|----|----|----\n");
+    printf(" 36 | 37 | 38 | 39 | 40 | 41 | 42 \n");
+    printf("----|----|----|----|----|----|----\n");
+    printf(" 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
 }
 
 void isiPapan()
@@ -167,7 +195,7 @@ void giliran()
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
-            printf("\nWaktuHabis!\n\n");
+            printf("WaktuHabis!\n");
             if (XO == 'O')
             {
                 XO = 'X';
@@ -640,30 +668,30 @@ void giliran()
             }
         }
 
-            if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
+        if (papan[lokasi.baris][lokasi.kolom] == 'X' || papan[lokasi.baris][lokasi.kolom] == 'O')
+        {
+            printf("Kolom sudah terisi!\n");
+        }
+        else
+        {
+
+            if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
             {
-                printf("Kolom sudah terisi!\n");
+                papan[lokasi.baris][lokasi.kolom] = 'X';
+                XO = 'O';
+            }
+            else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
+            {
+                papan[lokasi.baris][lokasi.kolom] = 'O';
+                XO = 'X';
             }
             else
             {
-
-                if (XO == 'X' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
-                {
-                    papan[lokasi.baris][lokasi.kolom] = 'X';
-                    XO = 'O';
-                }
-                else if (XO == 'O' && papan[lokasi.baris][lokasi.kolom] != 'X' && papan[lokasi.baris][lokasi.kolom] != 'O')
-                {
-                    papan[lokasi.baris][lokasi.kolom] = 'O';
-                    XO = 'X';
-                }
-                else
-                {
-                    giliran();
-                }
-
-                // cetakPapan7();
+                giliran();
             }
+
+            // cetakPapan7();
+        }
     }
 }
 
@@ -672,20 +700,20 @@ bool CekWin3()
     /*cek horizontal dan vertikal*/
     for (int i = 0; i < 3; i++)
     {
-        if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O')||
-            (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O')) 
+        if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O') ||
+            (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O'))
         {
             return false;
         }
-        
     }
 
     /*checking diagonals*/
-    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X') || (papan[0][2] == 'O' && papan[1][1] == 'O' && papan[2][0] == 'O'))
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O') ||
+        (papan[0][2] == 'X' && papan[1][1] == 'X' && papan[2][0] == 'X') || (papan[0][2] == 'O' && papan[1][1] == 'O' && papan[2][0] == 'O'))
     {
         return false;
     }
-    
+
     for (int i = 0; i < 3; i++)
     { /*cek draw*/
 
@@ -717,11 +745,18 @@ bool CekWin5()
     }
 
     /*checking diagonals*/
-    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][4] == 'O' && papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O') ||
-        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O' && papan[4][0] == 'O'))
-        {
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
+        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O') ||
+        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
+
+        (papan[0][4] == 'X' && papan[1][3] == 'X' && papan[2][2] == 'X' && papan[3][1] == 'X') || (papan[0][4] == 'O' && papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O') ||
+        (papan[1][3] == 'X' && papan[2][2] == 'X' && papan[3][1] == 'X' && papan[4][0] == 'X') || (papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O' && papan[4][0] == 'O') ||
+        (papan[1][4] == 'X' && papan[2][3] == 'X' && papan[3][2] == 'X' && papan[4][1] == 'X') || (papan[1][4] == 'O' && papan[2][3] == 'O' && papan[3][2] == 'O' && papan[4][1] == 'O') ||
+        (papan[0][3] == 'X' && papan[1][2] == 'X' && papan[2][1] == 'X' && papan[3][0] == 'X') || (papan[0][3] == 'X' && papan[1][2] == 'X' && papan[2][1] == 'X' && papan[3][0] == 'X'))
+    {
         return false;
-        }
+    }
 
     for (int i = 0; i < 5; i++)
     { /*cek draw*/
@@ -748,17 +783,40 @@ bool CekWin7()
             (papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X' && papan[i][5] == 'X' && papan[i][6] == 'X') || (papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O' && papan[i][5] == 'O' && papan[i][6] == 'O') ||
             (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O') ||
             (papan[1][i] == 'X' && papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X' && papan[5][i] == 'X') || (papan[1][i] == 'O' && papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O' && papan[4][i] == 'O') ||
-            (papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X' && papan[5][i] == 'X' && papan[6][i] == 'X') || (papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O' && papan[5][i] == 'O' && papan[6][i] == 'O') )
+            (papan[2][i] == 'X' && papan[3][i] == 'X' && papan[4][i] == 'X' && papan[5][i] == 'X' && papan[6][i] == 'X') || (papan[2][i] == 'O' && papan[3][i] == 'O' && papan[4][i] == 'O' && papan[5][i] == 'O' && papan[6][i] == 'O'))
         {
             return false;
         }
     }
 
     /*checking diagonals*/
-    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
-        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
-        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][4] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O') ||
-        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[4][4] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O'))
+    if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
+        (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O' && papan[5][5] == 'O') ||
+        (papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X' && papan[6][6] == 'X') || (papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O' && papan[5][5] == 'O' && papan[6][6] == 'O') ||
+
+        (papan[0][1] == 'X' && papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][5] == 'X') || (papan[0][1] == 'O' && papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O' && papan[4][5] == 'O') ||
+        (papan[1][2] == 'X' && papan[2][3] == 'X' && papan[3][4] == 'X' && papan[4][5] == 'X' && papan[5][6] == 'X') || (papan[1][2] == 'O' && papan[2][3] == 'O' && papan[3][4] == 'O' && papan[4][5] == 'O' && papan[5][6] == 'O') ||
+
+        (papan[0][2] == 'X' && papan[1][3] == 'X' && papan[2][4] == 'X' && papan[3][5] == 'X' && papan[4][6] == 'X') || (papan[0][2] == 'O' && papan[1][3] == 'O' && papan[2][4] == 'O' && papan[3][5] == 'O' && papan[4][6] == 'O') ||
+
+        (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[5][4] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O' && papan[5][4] == 'O') ||
+        (papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X' && papan[5][4] == 'X' && papan[6][5] == 'X') || (papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O' && papan[5][4] == 'O' && papan[6][5] == 'O') ||
+
+        (papan[2][0] == 'X' && papan[3][1] == 'X' && papan[4][2] == 'X' && papan[5][3] == 'X' && papan[6][4] == 'X') || (papan[2][0] == 'O' && papan[3][1] == 'O' && papan[4][2] == 'O' && papan[5][3] == 'O' && papan[6][4] == 'O') ||
+
+        (papan[0][6] == 'X' && papan[1][5] == 'X' && papan[2][4] == 'X' && papan[3][3] == 'X' && papan[4][2] == 'X') || (papan[0][6] == 'O' && papan[1][5] == 'O' && papan[2][4] == 'O' && papan[3][3] == 'O' && papan[4][2] == 'O') ||
+        (papan[1][5] == 'X' && papan[2][4] == 'X' && papan[3][3] == 'X' && papan[4][2] == 'X' && papan[5][1] == 'X') || (papan[1][5] == 'O' && papan[2][4] == 'O' && papan[3][3] == 'O' && papan[4][2] == 'O' && papan[5][1] == 'O') ||
+        (papan[2][4] == 'X' && papan[3][3] == 'X' && papan[4][2] == 'X' && papan[5][1] == 'X' && papan[6][0] == 'X') || (papan[2][4] == 'O' && papan[3][3] == 'O' && papan[4][2] == 'O' && papan[5][1] == 'O' && papan[6][0] == 'O') ||
+
+        (papan[0][5] == 'X' && papan[1][4] == 'X' && papan[2][3] == 'X' && papan[3][2] == 'X' && papan[4][1] == 'X') || (papan[0][5] == 'O' && papan[1][4] == 'O' && papan[2][3] == 'O' && papan[3][2] == 'O' && papan[4][1] == 'O') ||
+        (papan[1][4] == 'X' && papan[2][3] == 'X' && papan[3][2] == 'X' && papan[4][1] == 'X' && papan[5][0] == 'X') || (papan[1][4] == 'O' && papan[2][3] == 'O' && papan[3][2] == 'O' && papan[4][1] == 'O' && papan[5][0] == 'O') ||
+
+        (papan[0][4] == 'X' && papan[1][3] == 'X' && papan[2][2] == 'X' && papan[3][1] == 'X' && papan[4][0] == 'X') || (papan[0][4] == 'O' && papan[1][3] == 'O' && papan[2][2] == 'O' && papan[3][1] == 'O' && papan[4][0] == 'O') ||
+
+        (papan[1][6] == 'X' && papan[2][5] == 'X' && papan[3][4] == 'X' && papan[4][3] == 'X' && papan[5][2] == 'X') || (papan[1][6] == 'O' && papan[2][5] == 'O' && papan[3][4] == 'O' && papan[4][3] == 'O' && papan[5][2] == 'O') ||
+        (papan[2][5] == 'X' && papan[3][4] == 'X' && papan[4][3] == 'X' && papan[5][2] == 'X' && papan[6][1] == 'X') || (papan[2][5] == 'O' && papan[3][4] == 'O' && papan[4][3] == 'O' && papan[5][2] == 'O' && papan[6][1] == 'O') ||
+
+        (papan[2][6] == 'X' && papan[3][5] == 'X' && papan[4][4] == 'X' && papan[5][3] == 'X' && papan[6][2] == 'X') || (papan[2][5] == 'O' && papan[3][4] == 'O' && papan[4][3] == 'O' && papan[5][2] == 'O' && papan[6][1] == 'O'))
     {
         return false;
     }
@@ -805,14 +863,22 @@ void PemainWin()
     }
 }
 
-void HowToPlay()
-{
-
-}
-
 // Modul Prosedur untuk tampilan akhir
 void Closing()
 {
+    char p1[50];
+    char p2[50];
+    int p1length = strlen(pemain1);
+    int p2length = strlen(pemain2);
+    for (int i = 0; i < p1length; i++)
+    {
+        p1[i] = toupper(pemain1[i]);
+    }
+    for (int i = 0; i < p2length + 1; i++)
+    {
+        p2[i] = toupper(pemain2[i]);
+    }
+
     printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
     printf("\t     TT      HH   HH  EE           DD     DD   II  NN NN   NN  GG        DD     DD   UU    UU     TT\n");
     printf("\t     TT      HHHHHHH  EEEEEE       DD      DD  II  NN  NN  NN  GG  GGGG  DD      DD  UU    UU     TT\n");
@@ -822,6 +888,12 @@ void Closing()
     printf("\t\t\t   TTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE  \n");
     printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
     printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
-    printf("\t\t\t         TERIMA KASIH TELAH BERMAIN      \n\n");
-    printf("\t\t\t               Sampai Jumpa!! \n");
+    printf("\t\t\t                         HASIL AKHIR      \n\n");
+    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p1, p1menang);
+    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, p2menang);
+}
+
+void KeluarPermainan()
+{
+    exit(0);
 }

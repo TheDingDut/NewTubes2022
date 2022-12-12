@@ -11,6 +11,9 @@ int main()
     int opsi, opsiDimensi;
     char loopGame = 'N';
 
+    /* WARNA */
+    system("COLOR 8B");
+
     /*MULAI GAME*/
     cover();
     system("cls");
@@ -36,6 +39,7 @@ int main()
                 isiPapan();
                 while (CekWin3())
                 {
+                    boardRef3();
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
@@ -49,6 +53,7 @@ int main()
                 isiPapan();
                 while (CekWin5())
                 {
+                    boardRef5();
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
@@ -62,6 +67,7 @@ int main()
                 isiPapan();
                 while (CekWin7())
                 {
+                    boardRef7();
                     printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
@@ -78,14 +84,35 @@ int main()
             isiPapan();
         } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));
         system("cls");
-            printf("%s %d vs %d %s\n", pemain1, p1menang, p2menang, pemain2);
+        Closing();
         break;
     case 2:
-        HowToPlay();
+        system("cls");
+
+        FILE *FF; // penunjuk ke file
+        char CC;  // var penunjuk karakter yang dibaca
+
+        if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
+        { // Buka file mode baca
+            printf("Pembukaan File Gagal !");
+            exit(1); // keluar program
+        }
+
+        while ((CC = getc(FF)) != EOF)
+        {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+            putch(CC); // baca dan tampilkan ke layar
+        }
+
+        fclose(FF);
+        printf("\nPress any key to main menu... ");
+        getch();
+        main();
+
     case 3:
         /*QUIT GAME*/
-        Closing();
+        KeluarPermainan();
         getchar();
+
         break;
     default:
         printf("Input Salah!");
