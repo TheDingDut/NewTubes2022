@@ -82,7 +82,6 @@ int main()
             }
             printf("\nUlangi Permainan? (Y/N) : ");
             scanf("%s", &loopGame);
-            loopGame = toupper(loopGame);
             isiPapan();
         } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));
         system("cls");
@@ -90,15 +89,28 @@ int main()
         break;
     case 2:
         system("cls");
-        HowToPlay();
+        FILE *FF; // penunjuk ke file
+        char CC;  // var penunjuk karakter yang dibaca
+
+        if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
+        { // Buka file mode baca
+            printf("Pembukaan File Gagal !");
+            exit(1); // keluar program
+        }
+
+        while ((CC = getc(FF)) != EOF)
+        {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+            putch(CC); // baca dan tampilkan ke layar
+        }
+
+        fclose(FF);
+	    printf("\n\nPress any key to main menu... "); 
         getch();
         main();
-
     case 3:
         /*QUIT GAME*/
         KeluarPermainan();
         getchar();
-
         break;
     default:
         printf("Input Salah!");
