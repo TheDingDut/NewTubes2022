@@ -46,7 +46,8 @@ void menuUtama()
     printf("\t\t\t                          MAIN MENU      \n\n");
     printf("\t\t\t                       1. Mulai Permainan \n");
     printf("\t\t\t                       2. Cara Bermain    \n");
-    printf("\t\t\t                       3. Keluar Permainan\n");
+    printf("\t\t\t                       3. Score Board \n");
+    printf("\t\t\t                       4. Keluar Permainan\n");
     printf("\t\t\tPilih Menu : ");
 }
 
@@ -834,6 +835,44 @@ bool CekWin7()
     draw = true;
 
     return false;
+}
+
+void scoreboard(){
+    int input;
+	system("cls");
+	printf("\n               SCORE BOARD                   ");
+	printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",201,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,187);
+    printf("\n %c  No  %c Tanggal %c Nama Player %c Score %c",186,186,186,186,186);
+  	printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",204,205,205,205,205,205,205,206,205,205,205,205,205,205,205,205,205,206,205,205,205,205,205,205,205,205,205,205,205,205,205,206,205,205,205,205,205,205,205,185);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+	printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",200,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,188);
+
+	
+	printf("\n\nPress any key to main menu... \n"); 
+	getch();
+	main();
 }
 
 void PemainWin()
