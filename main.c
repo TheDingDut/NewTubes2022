@@ -115,6 +115,8 @@ int main()
     system("cls");
     scoreboard(); 
     
+    break;
+    
     case 4:
         /*QUIT GAME*/
         KeluarPermainan();
