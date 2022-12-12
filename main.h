@@ -87,7 +87,8 @@ void PilihDimensi()
     printf("\t\t\t                       1. 3x3 \n");
     printf("\t\t\t                       2. 5x5    \n");
     printf("\t\t\t                       3. 7x7\n");
-    printf("\t\t\tPilih Dimensi : ");
+    printf("\t\t\t                       4. Kembali ke layar utama?\n");
+    printf("\t\t\tPilih : ");
 }
 
 void boardRef3()

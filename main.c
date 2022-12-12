@@ -8,17 +8,17 @@
 int main()
 {
     /*DEKLARASI VARIABEL*/
-    int opsi;               // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
-    int opsiDimensi;        // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
-    char loopGame = 'N';    // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
+    int opsi;            // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
+    int opsiDimensi;     // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
+    char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
 
     /* WARNA */
     system("COLOR 8B");
 
     /*MULAI GAME*/
-    cover();                
-    system("cls");          
-    menuUtama();            
+    cover();
+    system("cls");
+    menuUtama();
     scanf("%d", &opsi);
     switch (opsi)
     {
@@ -76,6 +76,9 @@ int main()
                 }
                 PemainWin();
                 break;
+            case 4:
+                // getch();
+                main();
             default:
                 printf("\nTidak ada pilihan dimensi!");
                 break;
@@ -88,7 +91,7 @@ int main()
         Closing();
         break;
     case 2:
-    /*HOW TO PLAY*/
+        /*HOW TO PLAY*/
         system("cls");
 
         FILE *FF; // penunjuk ke file
@@ -109,14 +112,14 @@ int main()
         printf("\nPress any key to main menu... ");
         getch();
         main();
-        
+
     case 3:
-    /*SCORE BOARD*/
-    system("cls");
-    scoreboard(); 
-    
-    break;
-    
+        /*SCORE BOARD*/
+        system("cls");
+        scoreboard();
+
+        break;
+
     case 4:
         /*QUIT GAME*/
         KeluarPermainan();
