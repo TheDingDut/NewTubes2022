@@ -8,8 +8,9 @@
 int main()
 {
     /*DEKLARASI VARIABEL*/
-    int opsi, opsiDimensi;
-    char loopGame = 'N';
+    int opsi;               // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
+    int opsiDimensi;        // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
+    char loopGame = 'N';    // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
 
     /* WARNA */
     system("COLOR 8B");
