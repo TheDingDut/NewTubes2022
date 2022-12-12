@@ -88,7 +88,6 @@ int main()
         break;
     case 2:
         system("cls");
-        HowToPlay();
 
         FILE *FF; // penunjuk ke file
         char CC;  // var penunjuk karakter yang dibaca
