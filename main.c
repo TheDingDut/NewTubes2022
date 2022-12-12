@@ -16,9 +16,9 @@ int main()
     system("COLOR 8B");
 
     /*MULAI GAME*/
-    cover();
-    system("cls");
-    menuUtama();
+    cover();                
+    system("cls");          
+    menuUtama();            
     scanf("%d", &opsi);
     switch (opsi)
     {
@@ -88,6 +88,7 @@ int main()
         Closing();
         break;
     case 2:
+    /*HOW TO PLAY*/
         system("cls");
 
         FILE *FF; // penunjuk ke file
@@ -108,8 +109,13 @@ int main()
         printf("\nPress any key to main menu... ");
         getch();
         main();
-
+        
     case 3:
+    /*SCORE BOARD*/
+    system("cls");
+    scoreboard(); 
+    
+    case 4:
         /*QUIT GAME*/
         KeluarPermainan();
         getchar();
