@@ -99,12 +99,6 @@ void PilihDimensi()
     printf("\t\t\tPilih Dimensi : ");
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 3x3 oleh user
-I.S : Papan referensi belum tampil
-F.S : Papan referensi tampil
-*/
 void boardRef3()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
@@ -115,12 +109,6 @@ void boardRef3()
     printf(" 7  | 8  | 9  \n");
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 5x5 oleh user
-I.S : Papan referensi belum tampil
-F.S : Papan referensi tampil
-*/
 void boardRef5()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
@@ -135,12 +123,6 @@ void boardRef5()
     printf(" 21 | 22 | 23 | 24 | 25 \n");
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 7x7 oleh user
-I.S : Papan referensi belum tampil
-F.S : Papan referensi tampil
-*/
 void boardRef7()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
@@ -159,12 +141,6 @@ void boardRef7()
     printf(" 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan 
-I.S : Isi pada papan belum terinisialisasi
-F.S : Isi pada papan terinisialisasi
-*/
 void isiPapan()
 {
     int x = 1;
@@ -179,12 +155,6 @@ void isiPapan()
     }
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk membuat desain papan 
-I.S : Papan permainan belum tampil
-F.S : Papan permainan tampil
-*/
 void BoardDinamis()
 {
     for (int i = 0; i < flagBoardDinamis; i++)
@@ -215,13 +185,6 @@ void BoardDinamis()
     }
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan 
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
-*/
 void giliran()
 {
     Koordinat lokasi;
@@ -741,12 +704,6 @@ void giliran()
     }
 }
 
-/*Deskripsi Modul
-Fungsi
-Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau seri pada permainan Tic Tac Toe dengan dimensi papan 3x3
-I.S : Kondisi menang atau seri pada papan dimensi 3x3 belum diketahui
-F.S : Kondisi menang atau seri pada papan dimensi 3x3 diketahui
-*/
 bool CekWin3()
 {
     /*cek horizontal dan vertikal*/
@@ -782,12 +739,6 @@ bool CekWin3()
     return false;
 }
 
-/*Deskripsi Modul
-Fungsi
-Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau seri pada permainan Tic Tac Toe dengan dimensi papan 5x5
-I.S : Kondisi menang atau seri pada papan dimensi 5x5 belum diketahui
-F.S : Kondisi menang atau seri pada papan dimensi 5x5 diketahui
-*/
 bool CekWin5()
 {
     /*cek vertikal horizontal dan vertikal*/
@@ -831,12 +782,6 @@ bool CekWin5()
     return false;
 }
 
-/*Deskripsi Modul
-Fungsi
-Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau seri pada permainan Tic Tac Toe dengan dimensi papan 7x7
-I.S : Kondisi menang atau seri pada papan dimensi 7x7 belum diketahui
-F.S : Kondisi menang atau seri pada papan dimensi 7x7 diketahui
-*/
 bool CekWin7()
 {
     /*cek vertikal horizontal dan vertikal*/
@@ -900,12 +845,6 @@ bool CekWin7()
     return false;
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 1 kali putaran permainan
-I.S : Keadaan pemain menang atau seri tidak diketahui
-F.S : Keadaan pemain menang atau seri diketahui
-*/
 void PemainWin()
 {
     if (XO == 'X' && !draw)
@@ -933,12 +872,6 @@ void PemainWin()
     }
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk menampilkan hasil akhir permainan
-I.S : Hasil akhir permainan belum diketahui
-F.S : Hasil akhir permainan diketahui
-*/
 void Closing()
 {
     char p1[50];
@@ -968,12 +901,6 @@ void Closing()
     printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, p2menang);
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk mengakhiri permainan
-I.S : Program dan permainan berjalan 
-F.S : Program berhenti
-*/
 void KeluarPermainan()
 {
     exit(0);
