@@ -16,9 +16,9 @@ int main()
     system("COLOR 8B");
 
     /*MULAI GAME*/
-    cover();
-    system("cls");
-    menuUtama();
+    cover();                //EDIT-EDIT SAJA 
+    system("cls");          //HANYA UNTUK MENGETEST
+    menuUtama();            //HAHAHAHA
     scanf("%d", &opsi);
     switch (opsi)
     {
