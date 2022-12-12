@@ -11,8 +11,10 @@ int main()
     int opsi, opsiDimensi;
     char loopGame = 'N';
 
-    /*MULAI GAME*/
+    /* WARNA */
     system("COLOR 8B");
+
+    /*MULAI GAME*/
     cover();
     system("cls");
     menuUtama();
@@ -103,15 +105,15 @@ int main()
         }
 
         fclose(FF);
-	    printf("\nPress any key to main menu... "); 
+        printf("\nPress any key to main menu... ");
         getch();
         main();
-        
+
     case 3:
         /*QUIT GAME*/
         KeluarPermainan();
         getchar();
-        
+
         break;
     default:
         printf("Input Salah!");
