@@ -13,7 +13,7 @@ int main()
     char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
 
     /* WARNA */
-    system("COLOR 8B");
+    system("COLOR E0");
 
     /*MULAI GAME*/
     cover();
@@ -41,7 +41,7 @@ int main()
                 while (CekWin3())
                 {
                     boardRef3();
-                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
                     CekWin3();
@@ -55,7 +55,7 @@ int main()
                 while (CekWin5())
                 {
                     boardRef5();
-                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
                     CekWin5();
@@ -69,7 +69,7 @@ int main()
                 while (CekWin7())
                 {
                     boardRef7();
-                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
                     BoardDinamis();
                     giliran(pemain1, pemain2);
                     CekWin7();
@@ -83,7 +83,7 @@ int main()
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\nUlangi Permainan? (Y/N) : ");
+            printf("\n\tUlangi Permainan? (Y/N) : ");
             scanf("%s", &loopGame);
             isiPapan();
         } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));

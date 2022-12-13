@@ -93,26 +93,26 @@ void PilihDimensi()
 
 void boardRef3()
 {
-    printf("Pilih salah satu kolom dengan menginputkan nomor\n");
-    printf(" 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
-    printf("----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
-    printf(" 4  | 5  | 6  \n");
-    printf("----|----|----\n");
-    printf(" 7  | 8  | 9  \n");
+    printf("\n\n\tPilih salah satu kolom dengan menginputkan nomor\n");
+    printf("\t 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("\t----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf("\t 4  | 5  | 6  \n");
+    printf("\t----|----|----\n");
+    printf("\t 7  | 8  | 9  \n");
 }
 
 void boardRef5()
 {
-    printf("Pilih salah satu kolom dengan menginputkan nomor\n");
-    printf(" 1  | 2  | 3  | 4  | 5  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
-    printf("----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
-    printf(" 6  | 7  | 8  | 9  | 10 \n");
-    printf("----|----|----|----|----\n");
-    printf(" 11 | 12 | 13 | 14 | 15 \n");
-    printf("----|----|----|----|----\n");
-    printf(" 16 | 17 | 18 | 19 | 20 \n");
-    printf("----|----|----|----|----\n");
-    printf(" 21 | 22 | 23 | 24 | 25 \n");
+    printf("\n\tPilih salah satu kolom dengan menginputkan nomor\n");
+    printf("\t 1  | 2  | 3  | 4  | 5  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("\t----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf("\t 6  | 7  | 8  | 9  | 10 \n");
+    printf("\t----|----|----|----|----\n");
+    printf("\t 11 | 12 | 13 | 14 | 15 \n");
+    printf("\t----|----|----|----|----\n");
+    printf("\t 16 | 17 | 18 | 19 | 20 \n");
+    printf("\t----|----|----|----|----\n");
+    printf("\t 21 | 22 | 23 | 24 | 25 \n");
 }
 
 void boardRef7()
@@ -151,6 +151,7 @@ void BoardDinamis()
 {
     for (int i = 0; i < flagBoardDinamis; i++)
     {
+        printf("\t");
         for (int j = 0; j < flagBoardDinamis; j++)
         {
             printf(" %c ", papan[i][j]);
@@ -160,6 +161,7 @@ void BoardDinamis()
             }
         }
         printf("\n");
+        printf("\t");
         for (int j = 0; j < flagBoardDinamis; j++)
         {
             /* code */
@@ -187,11 +189,11 @@ void giliran()
     {
         if (XO == 'O')
         {
-            printf("Giliran %s : ", pemain1);
+            printf("\tGiliran %s : ", pemain1);
         }
         else if (XO == 'X')
         {
-            printf("Giliran %s : ", pemain2);
+            printf("\tGiliran %s : ", pemain2);
         }
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
@@ -283,11 +285,11 @@ void giliran()
     {
         if (XO == 'O')
         {
-            printf("Giliran %s : ", pemain1);
+            printf("\tGiliran %s : ", pemain1);
         }
         else if (XO == 'X')
         {
-            printf("Giliran %s : ", pemain2);
+            printf("\tGiliran %s : ", pemain2);
         }
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
@@ -443,11 +445,11 @@ void giliran()
     {
         if (XO == 'O')
         {
-            printf("Giliran %s : ", pemain1);
+            printf("\tGiliran %s : ", pemain1);
         }
         else if (XO == 'X')
         {
-            printf("Giliran %s : ", pemain2);
+            printf("\tGiliran %s : ", pemain2);
         }
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
@@ -882,23 +884,23 @@ void PemainWin()
     {
         system("cls");
         p1menang++;
-        printf("%s memenangkan permainan!", pemain1);
-        printf("\nHasil Akhir :\n");
+        printf("\n\t%s memenangkan permainan!", pemain1);
+        printf("\n\tHasil Akhir :\n\n");
         BoardDinamis();
     }
     else if (XO == 'O' && !draw)
     {
         system("cls");
         p2menang++;
-        printf("%s memenangkan permainan!", pemain2);
-        printf("\nHasil Akhir :\n");
+        printf("\n\t%s memenangkan permainan!", pemain2);
+        printf("\n\tHasil Akhir :\n\n");
         BoardDinamis();
     }
     else
     {
         system("cls");
         printf("Permainan Seri!");
-        printf("\nHasil Akhir :\n");
+        printf("\nHasil Akhir :\n\n");
         BoardDinamis();
     }
 }
