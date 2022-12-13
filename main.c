@@ -17,7 +17,7 @@ int main()
 
     /*MULAI GAME*/
     cover();
-    system("cls");
+    system("cls");      // Code ini bertujuan untuk membersihkan layar program
     menuUtama();
     scanf("%d", &opsi);
     switch (opsi)
@@ -93,23 +93,7 @@ int main()
     case 2:
         /*HOW TO PLAY*/
         system("cls");
-
-        FILE *FF; // penunjuk ke file
-        char CC;  // var penunjuk karakter yang dibaca
-
-        if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
-        { // Buka file mode baca
-            printf("Pembukaan File Gagal !");
-            exit(1); // keluar program
-        }
-
-        while ((CC = getc(FF)) != EOF)
-        {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
-            putch(CC); // baca dan tampilkan ke layar
-        }
-
-        fclose(FF);
-        printf("\nPress any key to main menu... ");
+        HowToPlay();
         getch();
         main();
 
