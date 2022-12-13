@@ -81,17 +81,6 @@ void InputNamaPemain()
     scanf("%s", &pemain2);
 }
 
-void PilihSimbol()
-{
-    printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
-    printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
-    printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
-    printf("\t\t\t=================================================================\n\n");
-    printf("\t\t\t                      Pilih Simbol\n");
-    printf("\t\t\t                      1. X\n");
-    printf("\t\t\t                      2. O\n");
-}
-
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan sebagai tampilan pemilihan dimensi oleh user
@@ -128,6 +117,12 @@ void boardRef3()
     printf(" 7  | 8  | 9  \n");
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 5x5 oleh user
+I.S : Papan referensi belum tampil
+F.S : Papan referensi tampil
+*/
 void boardRef5()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
@@ -142,6 +137,12 @@ void boardRef5()
     printf(" 21 | 22 | 23 | 24 | 25 \n");
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 7x7 oleh user
+I.S : Papan referensi belum tampil
+F.S : Papan referensi tampil
+*/
 void boardRef7()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
@@ -160,6 +161,12 @@ void boardRef7()
     printf(" 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan 
+I.S : Isi pada papan belum terinisialisasi
+F.S : Isi pada papan terinisialisasi
+*/
 void isiPapan()
 {
     int x = 1;
