@@ -13,11 +13,11 @@ int main()
     char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
 
     /* WARNA */
-    system("COLOR 8B");
+    system("COLOR 8B"); // Code ini bertujuan untuk mengubah warna latar belakang dan tulisan ketika program dijalankan
 
     /*MULAI GAME*/
     cover();
-    system("cls");
+    system("cls");      // Code ini bertujuan untuk membersihkan layar program
     menuUtama();
     scanf("%d", &opsi);
     switch (opsi)

@@ -6,7 +6,6 @@ char pemain1[50], pemain2[50];
 char papan[7][7];
 char XO = 'O';
 int pilihan, flagBoardDinamis;
-// pemenang
 int p1menang = 0, p2menang = 0;
 bool draw = false;
 
