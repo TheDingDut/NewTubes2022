@@ -114,9 +114,9 @@ int main()
         main();
 
     case 3:
-        /*SCORE BOARD*/
-        system("cls");
-        scoreboard();
+        /*SCORE BOARD*/ //BUAHAHAHA
+        system("cls"); // WIHIHIHIH
+        scoreboard(); // UA UA UA
 
         break;
 
