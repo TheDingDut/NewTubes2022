@@ -11,14 +11,19 @@ typedef struct
 char pemain1[50], pemain2[50];  // Variabel ini digunakan untuk menyimpan nama pemain 1 dan pemain 2
 char papan[7][7];               // Variabel ini digunakan untuk mencetak desain papan 
 char XO = 'O';                  // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
-int pilihan;
-int flagBoardDinamis;  
-int p1menang = 0, p2menang = 0;
-bool draw = false;
+int pilihan;                    // Variabel ini digunakan untuk menampung posisi yang dipilih user untuk mengisi papan
+int flagBoardDinamis;           // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
+int p1menang = 0, p2menang = 0; // Variabel ini digunakan untuk menampung skor pemain ketika memaminkan permainan
+bool draw = false;              // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
 
 
-// Cetak Cover
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan awal permainan berupa pengenalan nama permainan
+I.S : cover belum tampil
+F.S : cover tampil
+*/
 void cover()
 {
     printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
