@@ -902,6 +902,12 @@ bool CekWin7()
     return false;
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk membuat tampilan papan skor
+I.S : Papan skor belum tampil
+F.S : Papan skor belum tampil
+*/
 void scoreboard(){
     int input;
 	system("cls");
@@ -938,6 +944,32 @@ void scoreboard(){
 	printf("\n\nPress any key to main menu... \n"); 
 	getch();
 	main();
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
+I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
+F.S : Cara bermain pada permainan Tic Tac Toe tampil
+*/
+void HowToPlay()
+{
+    FILE *FF; // penunjuk ke file
+        char CC;  // var penunjuk karakter yang dibaca
+
+        if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
+        { // Buka file mode baca
+            printf("Pembukaan File Gagal !");
+            exit(1); // keluar program
+        }
+
+        while ((CC = getc(FF)) != EOF)
+        {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+            putch(CC); // baca dan tampilkan ke layar
+        }
+
+        fclose(FF);
+	    printf("\n\nPress any key to main menu... "); 
 }
 
 /*Deskripsi Modul
