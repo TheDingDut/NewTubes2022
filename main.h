@@ -141,7 +141,7 @@ void isiPapan()
         for (int j = 0; j < flagBoardDinamis; j++)
         {
             char c = x + '0';
-            papan[i][j] = '-';
+            papan[i][j] = ' ';
             x++;
         }
     }
@@ -156,7 +156,7 @@ void BoardDinamis()
             printf(" %c ", papan[i][j]);
             if (j != flagBoardDinamis - 1)
             {
-                printf("|");
+                printf("%c", 186);
             }
         }
         printf("\n");
@@ -166,10 +166,10 @@ void BoardDinamis()
             if (i < flagBoardDinamis - 1)
             {
                 /* code */
-                printf("---");
+                printf("%c%c%c",205, 205, 205);
                 if (j != flagBoardDinamis - 1)
                 {
-                    printf("|");
+                    printf("%c", 206);
                 }
             }
         }
