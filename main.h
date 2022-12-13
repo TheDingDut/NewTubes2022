@@ -97,7 +97,7 @@ void PilihDimensi()
     printf("\t\t\t                       1. 3x3 \n");
     printf("\t\t\t                       2. 5x5    \n");
     printf("\t\t\t                       3. 7x7\n");
-    printf("\t\t\t                       4. Kembali ke layar utama?\n");
+    printf("\t\t\t                       4. Kembali ke layar utama\n");
     printf("\t\t\tPilih : ");
 }
 
@@ -245,7 +245,7 @@ void giliran()
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
-            printf("WaktuHabis!\n");
+            printf("\t\t!!!!!WaktuHabis!!!!!\n");
             if (XO == 'O')
             {
                 XO = 'X';
