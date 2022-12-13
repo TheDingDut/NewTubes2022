@@ -2,18 +2,21 @@
 #include <stdbool.h>
 #include <time.h>
 
-char pemain1[50], pemain2[50];
-char papan[7][7];
-char XO = 'O';
-int pilihan, flagBoardDinamis;
-int p1menang = 0, p2menang = 0;
-bool draw = false;
-
-// Deklarasi Variabel Koordinat
+// Deklarasi tipe data baru bernama Koordinat
 typedef struct
 {
     int baris, kolom;
 } Koordinat;
+
+char pemain1[50], pemain2[50];  // Variabel ini digunakan untuk menyimpan nama pemain 1 dan pemain 2
+char papan[7][7];               // Variabel ini digunakan untuk mencetak desain papan 
+char XO = 'O';                  // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
+int pilihan;
+int flagBoardDinamis;  
+int p1menang = 0, p2menang = 0;
+bool draw = false;
+
+
 
 // Cetak Cover
 void cover()
