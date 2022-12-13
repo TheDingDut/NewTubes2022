@@ -43,7 +43,12 @@ void cover()
     getchar();
 }
 
-// Cetak Menu Utama
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan pemilihan menu oleh user
+I.S : menuUtama belum tampil
+F.S : menuUtama tampil
+*/
 void menuUtama()
 {
     printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
@@ -58,7 +63,12 @@ void menuUtama()
     printf("\t\t\tPilih Menu : ");
 }
 
-// Modul Prosedur untuk input nama pemain
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan dan pengisian nama pemain
+I.S : Nama pemain belum terisi
+F.S : Nama pemain terisi
+*/
 void InputNamaPemain()
 {
     printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
@@ -71,7 +81,6 @@ void InputNamaPemain()
     scanf("%s", &pemain2);
 }
 
-// Modul prosedur untuk tampilan memilih simbol
 void PilihSimbol()
 {
     printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
@@ -83,7 +92,12 @@ void PilihSimbol()
     printf("\t\t\t                      2. O\n");
 }
 
-// Modul Prosedur untuk tampilan pemilihan dimensi
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan pemilihan dimensi oleh user
+I.S : PilihDimensi belum tampil
+F.S : PilihDimensi tampil
+*/
 void PilihDimensi()
 {
     printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
@@ -98,6 +112,12 @@ void PilihDimensi()
     printf("\t\t\tPilih : ");
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 3x3 oleh user
+I.S : Papan referensi belum tampil
+F.S : Papan referensi tampil
+*/
 void boardRef3()
 {
     printf("Pilih salah satu kolom dengan menginputkan nomor\n");
