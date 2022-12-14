@@ -17,7 +17,7 @@ int main()
 
     /*MULAI GAME*/
     cover();
-    system("cls");      // Code ini bertujuan untuk membersihkan layar program
+    system("cls"); // Code ini bertujuan untuk membersihkan layar program
     menuUtama();
     scanf("%d", &opsi);
     switch (opsi)
@@ -112,6 +112,7 @@ int main()
         break;
     default:
         printf("Input Salah!");
+        main();
         break;
     }
 
