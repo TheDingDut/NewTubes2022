@@ -245,7 +245,7 @@ void giliran()
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
-            printf("\t\t!!!!!WaktuHabis!!!!!\n");
+            printf("\n\t!!!!!Waktu Habis!!!!!\n");
             if (XO == 'O')
             {
                 XO = 'X';
@@ -341,7 +341,7 @@ void giliran()
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
-            printf("\nWaktuHabis!\n\n");
+            printf("\n!!!!!Waktu Habis!!!!!\n\n");
             if (XO == 'O')
             {
                 XO = 'X';
@@ -501,7 +501,7 @@ void giliran()
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
-            printf("\nWaktuHabis!\n\n");
+            printf("\n\t!!!!!Waktu Habis!!!!!\n\n");
             if (XO == 'O')
             {
                 XO = 'X';
