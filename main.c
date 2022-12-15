@@ -41,7 +41,7 @@ int main()
                 while (CekWin3())
                 {
                     boardRef3();
-                    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    tampilanPengingatWaktu();
                     BoardDinamis();
                     giliran(pemain1, pemain2);
                     CekWin3();
@@ -55,7 +55,7 @@ int main()
                 while (CekWin5())
                 {
                     boardRef5();
-                    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    tampilanPengingatWaktu();
                     BoardDinamis();
                     giliran(pemain1, pemain2);
                     CekWin5();
@@ -69,7 +69,7 @@ int main()
                 while (CekWin7())
                 {
                     boardRef7();
-                    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+                    tampilanPengingatWaktu();
                     BoardDinamis();
                     giliran(pemain1, pemain2);
                     CekWin7();

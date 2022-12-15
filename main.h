@@ -9,14 +9,12 @@ typedef struct
 } Koordinat;
 
 char pemain1[50], pemain2[50];  // Variabel ini digunakan untuk menyimpan nama pemain 1 dan pemain 2
-char papan[7][7];               // Variabel ini digunakan untuk mencetak desain papan 
+char papan[7][7];               // Variabel ini digunakan untuk mencetak desain papan
 char XO = 'O';                  // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
 int pilihan;                    // Variabel ini digunakan untuk menampung posisi yang dipilih user untuk mengisi papan
 int flagBoardDinamis;           // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
 int p1menang = 0, p2menang = 0; // Variabel ini digunakan untuk menampung skor pemain ketika memaminkan permainan
 bool draw = false;              // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
-
-
 
 /*Deskripsi Modul
 Prosedur
@@ -109,7 +107,7 @@ F.S : Papan referensi tampil
 */
 void boardRef3()
 {
-    printf("\n\n\tPilih salah satu kolom dengan menginputkan nomor\n");
+    printf("\n\tPilih salah satu kolom dengan menginputkan nomor\n");
     printf("\t 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
     printf("\t----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
     printf("\t 4  | 5  | 6  \n");
@@ -145,25 +143,29 @@ F.S : Papan referensi tampil
 */
 void boardRef7()
 {
-    printf("Pilih salah satu kolom dengan menginputkan nomor\n");
-    printf(" 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
-    printf("----|----|----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
-    printf(" 8  | 9  | 10 | 11 | 12 | 13 | 14 \n");
-    printf("----|----|----|----|----|----|----\n");
-    printf(" 15 | 16 | 17 | 18 | 19 | 20 | 21 \n");
-    printf("----|----|----|----|----|----|----\n");
-    printf(" 22 | 23 | 24 | 25 | 26 | 27 | 28 \n");
-    printf("----|----|----|----|----|----|----\n");
-    printf(" 29 | 30 | 31 | 32 | 33 | 34 | 35 \n");
-    printf("----|----|----|----|----|----|----\n");
-    printf(" 36 | 37 | 38 | 39 | 40 | 41 | 42 \n");
-    printf("----|----|----|----|----|----|----\n");
-    printf(" 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
+    printf("\tPilih salah satu kolom dengan menginputkan nomor\n");
+    printf("\t 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
+    printf("\t----|----|----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf("\t 8  | 9  | 10 | 11 | 12 | 13 | 14 \n");
+    printf("\t----|----|----|----|----|----|----\n");
+    printf("\t 15 | 16 | 17 | 18 | 19 | 20 | 21 \n");
+    printf("\t----|----|----|----|----|----|----\n");
+    printf("\t 22 | 23 | 24 | 25 | 26 | 27 | 28 \n");
+    printf("\t----|----|----|----|----|----|----\n");
+    printf("\t 29 | 30 | 31 | 32 | 33 | 34 | 35 \n");
+    printf("\t----|----|----|----|----|----|----\n");
+    printf("\t 36 | 37 | 38 | 39 | 40 | 41 | 42 \n");
+    printf("\t----|----|----|----|----|----|----\n");
+    printf("\t 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
+}
+
+void tampilanPengingatWaktu(){
+    printf("\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
 }
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan 
+Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
 I.S : Isi pada papan belum terinisialisasi
 F.S : Isi pada papan terinisialisasi
 */
@@ -183,7 +185,7 @@ void isiPapan()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk membuat desain papan 
+Modul ini bertujuan untuk membuat desain papan
 I.S : Papan permainan belum tampil
 F.S : Papan permainan tampil
 */
@@ -208,7 +210,7 @@ void BoardDinamis()
             if (i < flagBoardDinamis - 1)
             {
                 /* code */
-                printf("%c%c%c",205, 205, 205);
+                printf("%c%c%c", 205, 205, 205);
                 if (j != flagBoardDinamis - 1)
                 {
                     printf("%c", 206);
@@ -221,7 +223,7 @@ void BoardDinamis()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan 
+Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
 proses pengisian baris dan kolom dengan simbol
 I.S : Giliran pemain belum berganti dan baris kolom kosong
 F.S : Giliran pemain berganti dan baris kolom terisi simbol
@@ -254,6 +256,9 @@ void giliran()
             {
                 XO = 'O';
             }
+            printf("\n\tTekan Enter Untuk Lanjut..\n");
+            getch();
+            system("cls");
         }
         else
         {
@@ -325,6 +330,7 @@ void giliran()
 
                 // cetakPapan3();
             }
+            system("cls");
         }
     }
     else if (flagBoardDinamis == 5)
@@ -350,6 +356,9 @@ void giliran()
             {
                 XO = 'O';
             }
+            printf("\n\tTekan Enter Untuk Lanjut..\n");
+            getch();
+            system("cls");
         }
         else
         {
@@ -485,6 +494,7 @@ void giliran()
 
                 // cetakPapan3();
             }
+            system("cls");
         }
     }
     else if (flagBoardDinamis == 7)
@@ -510,6 +520,9 @@ void giliran()
             {
                 XO = 'O';
             }
+            printf("\n\tTekan Enter Untuk Lanjut..\n");
+            getch();
+            system("cls");
         }
         else
         {
@@ -742,6 +755,7 @@ void giliran()
 
             // cetakPapan7();
         }
+        system("cls");
     }
 }
 
@@ -889,10 +903,10 @@ bool CekWin7()
         return false;
     }
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 7; i++)
     { /*cek draw*/
 
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < 7; j++)
         {
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
                 return true;
@@ -904,48 +918,64 @@ bool CekWin7()
     return false;
 }
 
+/* Deskripsi Modul */
+void inputTextToFile()
+{
+    FILE *fp; // file pointer
+    char ch;
+    fp = fopen("file_handle.c", "r");
+    while (1)
+    {
+        ch = fgetc(fp); // Each character of the file is read and stored in the character file.
+        if (ch == EOF)
+            break;
+        printf("%c", ch);
+    }
+    fclose(fp);
+}
+
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan untuk membuat tampilan papan skor
 I.S : Papan skor belum tampil
 F.S : Papan skor belum tampil
 */
-void scoreboard(){
+void scoreboard()
+{
     int input;
-	system("cls");
-	printf("\n               SCORE BOARD                   ");
-	printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",201,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,187);
-    printf("\n %c  No  %c Tanggal %c Nama Player %c Score %c",186,186,186,186,186);
-  	printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",204,205,205,205,205,205,205,206,205,205,205,205,205,205,205,205,205,206,205,205,205,205,205,205,205,205,205,205,205,205,205,206,205,205,205,205,205,205,205,185);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-	printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c      %c         %c             %c       %c",186,186,186,186,186);
-    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",200,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,188);
+    system("cls");
+    printf("\n               SCORE BOARD                   ");
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 187);
+    printf("\n %c  No  %c Tanggal %c Nama Player %c Score %c", 186, 186, 186, 186, 186);
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 185);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 188);
 
-	
-	printf("\n\nPress any key to main menu... \n"); 
-	getch();
-	main();
+    printf("\n\nPress any key to main menu... \n");
+    getch();
+    main();
 }
 
 /*Deskripsi Modul
@@ -957,21 +987,21 @@ F.S : Cara bermain pada permainan Tic Tac Toe tampil
 void HowToPlay()
 {
     FILE *FF; // penunjuk ke file
-        char CC;  // var penunjuk karakter yang dibaca
+    char CC;  // var penunjuk karakter yang dibaca
 
-        if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
-        { // Buka file mode baca
-            printf("Pembukaan File Gagal !");
-            exit(1); // keluar program
-        }
+    if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
+    { // Buka file mode baca
+        printf("Pembukaan File Gagal !");
+        exit(1); // keluar program
+    }
 
-        while ((CC = getc(FF)) != EOF)
-        {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
-            putch(CC); // baca dan tampilkan ke layar
-        }
+    while ((CC = getc(FF)) != EOF)
+    {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+        putch(CC); // baca dan tampilkan ke layar
+    }
 
-        fclose(FF);
-	    printf("\n\nPress any key to main menu... "); 
+    fclose(FF);
+    printf("\n\nPress any key to main menu... ");
 }
 
 /*Deskripsi Modul
@@ -1045,7 +1075,7 @@ void Closing()
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan untuk mengakhiri permainan
-I.S : Program dan permainan berjalan 
+I.S : Program dan permainan berjalan
 F.S : Program berhenti
 */
 void KeluarPermainan()
