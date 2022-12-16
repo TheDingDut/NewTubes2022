@@ -8,21 +8,21 @@
 int main()
 {
     /*DEKLARASI VARIABEL*/
-    int opsi;            // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
-    int opsiDimensi;     // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
-    int flagBoardDinamis;           // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
-    char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
+    int opsi;             // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
+    int opsiDimensi;      // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
+    int flagBoardDinamis; // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
+    char loopGame = 'N';  // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
     Player pemain1, pemain2;
-    bool draw = false;              // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
+    bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
     pemain1.menang = 0;
-    pemain2.menang =0;
+    pemain2.menang = 0;
 
     /* WARNA */
     system("COLOR E0");
 
     /*MULAI GAME*/
     cover();
-    system("cls");      // Code ini bertujuan untuk membersihkan layar program
+    system("cls"); // Code ini bertujuan untuk membersihkan layar program
     menuUtama();
     scanf("%d", &opsi);
     switch (opsi)
@@ -51,7 +51,7 @@ int main()
                     giliran(pemain1, pemain2, flagBoardDinamis);
                     CekWin3(draw);
                 }
-                PemainWin(pemain1, pemain2, draw, flagBoardDinamis);
+                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 2:
                 // TIC TAC TOE 5 X 5
@@ -65,7 +65,7 @@ int main()
                     giliran(pemain1, pemain2, flagBoardDinamis);
                     CekWin5(draw);
                 }
-                PemainWin(pemain1, pemain2, draw, flagBoardDinamis);
+                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 3:
                 // TIC TAC TOE 7 X 7
@@ -79,7 +79,7 @@ int main()
                     giliran(pemain1, pemain2, flagBoardDinamis);
                     CekWin7(draw);
                 }
-                PemainWin(pemain1, pemain2, draw, flagBoardDinamis);
+                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 4:
                 // getch();
@@ -112,7 +112,7 @@ int main()
     case 4:
         /*QUIT GAME*/
         KeluarPermainan();
-        getchar();  
+        getchar();
 
         break;
     default:

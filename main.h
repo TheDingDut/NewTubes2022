@@ -15,10 +15,8 @@ typedef struct
     int menang;
 } Player;
 
-char papan[7][7];               // Variabel ini digunakan untuk mencetak desain papan
-char XO = 'O';                  // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
-// int p1menang = 0, p2menang = 0; // Variabel ini digunakan untuk menampung skor pemain ketika memaminkan permainan
-
+char papan[7][7]; // Variabel ini digunakan untuk mencetak desain papan
+char XO = 'O';    // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
 
 /*Deskripsi Modul
 Prosedur
@@ -163,7 +161,8 @@ void boardRef7(Player p1, Player p2)
     printf("\t 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
 }
 
-void tampilanPengingatWaktu(){
+void tampilanPengingatWaktu()
+{
     printf("\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
 }
 
@@ -225,6 +224,30 @@ void BoardDinamis(int flag)
     }
 }
 
+void inputGiliranPemain(Player p1, Player p2)
+{
+    if (XO == 'O')
+    {
+        printf("\tGiliran %s : ", p1.nama);
+    }
+    else if (XO == 'X')
+    {
+        printf("\tGiliran %s : ", p2.nama);
+    }
+}
+
+void GiliranBermain()
+{
+    if (XO == 'O')
+    {
+        XO = 'X';
+    }
+    else
+    {
+        XO = 'O';
+    }
+}
+
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
@@ -236,31 +259,17 @@ void giliran(Player p1, Player p2, int flag)
 {
     Koordinat lokasi;
     time_t waktu = time(NULL); // variabel yang berisi waktu saat modul dijalankan
-    int pilihan;                    // Variabel ini digunakan untuk menampung posisi yang dipilih user untuk mengisi papan
+    int pilihan;               // Variabel ini digunakan untuk menampung posisi yang dipilih user untuk mengisi papan
 
     if (flag == 3)
     {
-        if (XO == 'O')
-        {
-            printf("\tGiliran %s : ", p1.nama);
-        }
-        else if (XO == 'X')
-        {
-            printf("\tGiliran %s : ", p2.nama);
-        }
+        inputGiliranPemain(p1, p2);
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
             printf("\n\t!!!!!Waktu Habis!!!!!\n");
-            if (XO == 'O')
-            {
-                XO = 'X';
-            }
-            else
-            {
-                XO = 'O';
-            }
+            GiliranBermain();
             printf("\n\tTekan Enter Untuk Lanjut..\n");
             getch();
             system("cls");
@@ -340,27 +349,13 @@ void giliran(Player p1, Player p2, int flag)
     }
     else if (flag == 5)
     {
-        if (XO == 'O')
-        {
-            printf("\tGiliran %s : ", p1.nama);
-        }
-        else if (XO == 'X')
-        {
-            printf("\tGiliran %s : ", p2.nama);
-        }
+        inputGiliranPemain(p1, p2);
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
             printf("\n!!!!!Waktu Habis!!!!!\n\n");
-            if (XO == 'O')
-            {
-                XO = 'X';
-            }
-            else
-            {
-                XO = 'O';
-            }
+            GiliranBermain();
             printf("\n\tTekan Enter Untuk Lanjut..\n");
             getch();
             system("cls");
@@ -504,27 +499,13 @@ void giliran(Player p1, Player p2, int flag)
     }
     else if (flag == 7)
     {
-        if (XO == 'O')
-        {
-            printf("\tGiliran %s : ", p1.nama);
-        }
-        else if (XO == 'X')
-        {
-            printf("\tGiliran %s : ", p2.nama);
-        }
+        inputGiliranPemain(p1, p2);
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
             printf("\n\t!!!!!Waktu Habis!!!!!\n\n");
-            if (XO == 'O')
-            {
-                XO = 'X';
-            }
-            else
-            {
-                XO = 'O';
-            }
+            GiliranBermain();
             printf("\n\tTekan Enter Untuk Lanjut..\n");
             getch();
             system("cls");
@@ -1014,21 +995,21 @@ Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 
 I.S : Keadaan pemain menang atau seri tidak diketahui
 F.S : Keadaan pemain menang atau seri diketahui
 */
-void PemainWin(Player p1, Player p2, bool draw, int flag)
+void PemainWin(Player *p1, Player *p2, bool draw, int flag)
 {
     if (XO == 'X' && !draw)
     {
         system("cls");
-        p1.menang++;
-        printf("\n\t%s memenangkan permainan!", p1.nama);
+        p1->menang = p1->menang + 1;
+        printf("\n\t%s memenangkan permainan!", p1->nama);
         printf("\n\tHasil Akhir :\n\n");
         BoardDinamis(flag);
     }
     else if (XO == 'O' && !draw)
     {
         system("cls");
-        p2.menang++;
-        printf("\n\t%s memenangkan permainan!", p2.nama);
+        p2->menang = p2->menang + 1;
+        printf("\n\t%s memenangkan permainan!", p2->nama);
         printf("\n\tHasil Akhir :\n\n");
         BoardDinamis(flag);
     }
