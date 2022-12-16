@@ -83,10 +83,10 @@ int main()
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\n\tUlangi Permainan? (Y/N) : ");
+            printf("\n\tUlangi Permainan? (Y) : ");
             scanf("%s", &loopGame);
             isiPapan();
-        } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));
+        } while ((toupper(loopGame) == 'Y' && p1menang < 3) && (toupper(loopGame) == 'Y' && p2menang < 3));
         system("cls");
         Closing();
         break;
