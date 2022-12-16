@@ -15,8 +15,9 @@ typedef struct
     int menang;
 } Player;
 
-char papan[7][7]; // Variabel ini digunakan untuk mencetak desain papan
-char XO = 'O';    // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
+char papan[7][7];  // Variabel ini digunakan untuk mencetak desain papan
+char XO = 'O';     // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
+bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
 /*Deskripsi Modul
 Prosedur
@@ -751,10 +752,10 @@ Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau se
 I.S : Kondisi menang atau seri pada papan dimensi 3x3 belum diketahui
 F.S : Kondisi menang atau seri pada papan dimensi 3x3 diketahui
 */
-bool CekWin3(bool draw)
+bool CekWin3(int flag)
 {
     /*cek horizontal dan vertikal*/
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < flag; i++)
     {
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O') ||
             (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O'))
@@ -770,10 +771,10 @@ bool CekWin3(bool draw)
         return false;
     }
 
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < flag; i++)
     { /*cek draw*/
 
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j < flag; j++)
         {
 
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
@@ -792,10 +793,10 @@ Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau se
 I.S : Kondisi menang atau seri pada papan dimensi 5x5 belum diketahui
 F.S : Kondisi menang atau seri pada papan dimensi 5x5 diketahui
 */
-bool CekWin5(bool draw)
+bool CekWin5(int flag)
 {
     /*cek vertikal horizontal dan vertikal*/
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < flag; i++)
     {
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O') ||
             (papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X') || (papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O') ||
@@ -820,10 +821,10 @@ bool CekWin5(bool draw)
         return false;
     }
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < flag; i++)
     { /*cek draw*/
 
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < flag; j++)
         {
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
                 return true;
@@ -841,10 +842,10 @@ Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau se
 I.S : Kondisi menang atau seri pada papan dimensi 7x7 belum diketahui
 F.S : Kondisi menang atau seri pada papan dimensi 7x7 diketahui
 */
-bool CekWin7(bool draw)
+bool CekWin7(flag)
 {
     /*cek vertikal horizontal dan vertikal*/
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < flag; i++)
     {
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O') ||
             (papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X' && papan[i][5] == 'X') || (papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O' && papan[i][4] == 'O') ||
@@ -889,10 +890,10 @@ bool CekWin7(bool draw)
         return false;
     }
 
-    for (int i = 0; i < 7; i++)
+    for (int i = 0; i < flag; i++)
     { /*cek draw*/
 
-        for (int j = 0; j < 7; j++)
+        for (int j = 0; j < flag; j++)
         {
             if (papan[i][j] != 'X' && papan[i][j] != 'O')
                 return true;

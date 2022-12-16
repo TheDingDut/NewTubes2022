@@ -13,7 +13,6 @@ int main()
     int flagBoardDinamis; // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
     char loopGame = 'N';  // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
     Player pemain1, pemain2;
-    bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
     pemain1.menang = 0;
     pemain2.menang = 0;
 
@@ -43,13 +42,13 @@ int main()
                 // TIC TAC TOE 3 X 3
                 flagBoardDinamis = 3;
                 isiPapan(flagBoardDinamis);
-                while (CekWin3(draw))
+                while (CekWin3(flagBoardDinamis))
                 {
                     boardRef3(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     giliran(pemain1, pemain2, flagBoardDinamis);
-                    CekWin3(draw);
+                    CekWin3(flagBoardDinamis);
                 }
                 PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
@@ -57,13 +56,13 @@ int main()
                 // TIC TAC TOE 5 X 5
                 flagBoardDinamis = 5;
                 isiPapan(flagBoardDinamis);
-                while (CekWin5(draw))
+                while (CekWin5(flagBoardDinamis))
                 {
                     boardRef5(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     giliran(pemain1, pemain2, flagBoardDinamis);
-                    CekWin5(draw);
+                    CekWin5(flagBoardDinamis);
                 }
                 PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
@@ -71,13 +70,13 @@ int main()
                 // TIC TAC TOE 7 X 7
                 flagBoardDinamis = 7;
                 isiPapan(flagBoardDinamis);
-                while (CekWin7(draw)) // apabila kondisi terpenuhi, maka looping berjalan
+                while (CekWin7(flagBoardDinamis)) // apabila kondisi terpenuhi, maka looping berjalan
                 {
                     boardRef7(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     giliran(pemain1, pemain2, flagBoardDinamis);
-                    CekWin7(draw);
+                    CekWin7(flagBoardDinamis);
                 }
                 PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
