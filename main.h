@@ -8,13 +8,17 @@ typedef struct
     int baris, kolom;
 } Koordinat;
 
-char pemain1[50], pemain2[50];  // Variabel ini digunakan untuk menyimpan nama pemain 1 dan pemain 2
+// Deklarasi tipe data baru bernama Player
+typedef struct
+{
+    char nama[20];
+    int menang;
+} Player;
+
 char papan[7][7];               // Variabel ini digunakan untuk mencetak desain papan
 char XO = 'O';                  // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
-int pilihan;                    // Variabel ini digunakan untuk menampung posisi yang dipilih user untuk mengisi papan
-int flagBoardDinamis;           // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
-int p1menang = 0, p2menang = 0; // Variabel ini digunakan untuk menampung skor pemain ketika memaminkan permainan
-bool draw = false;              // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
+// int p1menang = 0, p2menang = 0; // Variabel ini digunakan untuk menampung skor pemain ketika memaminkan permainan
+
 
 /*Deskripsi Modul
 Prosedur
@@ -67,16 +71,16 @@ Modul ini bertujuan sebagai tampilan dan pengisian nama pemain
 I.S : Nama pemain belum terisi
 F.S : Nama pemain terisi
 */
-void InputNamaPemain()
+void InputNamaPemain(Player *p1, Player *p2)
 {
     printf("\n\t\t\tTTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE \n");
     printf("\t\t\t  TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE  \n ");
     printf("\t\t\t  TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE \n\n");
     printf("\t\t\t=================================================================\n\n");
     printf("\t\t\t  Masukkan Nama Pemain 1 (O) : ");
-    scanf("%s", &pemain1);
+    scanf(" %[^\n]", &p1->nama);
     printf("\t\t\t  Masukkan Nama Pemain 2 (X) : ");
-    scanf("%s", &pemain2);
+    scanf(" %[^\n]", &p2->nama);
 }
 
 /*Deskripsi Modul
@@ -105,11 +109,11 @@ Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 3x3 ol
 I.S : Papan referensi belum tampil
 F.S : Papan referensi tampil
 */
-void boardRef3()
+void boardRef3(Player p1, Player p2)
 {
     printf("\n\tPilih salah satu kolom dengan menginputkan nomor\n");
-    printf("\t 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
-    printf("\t----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf("\t 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", p1.nama, p1.menang);
+    printf("\t----|----|----\t\t\t\t\t\t%s : %d\n", p2.nama, p2.menang);
     printf("\t 4  | 5  | 6  \n");
     printf("\t----|----|----\n");
     printf("\t 7  | 8  | 9  \n");
@@ -121,11 +125,11 @@ Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 5x5 ol
 I.S : Papan referensi belum tampil
 F.S : Papan referensi tampil
 */
-void boardRef5()
+void boardRef5(Player p1, Player p2)
 {
     printf("\n\tPilih salah satu kolom dengan menginputkan nomor\n");
-    printf("\t 1  | 2  | 3  | 4  | 5  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
-    printf("\t----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf("\t 1  | 2  | 3  | 4  | 5  \t\t\t\t\t\t%s : %d\n", p1.nama, p1.menang);
+    printf("\t----|----|----|----|----\t\t\t\t\t\t%s : %d\n", p2.nama, p2.menang);
     printf("\t 6  | 7  | 8  | 9  | 10 \n");
     printf("\t----|----|----|----|----\n");
     printf("\t 11 | 12 | 13 | 14 | 15 \n");
@@ -141,11 +145,11 @@ Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 7x7 ol
 I.S : Papan referensi belum tampil
 F.S : Papan referensi tampil
 */
-void boardRef7()
+void boardRef7(Player p1, Player p2)
 {
     printf("\tPilih salah satu kolom dengan menginputkan nomor\n");
-    printf("\t 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t\t\t\t%s : %d\n", pemain1, p1menang);
-    printf("\t----|----|----|----|----|----|----\t\t\t\t\t\t%s : %d\n", pemain2, p2menang);
+    printf("\t 1  | 2  | 3  | 4  | 5  | 6  | 7  \t\t\t\t\t\t%s : %d\n", p1.nama, p1.menang);
+    printf("\t----|----|----|----|----|----|----\t\t\t\t\t\t%s : %d\n", p2.nama, p2.menang);
     printf("\t 8  | 9  | 10 | 11 | 12 | 13 | 14 \n");
     printf("\t----|----|----|----|----|----|----\n");
     printf("\t 15 | 16 | 17 | 18 | 19 | 20 | 21 \n");
@@ -169,12 +173,12 @@ Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
 I.S : Isi pada papan belum terinisialisasi
 F.S : Isi pada papan terinisialisasi
 */
-void isiPapan()
+void isiPapan(int flag)
 {
     int x = 1;
-    for (int i = 0; i < flagBoardDinamis; i++)
+    for (int i = 0; i < flag; i++)
     {
-        for (int j = 0; j < flagBoardDinamis; j++)
+        for (int j = 0; j < flag; j++)
         {
             char c = x + '0';
             papan[i][j] = ' ';
@@ -189,29 +193,29 @@ Modul ini bertujuan untuk membuat desain papan
 I.S : Papan permainan belum tampil
 F.S : Papan permainan tampil
 */
-void BoardDinamis()
+void BoardDinamis(int flag)
 {
-    for (int i = 0; i < flagBoardDinamis; i++)
+    for (int i = 0; i < flag; i++)
     {
         printf("\t");
-        for (int j = 0; j < flagBoardDinamis; j++)
+        for (int j = 0; j < flag; j++)
         {
             printf(" %c ", papan[i][j]);
-            if (j != flagBoardDinamis - 1)
+            if (j != flag - 1)
             {
                 printf("%c", 186);
             }
         }
         printf("\n");
         printf("\t");
-        for (int j = 0; j < flagBoardDinamis; j++)
+        for (int j = 0; j < flag; j++)
         {
             /* code */
-            if (i < flagBoardDinamis - 1)
+            if (i < flag - 1)
             {
                 /* code */
                 printf("%c%c%c", 205, 205, 205);
-                if (j != flagBoardDinamis - 1)
+                if (j != flag - 1)
                 {
                     printf("%c", 206);
                 }
@@ -228,20 +232,21 @@ proses pengisian baris dan kolom dengan simbol
 I.S : Giliran pemain belum berganti dan baris kolom kosong
 F.S : Giliran pemain berganti dan baris kolom terisi simbol
 */
-void giliran()
+void giliran(Player p1, Player p2, int flag)
 {
     Koordinat lokasi;
     time_t waktu = time(NULL); // variabel yang berisi waktu saat modul dijalankan
+    int pilihan;                    // Variabel ini digunakan untuk menampung posisi yang dipilih user untuk mengisi papan
 
-    if (flagBoardDinamis == 3)
+    if (flag == 3)
     {
         if (XO == 'O')
         {
-            printf("\tGiliran %s : ", pemain1);
+            printf("\tGiliran %s : ", p1.nama);
         }
         else if (XO == 'X')
         {
-            printf("\tGiliran %s : ", pemain2);
+            printf("\tGiliran %s : ", p2.nama);
         }
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
@@ -325,7 +330,7 @@ void giliran()
                 }
                 else
                 {
-                    giliran();
+                    giliran(p1, p2, flag);
                 }
 
                 // cetakPapan3();
@@ -333,15 +338,15 @@ void giliran()
             system("cls");
         }
     }
-    else if (flagBoardDinamis == 5)
+    else if (flag == 5)
     {
         if (XO == 'O')
         {
-            printf("\tGiliran %s : ", pemain1);
+            printf("\tGiliran %s : ", p1.nama);
         }
         else if (XO == 'X')
         {
-            printf("\tGiliran %s : ", pemain2);
+            printf("\tGiliran %s : ", p2.nama);
         }
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
@@ -489,7 +494,7 @@ void giliran()
                 }
                 else
                 {
-                    giliran();
+                    giliran(p1, p2, flag);
                 }
 
                 // cetakPapan3();
@@ -497,15 +502,15 @@ void giliran()
             system("cls");
         }
     }
-    else if (flagBoardDinamis == 7)
+    else if (flag == 7)
     {
         if (XO == 'O')
         {
-            printf("\tGiliran %s : ", pemain1);
+            printf("\tGiliran %s : ", p1.nama);
         }
         else if (XO == 'X')
         {
-            printf("\tGiliran %s : ", pemain2);
+            printf("\tGiliran %s : ", p2.nama);
         }
         scanf("%d", &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
@@ -750,7 +755,7 @@ void giliran()
             }
             else
             {
-                giliran();
+                giliran(p1, p2, flag);
             }
 
             // cetakPapan7();
@@ -765,7 +770,7 @@ Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau se
 I.S : Kondisi menang atau seri pada papan dimensi 3x3 belum diketahui
 F.S : Kondisi menang atau seri pada papan dimensi 3x3 diketahui
 */
-bool CekWin3()
+bool CekWin3(bool draw)
 {
     /*cek horizontal dan vertikal*/
     for (int i = 0; i < 3; i++)
@@ -806,7 +811,7 @@ Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau se
 I.S : Kondisi menang atau seri pada papan dimensi 5x5 belum diketahui
 F.S : Kondisi menang atau seri pada papan dimensi 5x5 diketahui
 */
-bool CekWin5()
+bool CekWin5(bool draw)
 {
     /*cek vertikal horizontal dan vertikal*/
     for (int i = 0; i < 5; i++)
@@ -855,7 +860,7 @@ Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau se
 I.S : Kondisi menang atau seri pada papan dimensi 7x7 belum diketahui
 F.S : Kondisi menang atau seri pada papan dimensi 7x7 diketahui
 */
-bool CekWin7()
+bool CekWin7(bool draw)
 {
     /*cek vertikal horizontal dan vertikal*/
     for (int i = 0; i < 7; i++)
@@ -984,7 +989,7 @@ Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
 I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
 F.S : Cara bermain pada permainan Tic Tac Toe tampil
 */
-void HowToPlay()
+void HowToPlay() /* displayHowToPlay */
 {
     FILE *FF; // penunjuk ke file
     char CC;  // var penunjuk karakter yang dibaca
@@ -1010,30 +1015,30 @@ Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 
 I.S : Keadaan pemain menang atau seri tidak diketahui
 F.S : Keadaan pemain menang atau seri diketahui
 */
-void PemainWin()
+void PemainWin(Player p1, Player p2, bool draw, int flag)
 {
     if (XO == 'X' && !draw)
     {
         system("cls");
-        p1menang++;
-        printf("\n\t%s memenangkan permainan!", pemain1);
+        p1.menang++;
+        printf("\n\t%s memenangkan permainan!", p1.nama);
         printf("\n\tHasil Akhir :\n\n");
-        BoardDinamis();
+        BoardDinamis(flag);
     }
     else if (XO == 'O' && !draw)
     {
         system("cls");
-        p2menang++;
-        printf("\n\t%s memenangkan permainan!", pemain2);
+        p2.menang++;
+        printf("\n\t%s memenangkan permainan!", p2.nama);
         printf("\n\tHasil Akhir :\n\n");
-        BoardDinamis();
+        BoardDinamis(flag);
     }
     else
     {
         system("cls");
         printf("Permainan Seri!");
         printf("\nHasil Akhir :\n\n");
-        BoardDinamis();
+        BoardDinamis(flag);
     }
 }
 
@@ -1043,19 +1048,19 @@ Modul ini bertujuan untuk menampilkan hasil akhir permainan
 I.S : Hasil akhir permainan belum diketahui
 F.S : Hasil akhir permainan diketahui
 */
-void Closing()
+void Closing(Player pemain1, Player pemain2)
 {
     char p1[50];
     char p2[50];
-    int p1length = strlen(pemain1);
-    int p2length = strlen(pemain2);
+    int p1length = strlen(pemain1.nama);
+    int p2length = strlen(pemain2.nama);
     for (int i = 0; i < p1length; i++)
     {
-        p1[i] = toupper(pemain1[i]);
+        p1[i] = toupper(pemain1.nama[i]);
     }
     for (int i = 0; i < p2length + 1; i++)
     {
-        p2[i] = toupper(pemain2[i]);
+        p2[i] = toupper(pemain2.nama[i]);
     }
 
     printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
@@ -1068,8 +1073,8 @@ void Closing()
     printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
     printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
     printf("\t\t\t                         HASIL AKHIR      \n\n");
-    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p1, p1menang);
-    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, p2menang);
+    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p1, pemain1.menang);
+    printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, pemain2.menang);
 }
 
 /*Deskripsi Modul

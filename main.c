@@ -10,7 +10,10 @@ int main()
     /*DEKLARASI VARIABEL*/
     int opsi;            // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
     int opsiDimensi;     // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
+    int flagBoardDinamis;           // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
     char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
+    Player pemain1, pemain2;
+    bool draw = false;              // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
     /* WARNA */
     system("COLOR E0");
@@ -24,7 +27,7 @@ int main()
     {
     case 1:
         system("cls");
-        InputNamaPemain();
+        InputNamaPemain(&pemain1, &pemain2);
         system("cls");
         do
         {
@@ -37,44 +40,44 @@ int main()
             case 1:
                 // TIC TAC TOE 3 X 3
                 flagBoardDinamis = 3;
-                isiPapan();
-                while (CekWin3())
+                isiPapan(flagBoardDinamis);
+                while (CekWin3(draw))
                 {
-                    boardRef3();
+                    boardRef3(pemain1, pemain2);
                     tampilanPengingatWaktu();
-                    BoardDinamis();
-                    giliran(pemain1, pemain2);
-                    CekWin3();
+                    BoardDinamis(flagBoardDinamis);
+                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    CekWin3(draw);
                 }
-                PemainWin();
+                PemainWin(pemain1, pemain2, draw, flagBoardDinamis);
                 break;
             case 2:
                 // TIC TAC TOE 5 X 5
                 flagBoardDinamis = 5;
-                isiPapan();
-                while (CekWin5())
+                isiPapan(flagBoardDinamis);
+                while (CekWin5(draw))
                 {
-                    boardRef5();
+                    boardRef5(pemain1, pemain2);
                     tampilanPengingatWaktu();
-                    BoardDinamis();
-                    giliran(pemain1, pemain2);
-                    CekWin5();
+                    BoardDinamis(flagBoardDinamis);
+                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    CekWin5(draw);
                 }
-                PemainWin();
+                PemainWin(pemain1, pemain2, draw, flagBoardDinamis);
                 break;
             case 3:
                 // TIC TAC TOE 7 X 7
                 flagBoardDinamis = 7;
-                isiPapan();
-                while (CekWin7())
+                isiPapan(flagBoardDinamis);
+                while (CekWin7(draw)) // apabila kondisi terpenuhi, maka looping berjalan
                 {
-                    boardRef7();
+                    boardRef7(pemain1, pemain2);
                     tampilanPengingatWaktu();
-                    BoardDinamis();
-                    giliran(pemain1, pemain2);
-                    CekWin7();
+                    BoardDinamis(flagBoardDinamis);
+                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    CekWin7(draw);
                 }
-                PemainWin();
+                PemainWin(pemain1, pemain2, draw, flagBoardDinamis);
                 break;
             case 4:
                 // getch();
@@ -85,10 +88,10 @@ int main()
             }
             printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk keluar : ");
             scanf("%s", &loopGame);
-            isiPapan();
-        } while ((toupper(loopGame) == 'Y' && p1menang < 3) && (toupper(loopGame) == 'Y' && p2menang < 3));
+            isiPapan(flagBoardDinamis);
+        } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && (toupper(loopGame) == 'Y' && pemain2.menang < 3)); // apabila kondisi terpenuhi, maka loop berjalan
         system("cls");
-        Closing();
+        Closing(pemain1, pemain2);
         break;
     case 2:
         /*HOW TO PLAY*/
@@ -107,7 +110,7 @@ int main()
     case 4:
         /*QUIT GAME*/
         KeluarPermainan();
-        getchar();
+        getchar();  
 
         break;
     default:
