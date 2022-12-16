@@ -83,7 +83,7 @@ int main()
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\n\tUlangi Permainan? (Y) : ");
+            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk keluar : ");
             scanf("%s", &loopGame);
             isiPapan();
         } while ((toupper(loopGame) == 'Y' && p1menang < 3) && (toupper(loopGame) == 'Y' && p2menang < 3));
