@@ -14,6 +14,8 @@ int main()
     char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
     Player pemain1, pemain2;
     bool draw = false;              // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
+    pemain1.menang = 0;
+    pemain2.menang =0;
 
     /* WARNA */
     system("COLOR E0");
