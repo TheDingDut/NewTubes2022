@@ -1026,6 +1026,21 @@ void PemainWin(Player *p1, Player *p2, bool draw, int flag)
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan untuk menampilkan hasil akhir permainan
+I.S : array of char dari nama pemain belum sepenuhnya uppercase
+F.S : array of char dari nama pemain sudah sepenuhnya uppercase
+*/
+void kapitalisasiNamaPemain(Player pemain, char p[50])
+{
+    int count = strlen(pemain.nama);
+    for (int i = 0; i < count + 1; i++)
+    {
+        p[i] = toupper(pemain.nama[i]);
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan hasil akhir permainan
 I.S : Hasil akhir permainan belum diketahui
 F.S : Hasil akhir permainan diketahui
 */
@@ -1033,16 +1048,8 @@ void Closing(Player pemain1, Player pemain2)
 {
     char p1[50];
     char p2[50];
-    int p1length = strlen(pemain1.nama);
-    int p2length = strlen(pemain2.nama);
-    for (int i = 0; i < p1length; i++)
-    {
-        p1[i] = toupper(pemain1.nama[i]);
-    }
-    for (int i = 0; i < p2length + 1; i++)
-    {
-        p2[i] = toupper(pemain2.nama[i]);
-    }
+    kapitalisasiNamaPemain(pemain1, &p1);
+    kapitalisasiNamaPemain(pemain2, &p2);
 
     printf("\n\t  TTTTTTTT   HH   HH  EEEEEEEE     DDDDDDD     II  NN      NN  GGGGGGGG  DDDDDDD     UU    UU  TTTTTTTT\n");
     printf("\t     TT      HH   HH  EE           DD     DD   II  NN NN   NN  GG        DD     DD   UU    UU     TT\n");
