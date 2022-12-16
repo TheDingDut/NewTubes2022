@@ -919,20 +919,20 @@ bool CekWin7()
 }
 
 /* Deskripsi Modul */
-void inputTextToFile()
-{
-    FILE *fp; // file pointer
-    char ch;
-    fp = fopen("file_handle.c", "r");
-    while (1)
-    {
-        ch = fgetc(fp); // Each character of the file is read and stored in the character file.
-        if (ch == EOF)
-            break;
-        printf("%c", ch);
-    }
-    fclose(fp);
-}
+// void inputTextToFile()
+// {
+//     FILE *fp; // file pointer
+//     char ch;
+//     fp = fopen("file_handle.c", "r");
+//     while (1)
+//     {
+//         ch = fgetc(fp); // Each character of the file is read and stored in the character file.
+//         if (ch == EOF)
+//             break;
+//         printf("%c", ch);
+//     }
+//     fclose(fp);
+// }
 
 /*Deskripsi Modul
 Prosedur

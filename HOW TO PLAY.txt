@@ -1,6 +1,10 @@
 CARA BERMAIN TIC TAC TOE
 
-Jika Anda belum pernah memainkan Tic-Tac-Toe sebelumnya, Anda mungkin ingin mengetahui sedikit gameplay sebelum memulai. Salah satu hal hebat tentang gim ini adalah gim ini mudah dimainkan. Itu dapat dengan mudah diajarkan kepada siapa saja dari segala usia. Berikut cara memainkannya:
+Jika Anda belum pernah memainkan Tic-Tac-Toe sebelumnya, 
+Anda mungkin ingin mengetahui sedikit gameplay sebelum memulai. 
+Salah satu hal hebat tentang gim ini adalah gim ini mudah dimainkan. 
+Itu dapat dengan mudah diajarkan kepada siapa saja dari segala usia. 
+Berikut cara memainkannya:
 
 - 2 pemain diperlukan untuk permainan.
 - Pertama, Pemain dengan O memulai permainan. 
