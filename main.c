@@ -8,23 +8,27 @@
 int main()
 {
     /*DEKLARASI VARIABEL*/
-    int opsi;            // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
-    int opsiDimensi;     // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
-    char loopGame = 'N'; // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
+    int opsi;             // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
+    int opsiDimensi;      // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
+    int flagBoardDinamis; // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
+    char loopGame = 'N';  // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
+    Player pemain1, pemain2;
+    pemain1.menang = 0;
+    pemain2.menang = 0;
 
     /* WARNA */
-    system("COLOR 8B"); // Code ini bertujuan untuk mengubah warna latar belakang dan tulisan ketika program dijalankan
+    system("COLOR E0");
 
     /*MULAI GAME*/
     cover();
-    system("cls");      // Code ini bertujuan untuk membersihkan layar program
+    system("cls"); // Code ini bertujuan untuk membersihkan layar program
     menuUtama();
     scanf("%d", &opsi);
     switch (opsi)
     {
     case 1:
         system("cls");
-        InputNamaPemain();
+        InputNamaPemain(&pemain1, &pemain2);
         system("cls");
         do
         {
@@ -37,44 +41,44 @@ int main()
             case 1:
                 // TIC TAC TOE 3 X 3
                 flagBoardDinamis = 3;
-                isiPapan();
-                while (CekWin3())
+                isiPapan(flagBoardDinamis);
+                while (CekWin3(flagBoardDinamis))
                 {
-                    boardRef3();
-                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
-                    BoardDinamis();
-                    giliran(pemain1, pemain2);
-                    CekWin3();
+                    boardRef3(pemain1, pemain2);
+                    tampilanPengingatWaktu();
+                    BoardDinamis(flagBoardDinamis);
+                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    CekWin3(flagBoardDinamis);
                 }
-                PemainWin();
+                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 2:
                 // TIC TAC TOE 5 X 5
                 flagBoardDinamis = 5;
-                isiPapan();
-                while (CekWin5())
+                isiPapan(flagBoardDinamis);
+                while (CekWin5(flagBoardDinamis))
                 {
-                    boardRef5();
-                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
-                    BoardDinamis();
-                    giliran(pemain1, pemain2);
-                    CekWin5();
+                    boardRef5(pemain1, pemain2);
+                    tampilanPengingatWaktu();
+                    BoardDinamis(flagBoardDinamis);
+                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    CekWin5(flagBoardDinamis);
                 }
-                PemainWin();
+                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 3:
                 // TIC TAC TOE 7 X 7
                 flagBoardDinamis = 7;
-                isiPapan();
-                while (CekWin7())
+                isiPapan(flagBoardDinamis);
+                while (CekWin7(flagBoardDinamis)) // apabila kondisi terpenuhi, maka looping berjalan
                 {
-                    boardRef7();
-                    printf("Waktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
-                    BoardDinamis();
-                    giliran(pemain1, pemain2);
-                    CekWin7();
+                    boardRef7(pemain1, pemain2);
+                    tampilanPengingatWaktu();
+                    BoardDinamis(flagBoardDinamis);
+                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    CekWin7(flagBoardDinamis);
                 }
-                PemainWin();
+                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 4:
                 // getch();
@@ -83,12 +87,12 @@ int main()
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\nUlangi Permainan? (Y/N) : ");
+            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk keluar : ");
             scanf("%s", &loopGame);
-            isiPapan();
-        } while ((loopGame == 'Y' && p1menang <= 3) || (loopGame == 'Y' && p2menang <= 3));
+            isiPapan(flagBoardDinamis);
+        } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && (toupper(loopGame) == 'Y' && pemain2.menang < 3)); // apabila kondisi terpenuhi, maka loop berjalan
         system("cls");
-        Closing();
+        Closing(pemain1, pemain2);
         break;
     case 2:
         /*HOW TO PLAY*/
