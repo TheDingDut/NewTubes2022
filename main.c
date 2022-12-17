@@ -81,7 +81,6 @@ int main()
                 getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 4:
-                // getch();
                 main();
             default:
                 printf("\nTidak ada pilihan dimensi!");

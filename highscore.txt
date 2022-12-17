@@ -1,0 +1,4 @@
+fik 1
+ral 0
+fik 2
+ral 0

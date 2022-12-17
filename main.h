@@ -1004,6 +1004,29 @@ void displayHowToPlay() /* displayHowToPlay */
 
 /*Deskripsi Modul
 Prosedur
+Modul ini bertujuan untuk menuliskan nama pemain dan jumlah menang ke file highscore.txt
+I.S : Nama pemain belum terinput ke file highscore.txt
+F.S : Nama pemain sudah terinput ke file highscore.txt
+*/
+void tulisHighscore(Player pemain)
+{
+    int num;
+    FILE *fptr;
+    char c, string[50];
+
+    fptr = fopen("highscore.txt", "a+"); // variabel yang menampung nama file dan fungsi yang akan digunakan
+
+    if (fptr == NULL) // program akan tertutup apabila file tidak ada
+    {
+        exit(1);
+    }
+
+    fprintf(fptr, "%s %d\n", pemain.nama, pemain.menang); // menulis nama pemain dan jumlah menang kedalam file
+    fclose(fptr);
+}
+
+/*Deskripsi Modul
+Prosedur
 Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 1 kali putaran permainan
 I.S : Keadaan pemain menang atau seri tidak diketahui
 F.S : Keadaan pemain menang atau seri diketahui
@@ -1033,6 +1056,40 @@ void getWinner(Player *p1, Player *p2, bool draw, int flag)
         printf("\nHasil Akhir :\n\n");
         BoardDinamis(flag);
     }
+}
+
+/* DESKRIPSI MODUL
+    Function
+    Modul ini bertujuan untuk mengembalikan nilai yang berisi banyak baris file highscore.txt
+    I.S : jumlah baris file highscore.txt belum diketahui
+    F.S : jumlah baris file highscore.txt sudah diketahui
+*/
+int hitungBarisFile()
+{
+    FILE *fp;
+    int count = 1; // Line counter (result)
+    char filename[50] = "highscore.txt";
+    char c; // To store a character read from file
+
+    // Open the file
+    fp = fopen(filename, "r");
+
+    // Check if file exists
+    if (fp == NULL)
+    {
+        printf("Could not open file %s", filename);
+        return 0;
+    }
+
+    // Extract characters from file and store in character c
+    for (c = getc(fp); c != EOF; c = getc(fp))
+        if (c == '\n') // Increment count if this character is newline
+            count = count + 1;
+
+    // Close the file
+    fclose(fp);
+
+    return count;
 }
 
 /*Deskripsi Modul
@@ -1075,6 +1132,8 @@ void displayClosing(Player pemain1, Player pemain2)
     printf("\t\t\t                         HASIL AKHIR      \n\n");
     printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p1, pemain1.menang);
     printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, pemain2.menang);
+    tulisHighscore(pemain1);
+    tulisHighscore(pemain2);
 }
 
 /*Deskripsi Modul
