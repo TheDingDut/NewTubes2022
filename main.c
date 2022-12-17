@@ -47,10 +47,10 @@ int main()
                     boardRef3(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
-                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
                     CekWin3(flagBoardDinamis);
                 }
-                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
+                getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 2:
                 // TIC TAC TOE 5 X 5
@@ -61,10 +61,10 @@ int main()
                     boardRef5(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
-                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
                     CekWin5(flagBoardDinamis);
                 }
-                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
+                getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 3:
                 // TIC TAC TOE 7 X 7
@@ -75,10 +75,10 @@ int main()
                     boardRef7(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
-                    giliran(pemain1, pemain2, flagBoardDinamis);
+                    inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
                     CekWin7(flagBoardDinamis);
                 }
-                PemainWin(&pemain1, &pemain2, draw, flagBoardDinamis);
+                getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 4:
                 // getch();
@@ -92,12 +92,12 @@ int main()
             isiPapan(flagBoardDinamis);
         } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && (toupper(loopGame) == 'Y' && pemain2.menang < 3)); // apabila kondisi terpenuhi, maka loop berjalan
         system("cls");
-        Closing(pemain1, pemain2);
+        displayClosing(pemain1, pemain2);
         break;
     case 2:
         /*HOW TO PLAY*/
         system("cls");
-        HowToPlay();
+        displayHowToPlay();
         getch();
         main();
 

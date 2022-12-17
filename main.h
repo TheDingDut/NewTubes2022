@@ -225,7 +225,14 @@ void BoardDinamis(int flag)
     }
 }
 
-void inputGiliranPemain(Player p1, Player p2)
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
+proses pengisian baris dan kolom dengan simbol
+I.S : Giliran pemain belum berganti dan baris kolom kosong
+F.S : Giliran pemain berganti dan baris kolom terisi simbol
+*/
+void inputGiliranPemain(Player p1, Player p2, int *pilihan)
 {
     if (XO == 'O')
     {
@@ -235,8 +242,16 @@ void inputGiliranPemain(Player p1, Player p2)
     {
         printf("\tGiliran %s : ", p2.nama);
     }
+    scanf("%d", &*pilihan);
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
+proses pengisian baris dan kolom dengan simbol
+I.S : Giliran pemain belum berganti dan baris kolom kosong
+F.S : Giliran pemain berganti dan baris kolom terisi simbol
+*/
 void GiliranBermain()
 {
     if (XO == 'O')
@@ -256,7 +271,7 @@ proses pengisian baris dan kolom dengan simbol
 I.S : Giliran pemain belum berganti dan baris kolom kosong
 F.S : Giliran pemain berganti dan baris kolom terisi simbol
 */
-void giliran(Player p1, Player p2, int flag)
+void inputSimbolKedalamPapan(Player p1, Player p2, int flag)
 {
     Koordinat lokasi;
     time_t waktu = time(NULL); // variabel yang berisi waktu saat modul dijalankan
@@ -264,8 +279,7 @@ void giliran(Player p1, Player p2, int flag)
 
     if (flag == 3)
     {
-        inputGiliranPemain(p1, p2);
-        scanf("%d", &pilihan);
+        inputGiliranPemain(p1, p2, &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
@@ -340,7 +354,7 @@ void giliran(Player p1, Player p2, int flag)
                 }
                 else
                 {
-                    giliran(p1, p2, flag);
+                    inputSimbolKedalamPapan(p1, p2, flag);
                 }
 
                 // cetakPapan3();
@@ -350,8 +364,7 @@ void giliran(Player p1, Player p2, int flag)
     }
     else if (flag == 5)
     {
-        inputGiliranPemain(p1, p2);
-        scanf("%d", &pilihan);
+        inputGiliranPemain(p1, p2, &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
@@ -490,7 +503,7 @@ void giliran(Player p1, Player p2, int flag)
                 }
                 else
                 {
-                    giliran(p1, p2, flag);
+                    inputSimbolKedalamPapan(p1, p2, flag);
                 }
 
                 // cetakPapan3();
@@ -500,8 +513,7 @@ void giliran(Player p1, Player p2, int flag)
     }
     else if (flag == 7)
     {
-        inputGiliranPemain(p1, p2);
-        scanf("%d", &pilihan);
+        inputGiliranPemain(p1, p2, &pilihan);
         time_t waktuSetelahInput = time(NULL); // variabel yang berisi waktu saat user input keyboard
         if (waktuSetelahInput - waktu >= 10)
         {
@@ -737,7 +749,7 @@ void giliran(Player p1, Player p2, int flag)
             }
             else
             {
-                giliran(p1, p2, flag);
+                inputSimbolKedalamPapan(p1, p2, flag);
             }
 
             // cetakPapan7();
@@ -970,7 +982,7 @@ Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
 I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
 F.S : Cara bermain pada permainan Tic Tac Toe tampil
 */
-void HowToPlay() /* displayHowToPlay */
+void displayHowToPlay() /* displayHowToPlay */
 {
     FILE *FF; // penunjuk ke file
     char CC;  // var penunjuk karakter yang dibaca
@@ -996,7 +1008,7 @@ Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 
 I.S : Keadaan pemain menang atau seri tidak diketahui
 F.S : Keadaan pemain menang atau seri diketahui
 */
-void PemainWin(Player *p1, Player *p2, bool draw, int flag)
+void getWinner(Player *p1, Player *p2, bool draw, int flag)
 {
     if (XO == 'X' && !draw)
     {
@@ -1044,7 +1056,7 @@ Modul ini bertujuan untuk menampilkan hasil akhir permainan
 I.S : Hasil akhir permainan belum diketahui
 F.S : Hasil akhir permainan diketahui
 */
-void Closing(Player pemain1, Player pemain2)
+void displayClosing(Player pemain1, Player pemain2)
 {
     char p1[50];
     char p2[50];
