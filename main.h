@@ -170,7 +170,7 @@ F.S : pengingat waktu tampil
 */
 void tampilanPengingatWaktu()
 {
-    printf("\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
+    printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
 }
 
 /*Deskripsi Modul
@@ -766,11 +766,11 @@ void inputSimbolKedalamPapan(Player p1, Player p2, int flag)
 
 /*Deskripsi Modul
 Function
-Modul ini bertujuan mengembalikan kondisi true dan false pada permainan dimensi papan 3x3
-Apabila kondisi true, maka permainan dimensi 3x3 dapat dilakukan
-Apabila kondisi false, maka permainan dimensi 3x3 berhenti karena adanya kondisi menang atau seri 
+Modul ini bertujuan mengembalikan nilai true dan false pada permainan dimensi papan 3x3
+Apabila true, maka permainan dimensi 3x3 dapat dilakukan
+Apabila false, maka permainan dimensi 3x3 berhenti karena adanya kondisi menang atau seri 
 */
-bool CekWin3(int flag)
+bool GamePlay3(int flag)
 {
     /*cek horizontal dan vertikal*/
     for (int i = 0; i < flag; i++)
@@ -782,7 +782,7 @@ bool CekWin3(int flag)
         }
     }
 
-    /*checking diagonals*/
+    /*cek diagonal*/
     if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O') ||
         (papan[0][2] == 'X' && papan[1][1] == 'X' && papan[2][0] == 'X') || (papan[0][2] == 'O' && papan[1][1] == 'O' && papan[2][0] == 'O'))
     {
@@ -807,13 +807,13 @@ bool CekWin3(int flag)
 
 /*Deskripsi Modul
 Function
-Modul ini bertujuan mengembalikan kondisi true dan false pada permainan dimensi papan 5x5
-Apabila kondisi true, maka permainan dimensi 5x5 dapat dilakukan
-Apabila kondisi false, maka permainan dimensi 5x5 berhenti karena adanya kondisi menang atau seri 
+Modul ini bertujuan mengembalikan nilai true dan false pada permainan dimensi papan 5x5
+Apabila true, maka permainan dimensi 5x5 dapat dilakukan
+Apabila false, maka permainan dimensi 5x5 berhenti karena adanya kondisi menang atau seri 
 */
-bool CekWin5(int flag)
+bool GamePlay5(int flag)
 {
-    /*cek vertikal horizontal dan vertikal*/
+    /*cek horizontal dan vertikal*/
     for (int i = 0; i < flag; i++)
     {
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O') ||
@@ -825,7 +825,7 @@ bool CekWin5(int flag)
         }
     }
 
-    /*checking diagonals*/
+    /*cek diagonal*/
     if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O') ||
         (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
         (papan[1][0] == 'X' && papan[2][1] == 'X' && papan[3][2] == 'X' && papan[4][3] == 'X') || (papan[1][0] == 'O' && papan[2][1] == 'O' && papan[3][2] == 'O' && papan[4][3] == 'O') ||
@@ -856,13 +856,13 @@ bool CekWin5(int flag)
 
 /*Deskripsi Modul
 Function
-Modul ini bertujuan mengembalikan kondisi true dan false pada permainan dimensi papan 7x7
-Apabila kondisi true, maka permainan dimensi 7x7 dapat dilakukan
-Apabila kondisi false, maka permainan dimensi 7x7 berhenti karena adanya kondisi menang atau seri 
+Modul ini bertujuan mengembalikan nilai true dan false pada permainan dimensi papan 7x7
+Apabila true, maka permainan dimensi 7x7 dapat dilakukan
+Apabila false, maka permainan dimensi 7x7 berhenti karena adanya kondisi menang atau seri 
 */
-bool CekWin7(flag)
+bool GamePlay7(flag)
 {
-    /*cek vertikal horizontal dan vertikal*/
+    /*cek horizontal dan vertikal*/
     for (int i = 0; i < flag; i++)
     {
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X' && papan[i][3] == 'X' && papan[i][4] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O' && papan[i][3] == 'O' && papan[i][4] == 'O') ||
@@ -876,7 +876,7 @@ bool CekWin7(flag)
         }
     }
 
-    /*checking diagonals*/
+    /*cek diagonal*/
     if ((papan[0][0] == 'X' && papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X') || (papan[0][0] == 'O' && papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O') ||
         (papan[1][1] == 'X' && papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X') || (papan[1][1] == 'O' && papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O' && papan[5][5] == 'O') ||
         (papan[2][2] == 'X' && papan[3][3] == 'X' && papan[4][4] == 'X' && papan[5][5] == 'X' && papan[6][6] == 'X') || (papan[2][2] == 'O' && papan[3][3] == 'O' && papan[4][4] == 'O' && papan[5][5] == 'O' && papan[6][6] == 'O') ||
@@ -1067,8 +1067,6 @@ void getWinner(Player *p1, Player *p2, bool draw, int flag)
 /* DESKRIPSI MODUL
 Function
 Modul ini bertujuan untuk mengembalikan nilai yang berisi banyak baris file highscore.txt
-I.S : jumlah baris file highscore.txt belum diketahui
-F.S : jumlah baris file highscore.txt sudah diketahui
 */
 int hitungBarisFile()
 {

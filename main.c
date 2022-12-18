@@ -43,13 +43,13 @@ int main()
                 // TIC TAC TOE 3 X 3
                 flagBoardDinamis = 3;
                 isiPapan(flagBoardDinamis);
-                while (CekWin3(flagBoardDinamis))   
+                while (GamePlay3(flagBoardDinamis))  //  Apabila gameplay3 bernilai true maka permainan dapat dilakukan 
                 {
                     boardRef3(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
-                    CekWin3(flagBoardDinamis);
+                    GamePlay3(flagBoardDinamis);
                 }
                 getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
@@ -57,13 +57,13 @@ int main()
                 // TIC TAC TOE 5 X 5
                 flagBoardDinamis = 5;
                 isiPapan(flagBoardDinamis);
-                while (CekWin5(flagBoardDinamis))
+                while (GamePlay5(flagBoardDinamis))   //  Apabila gameplay5 bernilai true maka permainan dapat dilakukan 
                 {
                     boardRef5(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
-                    CekWin5(flagBoardDinamis);
+                    GamePlay5(flagBoardDinamis);
                 }
                 getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
@@ -71,25 +71,27 @@ int main()
                 // TIC TAC TOE 7 X 7
                 flagBoardDinamis = 7;
                 isiPapan(flagBoardDinamis);
-                while (CekWin7(flagBoardDinamis)) // apabila kondisi terpenuhi, maka looping berjalan
+                while (GamePlay7(flagBoardDinamis))   //  Apabila gameplay7 bernilai true maka permainan dapat dilakukan 
                 {
                     boardRef7(pemain1, pemain2);
                     tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
-                    CekWin7(flagBoardDinamis);
+                    GamePlay7(flagBoardDinamis);
                 }
                 getWinner(&pemain1, &pemain2, draw, flagBoardDinamis);
                 break;
             case 4:
+                // Kembali ke menu utama
                 main();
             default:
+                // Apabila user menginput nomor selain 1-4 pada pemilihan dimensi
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk keluar : ");
+            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk ulangi : ");
             scanf("%s", &loopGame);
-            isiPapan(flagBoardDinamis);
+            isiPapan(flagBoardDinamis);     // Proses inisialisasi papan agar tidak berisi simbol
         } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && (toupper(loopGame) == 'Y' && pemain2.menang < 3)); // apabila kondisi terpenuhi, maka loop berjalan
         system("cls");
         displayClosing(pemain1, pemain2);
@@ -114,7 +116,8 @@ int main()
         getchar();
         break;
 
-    default:        // Apabila user menginput nomor selain 1-4 pada menu utama
+    default:        
+    /*Apabila user menginput nomor selain 1-4 pada menu utama*/
         printf("Input Salah!");
         break;
     }
