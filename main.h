@@ -15,7 +15,7 @@ typedef struct
     int menang;
 } Player;
 
-char papan[7][7];  // Variabel ini digunakan untuk mencetak desain papan
+char papan[7][7];  // Variabel ini digunakan untuk mengisi simbol berdasarkan nomor yang diinput user 
 char XO = 'O';     // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
 bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
@@ -162,6 +162,12 @@ void boardRef7(Player p1, Player p2)
     printf("\t 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan pengingat waktu bagi user
+I.S : pengingat waktu belum tampil
+F.S : pengingat waktu tampil
+*/
 void tampilanPengingatWaktu()
 {
     printf("\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
@@ -225,6 +231,12 @@ void BoardDinamis(int flag)
     }
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk 
+I.S : Papan permainan belum tampil
+F.S : Papan permainan tampil
+*/
 void inputGiliranPemain(Player p1, Player p2)
 {
     if (XO == 'O')
