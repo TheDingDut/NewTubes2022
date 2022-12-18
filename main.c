@@ -8,16 +8,16 @@
 int main()
 {
     /*DEKLARASI VARIABEL*/
-    int opsi;             // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
-    int opsiDimensi;      // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
-    int flagBoardDinamis; // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
-    char loopGame = 'N';  // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
-    Player pemain1, pemain2;
-    pemain1.menang = 0;
-    pemain2.menang = 0;
+    int opsi;                   // Variabel ini digunakan untuk menampung pilihan pada menuUtama yang dipilih user
+    int opsiDimensi;            // Variabel ini digunakan untuk menampung pilihan dimensi yang dipilih user
+    int flagBoardDinamis;       // Variabel ini digunakan untuk menampung pilihan dimensi papan untuk dapat dicetak
+    char loopGame = 'N';        // Variabel ini digunakan untuk menginiliasasi dan menampung pilihan user untuk mengulangi permainan atau tidak
+    Player pemain1, pemain2;    // Variabel ini merupakan variabel bertipe data Player
+    pemain1.menang = 0;         // Variabel ini digunakan untuk menampung skor yang didapat pemain 1
+    pemain2.menang = 0;         // Variabel ini digunakan untuk menampung skor yang didapat pemain 2
 
     /* WARNA */
-    system("COLOR E0");
+    system("COLOR E0");     // Code ini digunakan untuk mengubah warna layar dan tulisan pada output program
 
     /*MULAI GAME*/
     cover();
@@ -27,6 +27,7 @@ int main()
     switch (opsi)
     {
     case 1:
+        /*Memulai permainan*/
         system("cls");
         InputNamaPemain(&pemain1, &pemain2);
         system("cls");
@@ -36,13 +37,13 @@ int main()
             PilihDimensi();
             scanf("%d", &opsiDimensi);
             system("cls");
-            switch (opsiDimensi)
+            switch (opsiDimensi)    // Proses yang dilanjutkan sesuai opsi yang dipilih user pada pemilihan papan dimensi permainan
             {
             case 1:
                 // TIC TAC TOE 3 X 3
                 flagBoardDinamis = 3;
                 isiPapan(flagBoardDinamis);
-                while (CekWin3(flagBoardDinamis))
+                while (CekWin3(flagBoardDinamis))   
                 {
                     boardRef3(pemain1, pemain2);
                     tampilanPengingatWaktu();
@@ -93,6 +94,7 @@ int main()
         system("cls");
         displayClosing(pemain1, pemain2);
         break;
+
     case 2:
         /*HOW TO PLAY*/
         system("cls");
@@ -104,16 +106,15 @@ int main()
         /*SCORE BOARD*/
         system("cls");
         scoreboard();
-
         break;
 
     case 4:
         /*QUIT GAME*/
         KeluarPermainan();
         getchar();
-
         break;
-    default:
+
+    default:        // Apabila user menginput nomor selain 1-4 pada menu utama
         printf("Input Salah!");
         break;
     }

@@ -15,7 +15,7 @@ typedef struct
     int menang;
 } Player;
 
-char papan[7][7];  // Variabel ini digunakan untuk mencetak desain papan
+char papan[7][7];  // Variabel ini digunakan untuk mengisi simbol berdasarkan nomor yang diinput user 
 char XO = 'O';     // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
 bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
@@ -162,6 +162,12 @@ void boardRef7(Player p1, Player p2)
     printf("\t 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan pengingat waktu bagi user
+I.S : pengingat waktu belum tampil
+F.S : pengingat waktu tampil
+*/
 void tampilanPengingatWaktu()
 {
     printf("\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
@@ -759,10 +765,10 @@ void inputSimbolKedalamPapan(Player p1, Player p2, int flag)
 }
 
 /*Deskripsi Modul
-Fungsi
-Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau seri pada permainan Tic Tac Toe dengan dimensi papan 3x3
-I.S : Kondisi menang atau seri pada papan dimensi 3x3 belum diketahui
-F.S : Kondisi menang atau seri pada papan dimensi 3x3 diketahui
+Function
+Modul ini bertujuan mengembalikan kondisi true dan false pada permainan dimensi papan 3x3
+Apabila kondisi true, maka permainan dimensi 3x3 dapat dilakukan
+Apabila kondisi false, maka permainan dimensi 3x3 berhenti karena adanya kondisi menang atau seri 
 */
 bool CekWin3(int flag)
 {
@@ -800,10 +806,10 @@ bool CekWin3(int flag)
 }
 
 /*Deskripsi Modul
-Fungsi
-Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau seri pada permainan Tic Tac Toe dengan dimensi papan 5x5
-I.S : Kondisi menang atau seri pada papan dimensi 5x5 belum diketahui
-F.S : Kondisi menang atau seri pada papan dimensi 5x5 diketahui
+Function
+Modul ini bertujuan mengembalikan kondisi true dan false pada permainan dimensi papan 5x5
+Apabila kondisi true, maka permainan dimensi 5x5 dapat dilakukan
+Apabila kondisi false, maka permainan dimensi 5x5 berhenti karena adanya kondisi menang atau seri 
 */
 bool CekWin5(int flag)
 {
@@ -849,10 +855,10 @@ bool CekWin5(int flag)
 }
 
 /*Deskripsi Modul
-Fungsi
-Modul ini bertujuan untuk mengecek kemudian mengembalikan kondisi menang atau seri pada permainan Tic Tac Toe dengan dimensi papan 7x7
-I.S : Kondisi menang atau seri pada papan dimensi 7x7 belum diketahui
-F.S : Kondisi menang atau seri pada papan dimensi 7x7 diketahui
+Function
+Modul ini bertujuan mengembalikan kondisi true dan false pada permainan dimensi papan 7x7
+Apabila kondisi true, maka permainan dimensi 7x7 dapat dilakukan
+Apabila kondisi false, maka permainan dimensi 7x7 berhenti karena adanya kondisi menang atau seri 
 */
 bool CekWin7(flag)
 {
@@ -1059,10 +1065,10 @@ void getWinner(Player *p1, Player *p2, bool draw, int flag)
 }
 
 /* DESKRIPSI MODUL
-    Function
-    Modul ini bertujuan untuk mengembalikan nilai yang berisi banyak baris file highscore.txt
-    I.S : jumlah baris file highscore.txt belum diketahui
-    F.S : jumlah baris file highscore.txt sudah diketahui
+Function
+Modul ini bertujuan untuk mengembalikan nilai yang berisi banyak baris file highscore.txt
+I.S : jumlah baris file highscore.txt belum diketahui
+F.S : jumlah baris file highscore.txt sudah diketahui
 */
 int hitungBarisFile()
 {
@@ -1094,7 +1100,7 @@ int hitungBarisFile()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menampilkan hasil akhir permainan
+Modul ini bertujuan untuk menampilkan nama pemain dalam bentuk uppercase
 I.S : array of char dari nama pemain belum sepenuhnya uppercase
 F.S : array of char dari nama pemain sudah sepenuhnya uppercase
 */
