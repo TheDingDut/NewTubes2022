@@ -15,7 +15,7 @@ typedef struct
     int menang;
 } Player;
 
-char papan[7][7];  // Variabel ini digunakan untuk mengisi simbol berdasarkan nomor yang diinput user 
+char papan[7][7];  // Variabel ini digunakan untuk mengisi simbol berdasarkan nomor yang diinput user
 char XO = 'O';     // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
 bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
@@ -768,7 +768,7 @@ void inputSimbolKedalamPapan(Player p1, Player p2, int flag)
 Function
 Modul ini bertujuan mengembalikan nilai true dan false pada permainan dimensi papan 3x3
 Apabila true, maka permainan dimensi 3x3 dapat dilakukan
-Apabila false, maka permainan dimensi 3x3 berhenti karena adanya kondisi menang atau seri 
+Apabila false, maka permainan dimensi 3x3 berhenti karena adanya kondisi menang atau seri
 */
 bool GamePlay3(int flag)
 {
@@ -809,7 +809,7 @@ bool GamePlay3(int flag)
 Function
 Modul ini bertujuan mengembalikan nilai true dan false pada permainan dimensi papan 5x5
 Apabila true, maka permainan dimensi 5x5 dapat dilakukan
-Apabila false, maka permainan dimensi 5x5 berhenti karena adanya kondisi menang atau seri 
+Apabila false, maka permainan dimensi 5x5 berhenti karena adanya kondisi menang atau seri
 */
 bool GamePlay5(int flag)
 {
@@ -858,7 +858,7 @@ bool GamePlay5(int flag)
 Function
 Modul ini bertujuan mengembalikan nilai true dan false pada permainan dimensi papan 7x7
 Apabila true, maka permainan dimensi 7x7 dapat dilakukan
-Apabila false, maka permainan dimensi 7x7 berhenti karena adanya kondisi menang atau seri 
+Apabila false, maka permainan dimensi 7x7 berhenti karena adanya kondisi menang atau seri
 */
 bool GamePlay7(flag)
 {
@@ -1016,9 +1016,7 @@ F.S : Nama pemain sudah terinput ke file highscore.txt
 */
 void tulisHighscore(Player pemain)
 {
-    int num;
     FILE *fptr;
-    char c, string[50];
 
     fptr = fopen("highscore.txt", "a+"); // variabel yang menampung nama file dan fungsi yang akan digunakan
 
@@ -1028,6 +1026,23 @@ void tulisHighscore(Player pemain)
     }
 
     fprintf(fptr, "%s %d\n", pemain.nama, pemain.menang); // menulis nama pemain dan jumlah menang kedalam file
+    fclose(fptr);
+}
+
+void sortHighscore()
+{
+    FILE *fptr;
+    char nama[50];
+    int menang;
+
+    fptr = fopen("highscore.txt", "r"); // variabel yang menampung nama file dan fungsi yang akan digunakan
+
+    if (fptr == NULL) // program akan tertutup apabila file tidak ada
+    {
+        exit(1);
+    }
+    /* MASIH DALAM PROSES READ, BINGUNG ANJG */
+    fscanf(fptr, "%s %d\n", nama, menang); // menulis nama pemain dan jumlah menang kedalam file
     fclose(fptr);
 }
 
