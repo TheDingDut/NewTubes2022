@@ -46,7 +46,6 @@ int main()
                 while (GamePlay3(flagBoardDinamis))  //  Apabila gameplay3 bernilai true maka permainan dapat dilakukan 
                 {
                     boardRef3(pemain1, pemain2);
-                    tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
                     GamePlay3(flagBoardDinamis);
@@ -60,7 +59,6 @@ int main()
                 while (GamePlay5(flagBoardDinamis))   //  Apabila gameplay5 bernilai true maka permainan dapat dilakukan 
                 {
                     boardRef5(pemain1, pemain2);
-                    tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
                     GamePlay5(flagBoardDinamis);
@@ -74,7 +72,6 @@ int main()
                 while (GamePlay7(flagBoardDinamis))   //  Apabila gameplay7 bernilai true maka permainan dapat dilakukan 
                 {
                     boardRef7(pemain1, pemain2);
-                    tampilanPengingatWaktu();
                     BoardDinamis(flagBoardDinamis);
                     inputSimbolKedalamPapan(pemain1, pemain2, flagBoardDinamis);
                     GamePlay7(flagBoardDinamis);
@@ -89,10 +86,10 @@ int main()
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk ulangi : ");
+            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk keluar : ");
             scanf("%s", &loopGame);
             isiPapan(flagBoardDinamis);     // Proses inisialisasi papan agar tidak berisi simbol
-        } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && (toupper(loopGame) == 'Y' && pemain2.menang < 3)); // apabila kondisi terpenuhi, maka loop berjalan
+        } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && pemain2.menang < 3); // apabila kondisi terpenuhi, maka loop berjalan
         system("cls");
         displayClosing(pemain1, pemain2);
         break;

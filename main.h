@@ -104,6 +104,26 @@ void PilihDimensi()
 
 /*Deskripsi Modul
 Prosedur
+Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
+I.S : Isi pada papan belum terinisialisasi
+F.S : Isi pada papan terinisialisasi
+*/
+void isiPapan(int flag)
+{
+    int x = 1;
+    for (int i = 0; i < flag; i++)
+    {
+        for (int j = 0; j < flag; j++)
+        {
+            char c = x + '0';
+            papan[i][j] = ' ';
+            x++;
+        }
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
 Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 3x3 oleh user
 I.S : Papan referensi belum tampil
 F.S : Papan referensi tampil
@@ -115,7 +135,8 @@ void boardRef3(Player p1, Player p2)
     printf("\t----|----|----\t\t\t\t\t\t%s : %d\n", p2.nama, p2.menang);
     printf("\t 4  | 5  | 6  \n");
     printf("\t----|----|----\n");
-    printf("\t 7  | 8  | 9  \n");
+    printf("\t 7  | 8  | 9  \n\n");
+    tampilanPengingatWaktu();
 }
 
 /*Deskripsi Modul
@@ -135,7 +156,8 @@ void boardRef5(Player p1, Player p2)
     printf("\t----|----|----|----|----\n");
     printf("\t 16 | 17 | 18 | 19 | 20 \n");
     printf("\t----|----|----|----|----\n");
-    printf("\t 21 | 22 | 23 | 24 | 25 \n");
+    printf("\t 21 | 22 | 23 | 24 | 25 \n\n");
+    tampilanPengingatWaktu();
 }
 
 /*Deskripsi Modul
@@ -159,38 +181,19 @@ void boardRef7(Player p1, Player p2)
     printf("\t----|----|----|----|----|----|----\n");
     printf("\t 36 | 37 | 38 | 39 | 40 | 41 | 42 \n");
     printf("\t----|----|----|----|----|----|----\n");
-    printf("\t 43 | 44 | 45 | 46 | 47 | 48 | 49 \n");
+    printf("\t 43 | 44 | 45 | 46 | 47 | 48 | 49 \n\n");
+    tampilanPengingatWaktu();
 }
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan sebagai tampilan pengingat waktu bagi user
+Modul ini bertujuan sebagai tampilan pengingat waktu bagi user saat mengisi simbol pada papan
 I.S : pengingat waktu belum tampil
 F.S : pengingat waktu tampil
 */
 void tampilanPengingatWaktu()
 {
     printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
-}
-
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
-I.S : Isi pada papan belum terinisialisasi
-F.S : Isi pada papan terinisialisasi
-*/
-void isiPapan(int flag)
-{
-    int x = 1;
-    for (int i = 0; i < flag; i++)
-    {
-        for (int j = 0; j < flag; j++)
-        {
-            char c = x + '0';
-            papan[i][j] = ' ';
-            x++;
-        }
-    }
 }
 
 /*Deskripsi Modul
@@ -233,10 +236,9 @@ void BoardDinamis(int flag)
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
+Modul ini bertujuan untuk menampilkan nama pemain 1 dan pemain 2 ketika giliran bermain 
+I.S : nama pemain 1 dan pemain 2 ketika giliran bermain belum tampil
+F.S : nama pemain 1 dan pemain 2 ketika giliran bermain tampil
 */
 void inputGiliranPemain(Player p1, Player p2, int *pilihan)
 {
@@ -253,16 +255,15 @@ void inputGiliranPemain(Player p1, Player p2, int *pilihan)
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
+Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 
+I.S : Giliran pemain belum berganti 
+F.S : Giliran pemain berganti 
 */
 void GiliranBermain()
 {
-    if (XO == 'O')
+    if (XO == 'O')  // jika simbol berisi O yang berarti pemain 1 yang bermain            
     {
-        XO = 'X';
+        XO = 'X';   // maka simbol akan berubah menjadi X untuk mengganti giliran bermain menjadi pemain 2
     }
     else
     {
@@ -272,10 +273,9 @@ void GiliranBermain()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
+Modul ini bertujuan untuk proses pengisian baris dan kolom dengan simbol sesuai nomor yang diinput user
+I.S : baris kolom pada papan permainan kosong 
+F.S : baris kolom pada papan permainan terisi simbol
 */
 void inputSimbolKedalamPapan(Player p1, Player p2, int flag)
 {
@@ -923,6 +923,82 @@ bool GamePlay7(flag)
     return false;
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menambah skor bagi pemain yang menang setiap 1 kali putaran permainan
+I.S : skor pemain yang menang belum bertambah
+F.S : skor pemain yang menang bertambah
+*/
+void tambahSkor(Player *p1, Player *p2, bool draw)
+{
+    if (XO == 'X' && !draw)
+    {
+        p1->menang = p1->menang + 1;
+    }
+    else if (XO == 'O' && !draw)
+    {
+        p2->menang = p2->menang + 1;
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 1 kali putaran permainan
+I.S : Keadaan pemain menang atau seri tidak diketahui
+F.S : Keadaan pemain menang atau seri diketahui
+*/
+void getWinner(Player *p1, Player *p2, bool draw, int flag)
+{
+    tambahSkor(p1, p2, draw);
+    if (XO == 'X' && !draw)
+    {
+        system("cls");
+        printf("\n\t%s memenangkan permainan!", p1->nama);
+        printf("\n\tHasil Akhir :\n\n");
+        BoardDinamis(flag);
+    }
+    else if (XO == 'O' && !draw)
+    {
+        system("cls");
+        printf("\n\t%s memenangkan permainan!", p2->nama);
+        printf("\n\tHasil Akhir :\n\n");
+        BoardDinamis(flag);
+    }
+    else
+    {
+        system("cls");
+        printf("Permainan Seri!");
+        printf("\nHasil Akhir :\n\n");
+        BoardDinamis(flag);
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
+I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
+F.S : Cara bermain pada permainan Tic Tac Toe tampil
+*/
+void displayHowToPlay() 
+{
+    FILE *FF; // penunjuk ke file
+    char CC;  // var penunjuk karakter yang dibaca
+
+    if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
+    { // Buka file mode baca
+        printf("Pembukaan File Gagal !");
+        exit(1); // keluar program
+    }
+
+    while ((CC = getc(FF)) != EOF)
+    {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+        putch(CC); // baca dan tampilkan ke layar
+    }
+
+    fclose(FF);
+    printf("\n\nPress any key to main menu... ");
+}
+
 /* Deskripsi Modul */
 // void inputTextToFile()
 // {
@@ -982,31 +1058,7 @@ void scoreboard()
     main();
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
-I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
-F.S : Cara bermain pada permainan Tic Tac Toe tampil
-*/
-void displayHowToPlay() /* displayHowToPlay */
-{
-    FILE *FF; // penunjuk ke file
-    char CC;  // var penunjuk karakter yang dibaca
 
-    if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
-    { // Buka file mode baca
-        printf("Pembukaan File Gagal !");
-        exit(1); // keluar program
-    }
-
-    while ((CC = getc(FF)) != EOF)
-    {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
-        putch(CC); // baca dan tampilkan ke layar
-    }
-
-    fclose(FF);
-    printf("\n\nPress any key to main menu... ");
-}
 
 /*Deskripsi Modul
 Prosedur
@@ -1031,38 +1083,6 @@ void tulisHighscore(Player pemain)
     fclose(fptr);
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 1 kali putaran permainan
-I.S : Keadaan pemain menang atau seri tidak diketahui
-F.S : Keadaan pemain menang atau seri diketahui
-*/
-void getWinner(Player *p1, Player *p2, bool draw, int flag)
-{
-    if (XO == 'X' && !draw)
-    {
-        system("cls");
-        p1->menang = p1->menang + 1;
-        printf("\n\t%s memenangkan permainan!", p1->nama);
-        printf("\n\tHasil Akhir :\n\n");
-        BoardDinamis(flag);
-    }
-    else if (XO == 'O' && !draw)
-    {
-        system("cls");
-        p2->menang = p2->menang + 1;
-        printf("\n\t%s memenangkan permainan!", p2->nama);
-        printf("\n\tHasil Akhir :\n\n");
-        BoardDinamis(flag);
-    }
-    else
-    {
-        system("cls");
-        printf("Permainan Seri!");
-        printf("\nHasil Akhir :\n\n");
-        BoardDinamis(flag);
-    }
-}
 
 /* DESKRIPSI MODUL
 Function
