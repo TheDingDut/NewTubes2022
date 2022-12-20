@@ -80,6 +80,13 @@ void InputNamaPemain(Player *p1, Player *p2)
     scanf(" %[^\n]", &p1->nama);
     printf("\t\t\t  Masukkan Nama Pemain 2 (X) : ");
     scanf(" %[^\n]", &p2->nama);
+    if (strlen(p1->nama) >= 12 || strlen(p2->nama) >= 12)
+    {
+        printf("\n\t\t\tMaksimal Nama Pemain Adalah 12 Karakter...");
+        getch();
+        system("cls");
+        InputNamaPemain(p1, p2);
+    }
 }
 
 /*Deskripsi Modul
@@ -1163,7 +1170,21 @@ void scoreboard()
     printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 185);
     for (int i = 0; i < countLine; i++)
     {
-        printf("\n %c  %d   %c         %c%s   %c%d  %c", 186, c, 186, 186, pemain[i].nama, 186, pemain[i].menang, 186);
+        printf("\n %c  %d   %c         %c%s", 186, c, 186, 186, pemain[i].nama);
+        for (int j = 0; j < 13 - strlen(pemain[i].nama); j++)
+        {
+            printf(" ");
+        }
+        printf("%c %d", 186, pemain[i].menang, 186);
+        if (pemain[i].menang < 10)
+        {
+            printf("     %c", 186);
+        }
+        else
+        {
+            printf("    %c", 186);
+        }
+
         c++;
     }
     printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 188);
