@@ -1170,7 +1170,16 @@ void scoreboard()
     printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 185);
     for (int i = 0; i < countLine; i++)
     {
-        printf("\n %c  %d   %c         %c%s", 186, c, 186, 186, pemain[i].nama);
+        printf("\n %c  %d", 186, c);
+        if (c < 10)
+        {
+            printf("   %c         %c%s", 186, 186, pemain[i].nama);
+        }
+        else
+        {
+            printf("  %c         %c%s", 186, 186, pemain[i].nama);
+        }
+
         for (int j = 0; j < 13 - strlen(pemain[i].nama); j++)
         {
             printf(" ");
