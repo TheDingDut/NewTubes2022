@@ -80,9 +80,25 @@ void InputNamaPemain(Player *p1, Player *p2)
     scanf(" %[^\n]", &p1->nama);
     printf("\t\t\t  Masukkan Nama Pemain 2 (X) : ");
     scanf(" %[^\n]", &p2->nama);
-    if (strlen(p1->nama) >= 12 || strlen(p2->nama) >= 12)
+    bool invalid = false;
+    for (int i = 0; i < strlen(p1->nama); i++)
     {
-        printf("\n\t\t\tMaksimal Nama Pemain Adalah 12 Karakter...");
+        if (isspace(p1->nama[i]) != 0)
+        {
+            invalid = true;
+        }
+    }
+    for (int i = 0; i < strlen(p2->nama); i++)
+    {
+        if (isspace(p2->nama[i]) != 0)
+        {
+            invalid = true;
+        }
+    }
+
+    if (strlen(p1->nama) >= 12 || strlen(p2->nama) >= 12 || invalid == true)
+    {
+        printf("\n\t\t\tMaksimal Nama Pemain Adalah 12 Karakter Tanpa Spasi...");
         getch();
         system("cls");
         InputNamaPemain(p1, p2);
