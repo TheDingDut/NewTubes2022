@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include <ctype.h>
+#include <windows.h>
 #include "main.h"
 
 int main()
@@ -20,6 +21,8 @@ int main()
     system("COLOR E0"); // Code ini digunakan untuk mengubah warna layar dan tulisan pada output program
 
     /*MULAI GAME*/
+    system("cls");     // Code ini bertujuan untuk membersihkan layar program
+    cetakLoadingBar(); // modul untuk menampilkan loading bar
     cover();
     system("cls"); // Code ini bertujuan untuk membersihkan layar program
     menuUtama();

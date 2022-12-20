@@ -127,6 +127,42 @@ void PilihDimensi()
 
 /*Deskripsi Modul
 Prosedur
+Modul ini bertujuan sebagai tampilan pemilihan dimensi oleh user
+I.S : Loading bar belum tampil
+F.S : Loading bar sudah tampil
+*/
+void cetakLoadingBar()
+{
+    printf("\e[?25l");
+
+    // Set ASCII to print special character.
+    // Code page 437
+    SetConsoleCP(437);
+    SetConsoleOutputCP(437);
+    int bar1 = 177, bar2 = 219;
+
+    printf("\n\n\n\n\n\n\n");
+    printf("\n\n\n\t\t\t\t\tLoading...");
+    printf("\n\n\n\t\t\t\t\t");
+
+    for (int i = 0; i < 25; i++)
+        printf("%c", bar1);
+
+    printf("\r");
+    printf("\t\t\t\t\t");
+    for (int i = 0; i < 25; i++)
+    {
+        printf("%c", bar2);
+        Sleep(150);
+    }
+
+    printf("\n\t\t\t\t\t%c!", 1);
+    // system("Pause");
+    system("cls");
+}
+
+/*Deskripsi Modul
+Prosedur
 Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
 I.S : Isi pada papan belum terinisialisasi
 F.S : Isi pada papan terinisialisasi
@@ -215,7 +251,6 @@ void tampilanPengingatWaktu()
 {
     printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
 }
-
 
 /*Deskripsi Modul
 Prosedur
@@ -1262,6 +1297,9 @@ void displayClosing(Player pemain1, Player pemain2)
     tulisHighscore(pemain1);
     tulisHighscore(pemain2);
     sortHighscore();
+    printf("\n\n\t\t\tTekan Enter Untuk Kembali ke Menu Utama..");
+    getch();
+    main();
 }
 
 /*Deskripsi Modul
