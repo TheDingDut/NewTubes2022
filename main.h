@@ -939,47 +939,36 @@ bool GamePlay7(flag)
 //     fclose(fp);
 // }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk membuat tampilan papan skor
-I.S : Papan skor belum tampil
-F.S : Papan skor belum tampil
+/* DESKRIPSI MODUL
+Function
+Modul ini bertujuan untuk mengembalikan nilai yang berisi banyak baris file highscore.txt
 */
-void scoreboard()
+int hitungBarisFile()
 {
-    system("cls");
-    printf("\n               SCORE BOARD                   ");
-    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 187);
-    printf("\n %c  No  %c Tanggal %c Nama Player %c Score %c", 186, 186, 186, 186, 186);
-    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 185);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c      %c         %c             %c       %c", 186, 186, 186, 186, 186);
-    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 188);
+    FILE *fp;
+    int count = 0; // Line counter (result)
+    char filename[50] = "highscore.txt";
+    char c; // To store a character read from file
 
-    printf("\n\nPress any key to main menu... \n");
-    getch();
-    main();
+    // Open the file
+    fp = fopen(filename, "r");
+
+    // Check if file exists
+    if (fp == NULL)
+    {
+        printf("Could not open file %s", filename);
+        return 0;
+    }
+
+    // Extract characters from file and store in character c
+    for (c = getc(fp); c != EOF; c = getc(fp))
+        if (c == '\n') // Increment count if this character is newline
+            count = count + 1;
+
+    // Close the file
+    fclose(fp);
+
+    return count;
 }
 
 /*Deskripsi Modul
@@ -1032,17 +1021,60 @@ void tulisHighscore(Player pemain)
 void sortHighscore()
 {
     FILE *fptr;
-    char nama[50];
-    int menang;
+    int total_line = hitungBarisFile();
+    Player pemain[total_line], temp;
+    temp.nama[20] = "default";
+    temp.menang = 0;
 
     fptr = fopen("highscore.txt", "r"); // variabel yang menampung nama file dan fungsi yang akan digunakan
+    // printf("total line = %d\n", total_line);
 
     if (fptr == NULL) // program akan tertutup apabila file tidak ada
     {
         exit(1);
     }
-    /* MASIH DALAM PROSES READ, BINGUNG ANJG */
-    fscanf(fptr, "%s %d\n", nama, menang); // menulis nama pemain dan jumlah menang kedalam file
+    int j = 0;
+    while (fscanf(fptr, "%s %d\n", pemain[j].nama, &pemain[j].menang) != EOF) // membaca nama pemain dan jumlah menang dari file
+    {
+        j++;
+    }
+    fclose(fptr);
+    for (int i = 0; i < total_line; i++)
+    {
+        for (int j = i + 1; j < total_line; j++)
+        {
+            if (strcmp(pemain[i].nama, pemain[j].nama) == 0)
+            {
+                pemain[i].menang = pemain[i].menang + pemain[j].menang;
+                for (int k = j; k < total_line; k++)
+                {
+                    pemain[k] = pemain[k + 1];
+                }
+                total_line--;
+                j--;
+            }
+        }
+    }
+    for (int i = 0; i < total_line; i++)
+    {
+        for (int j = i + 1; j < total_line; j++)
+        {
+            if (pemain[i].menang < pemain[j].menang)
+            {
+                temp = pemain[i];
+                pemain[i] = pemain[j];
+                pemain[j] = temp;
+            }
+        }
+    }
+
+    fptr = fopen("highscore.txt", "w");
+
+    for (int i = 0; i < total_line; i++)
+    {
+        fprintf(fptr, "%s %d\n", pemain[i].nama, pemain[i].menang);
+    }
+
     fclose(fptr);
 }
 
@@ -1079,38 +1111,6 @@ void getWinner(Player *p1, Player *p2, bool draw, int flag)
     }
 }
 
-/* DESKRIPSI MODUL
-Function
-Modul ini bertujuan untuk mengembalikan nilai yang berisi banyak baris file highscore.txt
-*/
-int hitungBarisFile()
-{
-    FILE *fp;
-    int count = 1; // Line counter (result)
-    char filename[50] = "highscore.txt";
-    char c; // To store a character read from file
-
-    // Open the file
-    fp = fopen(filename, "r");
-
-    // Check if file exists
-    if (fp == NULL)
-    {
-        printf("Could not open file %s", filename);
-        return 0;
-    }
-
-    // Extract characters from file and store in character c
-    for (c = getc(fp); c != EOF; c = getc(fp))
-        if (c == '\n') // Increment count if this character is newline
-            count = count + 1;
-
-    // Close the file
-    fclose(fp);
-
-    return count;
-}
-
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan untuk menampilkan nama pemain dalam bentuk uppercase
@@ -1124,6 +1124,54 @@ void kapitalisasiNamaPemain(Player pemain, char p[50])
     {
         p[i] = toupper(pemain.nama[i]);
     }
+}
+
+void readFileForScoreboard()
+{
+    FILE *ff;
+    int countLine = hitungBarisFile();
+    Player *pemain[countLine];
+    int x = 0;
+    while (fscanf(ff, "%s %d\n", pemain[x]->nama, &pemain[x]->menang) != EOF) // membaca nama pemain dan jumlah menang dari file
+    {
+        x++;
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk membuat tampilan papan skor
+I.S : Papan skor belum tampil
+F.S : Papan skor belum tampil
+*/
+void scoreboard()
+{
+    int c = 1;
+    FILE *ff;
+    int countLine = hitungBarisFile();
+    Player pemain[countLine];
+    ff = fopen("highscore.txt", "r");
+    int x = 0;
+    while (fscanf(ff, "%s %d\n", pemain[x].nama, &pemain[x].menang) != EOF) // membaca nama pemain dan jumlah menang dari file
+    {
+        x++;
+    }
+    system("cls");
+    printf("\n               SCORE BOARD                   ");
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 201, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 203, 205, 205, 205, 205, 205, 205, 205, 187);
+    printf("\n %c  No  %c Tanggal %c Nama Player %c Score %c", 186, 186, 186, 186, 186);
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 204, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 206, 205, 205, 205, 205, 205, 205, 205, 185);
+    for (int i = 0; i < countLine; i++)
+    {
+        printf("\n %c  %d   %c         %c%s   %c%d  %c", 186, c, 186, 186, pemain[i].nama, 186, pemain[i].menang, 186);
+        c++;
+    }
+    printf("\n %c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c", 200, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 205, 202, 205, 205, 205, 205, 205, 205, 205, 188);
+
+    printf("\n\nPress any key to main menu... \n");
+    fclose(ff);
+    getch();
+    main();
 }
 
 /*Deskripsi Modul
@@ -1153,6 +1201,7 @@ void displayClosing(Player pemain1, Player pemain2)
     printf("\t\t\t               %s MEMENANGKAN %d KALI PERMAINAN \n", p2, pemain2.menang);
     tulisHighscore(pemain1);
     tulisHighscore(pemain2);
+    sortHighscore();
 }
 
 /*Deskripsi Modul
