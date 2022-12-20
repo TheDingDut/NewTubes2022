@@ -127,6 +127,26 @@ void PilihDimensi()
 
 /*Deskripsi Modul
 Prosedur
+Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
+I.S : Isi pada papan belum terinisialisasi
+F.S : Isi pada papan terinisialisasi
+*/
+void isiPapan(int flag)
+{
+    int x = 1;
+    for (int i = 0; i < flag; i++)
+    {
+        for (int j = 0; j < flag; j++)
+        {
+            char c = x + '0';
+            papan[i][j] = ' ';
+            x++;
+        }
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
 Modul ini bertujuan menjadi papan referensi dalam pengisian papan dimensi 3x3 oleh user
 I.S : Papan referensi belum tampil
 F.S : Papan referensi tampil
@@ -196,25 +216,6 @@ void tampilanPengingatWaktu()
     printf("\n\tWaktu anda hanya 10 detik, lebih dari itu maka giliran bermain akan terganti\n");
 }
 
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
-I.S : Isi pada papan belum terinisialisasi
-F.S : Isi pada papan terinisialisasi
-*/
-void isiPapan(int flag)
-{
-    int x = 1;
-    for (int i = 0; i < flag; i++)
-    {
-        for (int j = 0; j < flag; j++)
-        {
-            char c = x + '0';
-            papan[i][j] = ' ';
-            x++;
-        }
-    }
-}
 
 /*Deskripsi Modul
 Prosedur
@@ -946,21 +947,81 @@ bool GamePlay7(flag)
     return false;
 }
 
-/* Deskripsi Modul */
-// void inputTextToFile()
-// {
-//     FILE *fp; // file pointer
-//     char ch;
-//     fp = fopen("file_handle.c", "r");
-//     while (1)
-//     {
-//         ch = fgetc(fp); // Each character of the file is read and stored in the character file.
-//         if (ch == EOF)
-//             break;
-//         printf("%c", ch);
-//     }
-//     fclose(fp);
-// }
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menambah skor bagi pemain yang menang setiap 1 kali putaran permainan
+I.S : skor pemain yang menang belum bertambah
+F.S : skor pemain yang menang bertambah
+*/
+void tambahSkor(Player *p1, Player *p2, bool draw)
+{
+    if (XO == 'X' && !draw)
+    {
+        p1->menang = p1->menang + 1;
+    }
+    else if (XO == 'O' && !draw)
+    {
+        p2->menang = p2->menang + 1;
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 1 kali putaran permainan
+I.S : Keadaan pemain menang atau seri tidak diketahui
+F.S : Keadaan pemain menang atau seri diketahui
+*/
+void getWinner(Player *p1, Player *p2, bool draw, int flag)
+{
+    tambahSkor(p1, p2, draw);
+    if (XO == 'X' && !draw)
+    {
+        system("cls");
+        printf("\n\t%s memenangkan permainan!", p1->nama);
+        printf("\n\tHasil Akhir :\n\n");
+        BoardDinamis(flag);
+    }
+    else if (XO == 'O' && !draw)
+    {
+        system("cls");
+        printf("\n\t%s memenangkan permainan!", p2->nama);
+        printf("\n\tHasil Akhir :\n\n");
+        BoardDinamis(flag);
+    }
+    else
+    {
+        system("cls");
+        printf("Permainan Seri!");
+        printf("\nHasil Akhir :\n\n");
+        BoardDinamis(flag);
+    }
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
+I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
+F.S : Cara bermain pada permainan Tic Tac Toe tampil
+*/
+void displayHowToPlay() /* displayHowToPlay */
+{
+    FILE *FF; // penunjuk ke file
+    char CC;  // var penunjuk karakter yang dibaca
+
+    if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
+    { // Buka file mode baca
+        printf("Pembukaan File Gagal !");
+        exit(1); // keluar program
+    }
+
+    while ((CC = getc(FF)) != EOF)
+    {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
+        putch(CC); // baca dan tampilkan ke layar
+    }
+
+    fclose(FF);
+    printf("\n\nPress any key to main menu... ");
+}
 
 /* DESKRIPSI MODUL
 Function
@@ -996,32 +1057,6 @@ int hitungBarisFile()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menampilkan teks cara bermain permainan Tic Tac Toe
-I.S : Cara bermain pada permainan Tic Tac Toe belum tampil
-F.S : Cara bermain pada permainan Tic Tac Toe tampil
-*/
-void displayHowToPlay() /* displayHowToPlay */
-{
-    FILE *FF; // penunjuk ke file
-    char CC;  // var penunjuk karakter yang dibaca
-
-    if ((FF = fopen("HOW TO PLAY.txt", "r")) == NULL)
-    { // Buka file mode baca
-        printf("Pembukaan File Gagal !");
-        exit(1); // keluar program
-    }
-
-    while ((CC = getc(FF)) != EOF)
-    {              // CC akan berisi karakter yg dibaca, akhir teks dengan EOF
-        putch(CC); // baca dan tampilkan ke layar
-    }
-
-    fclose(FF);
-    printf("\n\nPress any key to main menu... ");
-}
-
-/*Deskripsi Modul
-Prosedur
 Modul ini bertujuan untuk menuliskan nama pemain dan jumlah menang ke file highscore.txt
 I.S : Nama pemain belum terinput ke file highscore.txt
 F.S : Nama pemain sudah terinput ke file highscore.txt
@@ -1041,6 +1076,12 @@ void tulisHighscore(Player pemain)
     fclose(fptr);
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk mengurutkan nama pemain berdasarkan perolehan skor dari tertinggi ke terendah
+I.S : Nama pemain berdasarkan perolehan skor belum terurut
+F.S : Nama pemain berdasarkan perolehan skor terurut dari tertinggi
+*/
 void sortHighscore()
 {
     FILE *fptr;
@@ -1103,52 +1144,10 @@ void sortHighscore()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menampilkan keadaan pemain menang atau seri di setiap 1 kali putaran permainan
-I.S : Keadaan pemain menang atau seri tidak diketahui
-F.S : Keadaan pemain menang atau seri diketahui
+Modul ini bertujuan untuk membaca isi file highscore
+I.S : File highscore belum terbaca
+F.S : File highscore terbaca
 */
-void getWinner(Player *p1, Player *p2, bool draw, int flag)
-{
-    if (XO == 'X' && !draw)
-    {
-        system("cls");
-        p1->menang = p1->menang + 1;
-        printf("\n\t%s memenangkan permainan!", p1->nama);
-        printf("\n\tHasil Akhir :\n\n");
-        BoardDinamis(flag);
-    }
-    else if (XO == 'O' && !draw)
-    {
-        system("cls");
-        p2->menang = p2->menang + 1;
-        printf("\n\t%s memenangkan permainan!", p2->nama);
-        printf("\n\tHasil Akhir :\n\n");
-        BoardDinamis(flag);
-    }
-    else
-    {
-        system("cls");
-        printf("Permainan Seri!");
-        printf("\nHasil Akhir :\n\n");
-        BoardDinamis(flag);
-    }
-}
-
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk menampilkan nama pemain dalam bentuk uppercase
-I.S : array of char dari nama pemain belum sepenuhnya uppercase
-F.S : array of char dari nama pemain sudah sepenuhnya uppercase
-*/
-void kapitalisasiNamaPemain(Player pemain, char p[50])
-{
-    int count = strlen(pemain.nama);
-    for (int i = 0; i < count + 1; i++)
-    {
-        p[i] = toupper(pemain.nama[i]);
-    }
-}
-
 void readFileForScoreboard()
 {
     FILE *ff;
@@ -1165,7 +1164,7 @@ void readFileForScoreboard()
 Prosedur
 Modul ini bertujuan untuk membuat tampilan papan skor
 I.S : Papan skor belum tampil
-F.S : Papan skor belum tampil
+F.S : Papan skor tampil
 */
 void scoreboard()
 {
@@ -1218,6 +1217,21 @@ void scoreboard()
     fclose(ff);
     getch();
     main();
+}
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan untuk menampilkan nama pemain dalam bentuk uppercase
+I.S : array of char dari nama pemain belum sepenuhnya uppercase
+F.S : array of char dari nama pemain sudah sepenuhnya uppercase
+*/
+void kapitalisasiNamaPemain(Player pemain, char p[50])
+{
+    int count = strlen(pemain.nama);
+    for (int i = 0; i < count + 1; i++)
+    {
+        p[i] = toupper(pemain.nama[i]);
+    }
 }
 
 /*Deskripsi Modul

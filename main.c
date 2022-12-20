@@ -89,7 +89,7 @@ int main()
                 printf("\nTidak ada pilihan dimensi!");
                 break;
             }
-            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk ulangi : ");
+            printf("\n\tUlangi Permainan? Tekan selain 'Y' untuk keluar : ");
             scanf("%s", &loopGame);
             isiPapan(flagBoardDinamis);                                                                                 // Proses inisialisasi papan agar tidak berisi simbol
         } while ((toupper(loopGame) == 'Y' && pemain1.menang < 3) && (toupper(loopGame) == 'Y' && pemain2.menang < 3)); // apabila kondisi terpenuhi, maka loop berjalan
