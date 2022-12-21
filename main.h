@@ -12,7 +12,7 @@ typedef struct
 typedef struct
 {
     char nama[20];
-    int menang;
+    int menang;     // sebagai penampung skor pemain
 } Player;
 
 char papan[7][7];  // Variabel ini digunakan untuk mengisi simbol berdasarkan nomor yang diinput user
@@ -120,7 +120,7 @@ void InputNamaPemain(Player *p1, Player *p2)
     bool invalid = false;
     for (int i = 0; i < strlen(p1->nama); i++)
     {
-        if (isspace(p1->nama[i]) != 0)
+        if (isspace(p1->nama[i]) != 0)  // terdapat spasi pada input nama, sehingga nama tidak valid
         {
             invalid = true;
         }
@@ -164,42 +164,6 @@ void PilihDimensi()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan sebagai tampilan pemilihan dimensi oleh user
-I.S : Loading bar belum tampil
-F.S : Loading bar sudah tampil
-*/
-void cetakLoadingBar()
-{
-    printf("\e[?25l");
-
-    // Set ASCII to print special character.
-    // Code page 437
-    SetConsoleCP(437);
-    SetConsoleOutputCP(437);
-    int bar1 = 177, bar2 = 219;
-
-    printf("\n\n\n\n\n\n\n");
-    printf("\n\n\n\t\t\t\t\tLoading...");
-    printf("\n\n\n\t\t\t\t\t");
-
-    for (int i = 0; i < 25; i++)
-        printf("%c", bar1);
-
-    printf("\r");
-    printf("\t\t\t\t\t");
-    for (int i = 0; i < 25; i++)
-    {
-        printf("%c", bar2);
-        Sleep(150);
-    }
-
-    printf("\n\t\t\t\t\t%c!", 1);
-    // system("Pause");
-    system("cls");
-}
-
-/*Deskripsi Modul
-Prosedur
 Modul ini bertujuan untuk inisialisasi isi baris kolom pada papan
 I.S : Isi pada papan belum terinisialisasi
 F.S : Isi pada papan terinisialisasi
@@ -212,7 +176,7 @@ void isiPapan(int flag)
         for (int j = 0; j < flag; j++)
         {
             char c = x + '0';
-            papan[i][j] = ' ';
+            papan[i][j] = ' ';      // isi papan diinisialisasi dengan diisi spasi
             x++;
         }
     }
@@ -227,7 +191,7 @@ F.S : Papan referensi tampil
 void boardRef3(Player p1, Player p2)
 {
     printf("\n\tPilih salah satu kolom dengan menginputkan nomor\n");
-    printf("\t 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", p1.nama, p1.menang);
+    printf("\t 1  | 2  | 3  \t\t\t\t\t\t%s : %d\n", p1.nama, p1.menang);       // tampilan nama pemain beserta skor yang didapat
     printf("\t----|----|----\t\t\t\t\t\t%s : %d\n", p2.nama, p2.menang);
     printf("\t 4  | 5  | 6  \n");
     printf("\t----|----|----\n");
@@ -355,9 +319,9 @@ F.S : Giliran pemain berganti
 */
 void GiliranBermain()
 {
-    if (XO == 'O')
+    if (XO == 'O')  // jika simbol berisi O yang berarti pemain 1 yang bermain
     {
-        XO = 'X';
+        XO = 'X';   // maka simbol akan berubah menjadi X untuk mengganti giliran bermain menjadi pemain 2
     }
     else
     {
@@ -872,7 +836,8 @@ bool GamePlay3(int flag)
         if ((papan[i][0] == 'X' && papan[i][1] == 'X' && papan[i][2] == 'X') || (papan[i][0] == 'O' && papan[i][1] == 'O' && papan[i][2] == 'O') ||
             (papan[0][i] == 'X' && papan[1][i] == 'X' && papan[2][i] == 'X') || (papan[0][i] == 'O' && papan[1][i] == 'O' && papan[2][i] == 'O'))
         {
-            return false;
+            return false;       // jika statement if bernilai true berarti terdapat kondisi menang,
+                                // maka gameplay bernilai false karena permainan berhenti
         }
     }
 
@@ -889,8 +854,9 @@ bool GamePlay3(int flag)
         for (int j = 0; j < flag; j++)
         {
 
-            if (papan[i][j] != 'X' && papan[i][j] != 'O')
-                return true;
+            if (papan[i][j] != 'X' && papan[i][j] != 'O')   
+                return true;    // jika kondisi if bernilai true berarti terdapat masih terdapat kotak papan yang kosong,
+                                // maka gameplay terus berjalan
         }
     }
 
@@ -1210,24 +1176,6 @@ void sortHighscore()
     }
 
     fclose(fptr);
-}
-
-/*Deskripsi Modul
-Prosedur
-Modul ini bertujuan untuk membaca isi file highscore
-I.S : File highscore belum terbaca
-F.S : File highscore terbaca
-*/
-void readFileForScoreboard()
-{
-    FILE *ff;
-    int countLine = hitungBarisFile();
-    Player *pemain[countLine];
-    int x = 0;
-    while (fscanf(ff, "%s %d\n", pemain[x]->nama, &pemain[x]->menang) != EOF) // membaca nama pemain dan jumlah menang dari file
-    {
-        x++;
-    }
 }
 
 /*Deskripsi Modul
