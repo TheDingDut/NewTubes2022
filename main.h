@@ -19,6 +19,36 @@ char papan[7][7];  // Variabel ini digunakan untuk mengisi simbol berdasarkan no
 char XO = 'O';     // Variabel ini digunakan untuk menginiliasasi dan menampung simbol yang digunakan pemain
 bool draw = false; // Variabel ini digunakan untuk inisialiasi dan penentu permainan dikatakan seri atau tidak
 
+
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai tampilan memuat (loading)
+I.S : layar memuat / loading belum tampil
+F.S : layar memuat / loading tampil
+*/
+void loading(int bg, int fg, int panjang, int delay, int simbol[20]){
+ int k, l;
+   for (k=0; k<=panjang; k+=2)
+   {
+      //system("cls");  //digunakan untuk membersihkan layar pada compiler C, hampir sama dengan fungsi clrscr()
+      gotoxy(48,20);    // x = 48 dan y = 20
+      printf("\n\tLOADING\n\t");    
+      for (l=0; l<k; l++){
+         printf("%c", simbol[fg]);  //menampilkan kode ASCII 
+      }
+      for (l=0; l<panjang-1; l++){
+         printf("%c", simbol[bg]);  //menampilkan kode ASCII
+      Sleep(delay);
+      }
+   }
+}
+
+void gotoxy(int x, int y){
+   COORD coord;
+   coord.X=x;
+   coord.Y=y;
+   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan sebagai tampilan awal permainan berupa pengenalan nama permainan
@@ -36,11 +66,11 @@ void cover()
     printf("\t\t\t   TTTTTT  II  CCCCCC   TTTTTT   AA    CCCCCC   TTTTTT  OOO   EEEEEE  \n");
     printf("\t\t\t     TT    II  CC         TT    AAAA   CC         TT   OO OO  EEE   \n ");
     printf("\t\t\t     TT    II  CCCCCC     TT   AA  AA  CCCCCC     TT    OOO   EEEEEE  \n\n\n");
-    printf("\t\t\t    Made By :                      \n");
-    printf("\t\t\t    1. Hasna Fitriyani Khairunnisa \n");
-    printf("\t\t\t    2. Muhammad Fikri Nur Sya'bani \n");
-    printf("\t\t\t    3. Naffa Lenteranisa           \n\n");
-    printf("Tekan Enter Untuk Lanjut . . .");
+    printf("\t\t\t\t\t    Made By :                      \n");
+    printf("\t\t\t\t\t    1. Hasna Fitriyani Khairunnisa \n");
+    printf("\t\t\t\t\t    2. Muhammad Fikri Nur Sya'bani \n");
+    printf("\t\t\t\t\t    3. Naffa Lenteranisa           \n\n");
+    printf("\t Tekan Enter Untuk Lanjut . . .");
     getchar();
 }
 

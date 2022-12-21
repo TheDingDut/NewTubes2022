@@ -4,6 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <windows.h>
+#include <conio.h>
 #include "main.h"
 
 int main()
@@ -17,12 +18,23 @@ int main()
     pemain1.menang = 0;      // Variabel ini digunakan untuk menampung skor yang didapat pemain 1
     pemain2.menang = 0;      // Variabel ini digunakan untuk menampung skor yang didapat pemain 2
 
+    /* VARIABEL LOADING*/
+    int bg, fg, delay, panjang;
+    int simbol[20] = {2, 3, 4, 5, 6, 14, 16, 22, 35, 36, 62, 64, 158, 174, 175, 176, 177, 178, 219};
+
     /* WARNA */
     system("COLOR E0"); // Code ini digunakan untuk mengubah warna layar dan tulisan pada output program
 
     /*MULAI GAME*/
-    system("cls");     // Code ini bertujuan untuk membersihkan layar program
-    cetakLoadingBar(); // modul untuk menampilkan loading bar
+    system("cls"); // Code ini bertujuan untuk membersihkan layar program
+
+    /*LOADING SCREEN*/
+    loading(20 - 1, 19 - 1, 30, 2, simbol);
+    gotoxy(0, 0);
+    system("cls");
+
+    /*MENU UTAMA*/
+    // cetakLoadingBar(); // modul untuk menampilkan loading bar
     cover();
     system("cls"); // Code ini bertujuan untuk membersihkan layar program
     menuUtama();
