@@ -43,12 +43,19 @@ void loading(int bg, int fg, int panjang, int delay, int simbol[20]){
    }
 }
 
+/*Deskripsi Modul
+Prosedur
+Modul ini bertujuan sebagai penunjuk lokasi pada layar untuk menentukan letak yang diinginkan
+I.S : Letak pada layar belum dapat ditentukan manual
+F.S : Letak pada layar dapat ditentukan manual
+*/
 void gotoxy(int x, int y){
    COORD coord;
    coord.X=x;
    coord.Y=y;
    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
 /*Deskripsi Modul
 Prosedur
 Modul ini bertujuan sebagai tampilan awal permainan berupa pengenalan nama permainan
@@ -322,10 +329,10 @@ void BoardDinamis(int flag)
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
+Modul ini bertujuan untuk menampilkan nama pemain 1 dan pemain 2 ketika 
+giliran bermain dan menampung nomor pilihan user dalam mengisi papan
+I.S : nama pemain 1 dan pemain 2 ketika giliran bermain belum tampil dan pilihan nomor belum terinput
+F.S : nama pemain 1 dan pemain 2 ketika giliran bermain tampil dan pilihan nomor terinput
 */
 void inputGiliranPemain(Player p1, Player p2, int *pilihan)
 {
@@ -342,10 +349,9 @@ void inputGiliranPemain(Player p1, Player p2, int *pilihan)
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
+Modul ini bertujuan untuk mengganti giliran bermain pemain 1 dan pemain 2
+I.S : Giliran pemain belum berganti 
+F.S : Giliran pemain berganti 
 */
 void GiliranBermain()
 {
@@ -361,10 +367,9 @@ void GiliranBermain()
 
 /*Deskripsi Modul
 Prosedur
-Modul ini bertujuan untuk menentukan giliran bermain pemain 1 dan pemain 2 dan
-proses pengisian baris dan kolom dengan simbol
-I.S : Giliran pemain belum berganti dan baris kolom kosong
-F.S : Giliran pemain berganti dan baris kolom terisi simbol
+Modul ini bertujuan untuk proses pengisian baris dan kolom dengan simbol sesuai nomor yang diinput user
+I.S : baris kolom pada papan permainan kosong 
+F.S : baris kolom pada papan permainan terisi simbol
 */
 void inputSimbolKedalamPapan(Player p1, Player p2, int flag)
 {
@@ -1327,9 +1332,6 @@ void displayClosing(Player pemain1, Player pemain2)
     tulisHighscore(pemain1);
     tulisHighscore(pemain2);
     sortHighscore();
-    printf("\n\n\t\t\tTekan Enter Untuk Kembali ke Menu Utama..");
-    getch();
-    main();
 }
 
 /*Deskripsi Modul
