@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <windows.h>
 #include <conio.h>
+#include <time.h>
 #include "main.h"
 
 int main()
@@ -29,7 +30,7 @@ int main()
     system("cls"); // Code ini bertujuan untuk membersihkan layar program
 
     /*LOADING SCREEN*/
-    loading(20 - 1, 19 - 1, 30, 2, simbol);
+    loading(20 - 1, 19 - 1, 15, 2, simbol);
     gotoxy(0, 0);
     system("cls");
 

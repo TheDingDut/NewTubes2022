@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <time.h>
-
 // Deklarasi tipe data baru bernama Koordinat
 typedef struct
 {
@@ -1280,6 +1276,8 @@ void displayClosing(Player pemain1, Player pemain2)
     tulisHighscore(pemain1);
     tulisHighscore(pemain2);
     sortHighscore();
+    system("cls");
+    main();
 }
 
 /*Deskripsi Modul
