@@ -1,11 +1,28 @@
-CARA BERMAIN TIC TAC TOE
+                        
+                        CARA BERMAIN TIC TAC TOE
 
-Jika Anda belum pernah memainkan Tic-Tac-Toe sebelumnya, Anda mungkin ingin mengetahui sedikit gameplay sebelum memulai. Salah satu hal hebat tentang gim ini adalah gim ini mudah dimainkan. Itu dapat dengan mudah diajarkan kepada siapa saja dari segala usia. Berikut cara memainkannya:
+Tujuan untuk memenangkan Permainan Tic Tac Toe yaitu dengan mengisi kotak pada 
+papan dimensi dengan simbol yang dimiliki sampai membentuk deret simbol yang 
+jumlahnya sesuai dengan aturan papan dimensi yang akan dipilih.
 
-- 2 pemain diperlukan untuk permainan.
-- Pertama, Pemain dengan O memulai permainan. 
-- Pemain pertama harus memberi tanda pada salah satu dari 9 kotak di grid. 
-- Kemudian, pemain kedua mendapat giliran untuk menempatkan tandanya di grid. 
-- Setiap pemain harus terus mengambil 1 giliran pada satu waktu untuk menempatkan tanda mereka sampai semua kotak penuh atau sampai salah satu pemain mendapatkan 3 tanda mereka dalam garis lurus vertikal, horizontal, atau diagonal. 
-
-Beberapa pemain lebih berpengalaman dalam bermain Tic-Tac-Toe dan tahu cara memenangkan permainan. Ini membawa kita ke topik strategi Tic-Tac-Toe. Beberapa pemain memiliki beberapa strategi yang dapat meningkatkan peluang mereka untuk menang. Seseorang yang sering memainkan permainan akan tertarik mempelajari beberapa strategi ini.
+1.  Pilih 1 pada menu utama untuk memulai permainan
+2.  Masukkan nama pemain 1 dan pemain 2
+    Pemain 1 memiliki symbol O dan pemain 2 memiliki symbol X
+    Simbol digunakan untuk membentuk deret pada papan permainan
+3.  Pilih papan dimensi permainan Tic Tac Toe yang akan dimainkan, terdapat 3 pilihan 
+    yang disediakan yaitu 3x3, 5x5, dan 7x7
+4.  Mulai bermain dengan memilih nomor kotak pada papan yang akan diisi simbol. 
+    Gunakan papan referensi untuk memudahkan pemilihan nomor kotak
+5.  Pemain 1 akan mendapat giliran pertama untuk memilih kotak, kemudian secara 
+    bergantian mengisi kotak dengan pemain 2
+6.  Setiap pemain hanya memiliki waktu 10 detik untuk 1 kali memilih kotak yang akan 
+    diisi simbol. Jika dalam 10 detik belum memilih kotak, maka akan otomatis giliran 
+    bermain berganti ke pemain lain
+7.  Pemain dinyatakan menang apabila dapat membuat deret simbol yang dimiliki dengan 
+    jumlah 
+    -	3 deret pada papan dimensi 3x3
+    -	4 deret pada papan dimensi 5x5
+    -	5 deret pada papan dimensi 7x7
+    Bentuk deret simbol dapat berupa vertical (garis lurus), horizontal (garis mendatar), 
+    atau diagonal (garis miring)
+8.Setelah permainan selesai, pemain dapat mengulangi permainan dengan mengetikkan Y. 
